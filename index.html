@@ -45,11 +45,7 @@ a{text-decoration:none;color:inherit}
 .navbar{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(0,0,0,.05)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--navy)}
-.nav-logo-icon{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.nav-logo-icon span{display:block;width:4px;background:#fff;border-radius:2px;position:absolute;bottom:8px}
-.nav-logo-icon span:nth-child(1){left:8px;height:10px}
-.nav-logo-icon span:nth-child(2){left:14px;height:16px}
-.nav-logo-icon span:nth-child(3){left:20px;height:12px}
+.nav-logo-icon{width:34px;height:auto;display:block;flex-shrink:0;filter:drop-shadow(0 6px 14px rgba(255,115,36,.18))}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:15px;font-weight:500;color:var(--text-sec);transition:color .2s}
 .nav-links a:hover{color:var(--navy)}
@@ -368,7 +364,7 @@ a{text-decoration:none;color:inherit}
 <nav class="navbar">
 <div class="container">
 <a href="#" class="nav-logo">
-<div class="nav-logo-icon"><span></span><span></span><span></span></div>
+<img class="nav-logo-icon" src="assets/logo-z-mark.png" alt="" aria-hidden="true">
 Zautomatyzuj Się
 </a>
 <div class="nav-links">
@@ -982,7 +978,7 @@ analyzing 1089+ sources<br>
 <div class="footer-grid">
 <div class="footer-brand">
 <div class="nav-logo" style="margin-bottom:8px">
-<div class="nav-logo-icon"><span></span><span></span><span></span></div>
+<img class="nav-logo-icon" src="assets/logo-z-mark.png" alt="" aria-hidden="true">
 Zautomatyzuj Się
 </div>
 <p>Twoja firma. Widoczna.<br><a href="mailto:zautomatyzujsie@gmail.com">zautomatyzujsie@gmail.com</a></p>
