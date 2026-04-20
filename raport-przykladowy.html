@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Przykładowy raport analizy firmy | Zautomatyzuj Się</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{overflow-x:hidden;max-width:100vw}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#FAFAF8;color:#1A1A2E;line-height:1.7;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.wrap{max-width:900px;margin:0 auto;padding:20px}
+h1{font-family:'Outfit',sans-serif;font-size:2rem;color:#1A1A2E;margin-bottom:8px}
+h2{font-family:'Outfit',sans-serif;font-size:1.4rem;color:#1A1A2E;margin:40px 0 16px;padding-top:20px;border-top:1px solid #E8E0D8}
+h3{font-family:'Outfit',sans-serif;font-size:1.1rem;color:#E8520F;margin:20px 0 10px}
+h4{font-family:'Outfit',sans-serif;font-size:.95rem;color:#5B21B6;margin:16px 0 8px}
+p{margin-bottom:12px;font-size:.95rem;color:#5A5A6E}
+strong{color:#1A1A2E}
+a{color:#E8520F}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.88rem}
+th{background:#F5F0EB;color:#1A1A2E;padding:10px 12px;text-align:left;font-size:.82rem;font-weight:600;border-bottom:2px solid #E8520F}
+td{padding:8px 12px;border-bottom:1px solid #E8E0D8;color:#5A5A6E}
+.header{background:#FFFFFF;padding:36px 28px;border-radius:12px;margin-bottom:30px;border:1px solid #E8E0D8;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.header-sub{font-size:.85rem;color:#8892A0;margin-top:6px}
+.badge{display:inline-block;background:#EFF6FF;color:#3B82F6;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;margin:2px}
+.badge-warn{background:#FFF5EE;color:#E8520F}
+.badge-ok{background:#F0FDF4;color:#10B981}
+.card{background:#FFFFFF;border:1px solid #E8E0D8;border-radius:10px;padding:20px;margin:12px 0}
+.action{background:#EFF6FF;border-left:3px solid #3B82F6;padding:12px 16px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.92rem}
+.action-critical{background:#FEF2F2;border-left:3px solid #DC2626;padding:12px 16px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.92rem}
+.action-warn{background:#FFF5EE;border-left:3px solid #E8520F;padding:12px 16px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.92rem}
+.action-ok{background:#F0FDF4;border-left:3px solid #10B981;padding:12px 16px;margin:8px 0;border-radius:0 8px 8px 0;font-size:.92rem}
+.cite{font-size:.82rem;color:#8892A0;font-style:italic;margin-top:4px;display:block}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.swot-card{padding:16px;border-radius:10px;border:1px solid #E8E0D8}
+.swot-s{border-left:4px solid #10B981;background:#F0FDF4}
+.swot-w{border-left:4px solid #DC2626;background:#FEF2F2}
+.swot-o{border-left:4px solid #3B82F6;background:#EFF6FF}
+.swot-t{border-left:4px solid #E8520F;background:#FFF5EE}
+.phase{background:#FFFFFF;border:1px solid #E8E0D8;border-radius:10px;padding:20px;margin:12px 0}
+.phase-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.phase-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:#E8520F;min-width:50px}
+.phase-title{font-family:'Outfit',sans-serif;font-size:1.1rem;color:#E8520F;font-weight:700}
+.phase-dates{font-size:.82rem;color:#8892A0}
+.sample-banner{background:#E8520F;padding:16px 24px;border-radius:12px;text-align:center;margin-bottom:24px;color:#fff;font-weight:600;font-size:.95rem}
+.footer{text-align:center;padding:30px;color:#8892A0;font-size:.82rem;margin-top:40px;background:#F5F0EB;border-radius:12px}
+@media(max-width:700px){.wrap{padding:14px}.swot{grid-template-columns:1fr}table{font-size:.78rem}th,td{padding:6px 8px}}
+@media print{body{background:#fff;color:#1A1A2E}h1,h2{color:#1A1A2E}h3{color:#E8520F}.card,.phase{border-color:#E8E0D8;background:#fff}.header{background:#F5F0EB}p,li{color:#5A5A6E}}
+
+/* === BLUR SECTIONS === */
+.blur-section .card,
+.blur-section .swot-card p,
+.blur-section .phase p,
+.blur-section table td,
+.blur-section p:not(.section-title-visible) {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
+.blur-section h2,
+.blur-section h3,
+.blur-section h4,
+.blur-section .phase-header,
+.blur-section .phase-num,
+.blur-section .phase-title,
+.blur-section .phase-dates,
+.blur-section table th {
+    filter: none !important;
+    -webkit-filter: none !important;
+    user-select: auto;
+}
+    #page-loader {
+            display: none !important;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #FAFAF8;
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        #page-loader.active {
+            display: flex !important;
+        }
+
+#page-loader.fade-out {
+    opacity: 0;
+}
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    animation: loaderBreath 1.8s ease-in-out infinite;
+    position: relative;
+}
+
+.loader-ring {
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 114px; height: 114px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #E8520F;
+    border-right-color: #D4442A;
+    animation: loaderSpin 1.2s linear infinite;
+}
+
+.loader-ring-2 {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #10B981;
+    border-left-color: #E8520F;
+    animation: loaderSpin 2s linear infinite reverse;
+    opacity: 0.5;
+}
+
+.loader-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.loader-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #E8520F;
+    animation: loaderDotBounce 1.4s ease-in-out infinite;
+}
+
+.loader-dot:nth-child(2) { animation-delay: 0.2s; background: #D4442A; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; background: #10B981; }
+
+.loader-text {
+    margin-top: 16px;
+    font-family: "Outfit", sans-serif;
+    color: #8892A0;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    animation: loaderFade 2s ease-in-out infinite;
+}
+
+@keyframes loaderBreath {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(232,82,15,0.2), 0 0 40px rgba(232,82,15,0.1); }
+    50% { transform: scale(1.12); box-shadow: 0 0 40px rgba(232,82,15,0.4), 0 0 80px rgba(232,82,15,0.2), 0 0 120px rgba(232,82,15,0.1); }
+}
+
+@keyframes loaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes loaderDotBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes loaderFade {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="sample-banner">
+    RAPORT POGLĄDOWY — na potrzeby prezentacji nazwy firm i dane zostały zmienione. Struktura, szczegółowość i jakość analizy są identyczne z raportem który otrzymasz dla Twojej firmy.
+</div>
+
+<div class="header">
+<h1>Bella Vita Hair Studio — Pełna analiza firmy i strategia wzrostu</h1>
+<p style="font-size:1.05rem;color:#1A1A2E;margin:8px 0"><strong>Salon fryzjerski i kosmetyczny</strong> | Kielce</p>
+<div class="header-sub">Przygotowany: marzec 2026 | 6 niezależnych analiz | Baza: 847+ artykułów branżowych + 247+ wniosków z badań</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px">
+<span class="badge badge-ok">4.7 ★ 43 opinie Google</span>
+<span class="badge">Nie w Top 3 Local Pack</span>
+<span class="badge badge-warn">Strona z 2020, brak SEO</span>
+<span class="badge badge-warn">IG: 280 obserwujących, niski ER</span>
+<span class="badge badge-ok">FB: 61 opinii (4.8★)</span>
+<span class="badge badge-warn">Brak Google Posts</span>
+</div>
+</div>
+
+<h2>Executive Summary</h2>
+<div class="card">
+<p><strong>Bella Vita to rozpoznawalny salon w Kielcach z solidną reputacją offline — ale niemal niewidoczny online.</strong></p>
+<p><strong>Co działa:</strong> Dobra ocena Google 4.7★ (43 opinie) i doskonałe opinie na Facebooku (4.8★, 61 recenzji). Lojalni klienci polecają salon znajomym. Zdjęcia metamorfoz na Instagramie mają ponadprzeciętne zaangażowanie gdy są publikowane.</p>
+<p><strong>Co nie działa:</strong> Strona WWW jest przestarzała (2020), nie ma Schema markup, ładuje się 4.8s (standard to poniżej 2.5s). Google nie traktuje jej jako wiarygodnego źródła. Instagram ma zaledwie 280 obserwujących i nieregularne publikacje (2-3 posty/msc zamiast rekomendowanych 12-16). Profil Google Business jest niekompletny — brak usług, brak Google Posts, tylko 8 zdjęć (konkurencja ma 40-120).</p>
+<p><strong>Najważniejsze:</strong> Salon traci potencjalnie 15-25 nowych klientów miesięcznie przez brak widoczności w Google. Przy średnim rachunku 120 zł to 1800-3000 zł utraconego przychodu miesięcznie.</p>
+</div>
+
+<h2>Pozycje w Google — stan obecny</h2>
+<table>
+<tr><th>Fraza kluczowa</th><th>Local Pack</th><th>Organic</th><th>Konkurent #1</th></tr>
+<tr><td>fryzjer kielce</td><td>nie w Top 3</td><td>#18</td><td style="color:#10B981">Hair Studio K. — #1 LP</td></tr>
+<tr><td>salon fryzjerski kielce</td><td>nie w Top 3</td><td>#22</td><td style="color:#10B981">Fryzjernia — #2 LP</td></tr>
+<tr><td>fryzjer damski kielce</td><td>#7</td><td>brak</td><td style="color:#10B981">Hair Studio K. — #1 LP</td></tr>
+<tr><td>koloryzacja kielce</td><td>nie w Top 3</td><td>brak</td><td style="color:#E8520F">Salon Prestige — #3 LP</td></tr>
+<tr><td>strzyżenie damskie kielce</td><td>#5</td><td>brak</td><td style="color:#10B981">Fryzjernia — #1 LP</td></tr>
+<tr><td>salon kosmetyczny kielce</td><td>nie w Top 3</td><td>brak</td><td style="color:#E8520F">Beauty Point — #2 LP</td></tr>
+</table>
+<div class="action-critical"><strong>Problem:</strong> Na 6 sprawdzonych fraz — 0 pozycji w Top 3 Local Pack. To znaczy, że klienci szukający fryzjera w Google NIE widzą Bella Vita na mapie. 44% kliknięć idzie w Local Pack — tracisz największe źródło klientów.</div>
+
+<h2>Konkurencja — pełny ranking Kielce</h2>
+<table>
+<tr><th>#</th><th>Salon</th><th>Google ★</th><th>Opinie</th><th>Zdjęcia GBP</th><th>Strona WWW</th><th>Zagrożenie</th></tr>
+<tr style="background:#EFF6FF"><td>—</td><td><strong>BELLA VITA</strong></td><td>4.7</td><td>43</td><td>8</td><td>bellavita-kielce.pl (D)</td><td>—</td></tr>
+<tr style="background:#FEF2F2"><td>1</td><td><strong>Hair Studio K.</strong></td><td><strong>4.9</strong></td><td><strong>187</strong></td><td><strong>94</strong></td><td>hairstudiok.pl (B+)</td><td style="color:#DC2626"><strong>WYSOKI</strong></td></tr>
+<tr style="background:#FEF2F2"><td>2</td><td><strong>Fryzjernia</strong></td><td>4.8</td><td><strong>132</strong></td><td>67</td><td>fryzjernia-kielce.pl (B)</td><td style="color:#DC2626"><strong>WYSOKI</strong></td></tr>
+<tr style="background:#FFF5EE"><td>3</td><td>Salon Prestige</td><td>4.6</td><td>78</td><td>45</td><td>prestige-salon.pl (C+)</td><td style="color:#E8520F">ŚREDNI</td></tr>
+<tr><td>4</td><td>Beauty Point</td><td>4.5</td><td>56</td><td>32</td><td>beautypoint-kielce.pl (C)</td><td style="color:#8892A0">NISKI</td></tr>
+</table>
+
+<div class="action-critical"><strong>Hair Studio K. (konkurent #1)</strong> — ma 187 opinii (4.3x więcej niż Ty), 94 zdjęcia (12x więcej), ocenę 4.9 i #1 Local Pack na 3 frazy. Regularnie publikuje Google Posts (2x/tydzień) — jedyny salon w okolicy który to robi. Ich strona ma Schema markup i ładuje się w 1.9s.</div>
+
+<div class="action-warn"><strong>Fryzjernia (konkurent #2)</strong> — 132 opinie, aktywny Instagram (1200 obserwujących, 4 posty/tyg), Facebook z 2.5K fanów. Jedyny salon z profesjonalnym Reelsem fryzjerskim (średnio 3K wyświetleń). Ich strona jest nowsza (2024) i responsywna.</div>
+
+<h2>Konkurencja w Google — pełen rozkład na 5 grup czynników</h2>
+<div class="card"><p>Każdego konkurenta wyższego od Ciebie rozkładamy na pięć grup czynników. Sprawdzamy dlaczego są wyżej i dajemy konkretną drogę przebicia w każdym aspekcie.</p></div>
+
+<div class="action-critical"><strong>Grupa A — Czynniki on-page (każdego konkurenta)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Tytuły strony, meta opisy, struktura nagłówków H1-H4, słowa kluczowe i ich rozmieszczenie, linki wewnętrzne między podstronami, dane strukturalne Schema markup, optymalizacja zdjęć i alt-teksty, struktura URL, szybkość strony Core Web Vitals — pełna analiza każdego elementu vs Twoja strona, z punktową oceną i konkretnym planem przeskoczenia.</span></div>
+
+<div class="action-critical"><strong>Grupa B — Czynniki off-page (każdego konkurenta)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Profil linków zewnętrznych, wiek i autorytet domeny, wzmianki o marce z linkami i bez, lokalne katalogi i cytowania (NAP consistency), sygnały z mediów społecznościowych, jakość i ilość źródeł linkujących — porównanie z Tobą i lista konkretnych źródeł skąd możesz zdobyć linki bez płacenia.</span></div>
+
+<div class="action-critical"><strong>Grupa C — Doświadczenie użytkownika (UX)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Szybkość ładowania (LCP, FCP, CLS), responsywność na urządzenia mobilne, model konwersji, formularze, telefon, czat, ścieżka klienta od wejścia do rezerwacji, mapa cieplna kliknięć — sprawdzamy czy klient łatwo znajduje to po co przyszedł.</span></div>
+
+<div class="action-critical"><strong>Grupa D — Treść i autorytet tematyczny</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Liczba podstron każdego konkurenta, głębokość treści, częstotliwość blogowania, świeżość treści (kiedy ostatnio zaktualizowane), nasycenie tematyczne (topical authority), doświadczenie autorów (E-E-A-T), jakość i unikalność contentu — porównanie liczbowe i merytoryczne.</span></div>
+
+<div class="action-critical"><strong>Grupa E — Sygnały lokalne (Google Business Profile)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Kategorie GBP główne i dodatkowe, kompletność wszystkich pól, atrybuty, godziny otwarcia, świeżość zdjęć, częstotliwość Google Posts, liczba i jakość opinii, tempo nowych opinii (review velocity), spójność danych firmy w całej sieci — pełen punktowy ranking.</span></div>
+
+<h2>Konkurencja w mediach społecznościowych — pełna analiza każdej platformy</h2>
+<div class="card"><p>Konkurencję analizujemy nie tylko w Google. Każdą platformę społecznościową traktujemy jako osobny rynek z osobnymi konkurentami i osobnym planem przebicia.</p></div>
+
+<div class="action-critical"><strong>Instagram — pełna analiza Twoich konkurentów</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Analizujemy 5-10 konkurentów na Instagramie. Każdego z nich rozkładamy na: format mix (Reels vs Karuzele vs zdjęcia), brand voice i ton komunikacji, strategia hashtagów, częstotliwość publikacji, średnie zaangażowanie per format, najlepsze i najgorsze posty z analizą czemu, godziny publikacji, typy treści które generują najwięcej zapytań — Tabela porównawcza Ty vs każdy z nich.</span></div>
+
+<div class="action-critical"><strong>Facebook — pełna analiza Twoich konkurentów</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Analizujemy 5-10 konkurentów na Facebooku. Sprawdzamy: aktywność strony firmowej, opinie i sentyment komentarzy, częstotliwość postów, wydarzenia i ich frekwencja, najczęstsze pytania klientów w komentarzach, spójność z innymi kanałami, godziny otwarcia i kompletność profilu.</span></div>
+
+<div class="action-critical"><strong>TikTok — pełna analiza Twoich konkurentów (jeśli są aktywni)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Analizujemy 5-10 konkurentów na TikToku. Sprawdzamy: średni czas oglądania filmów, wskaźnik dokończeń, trendujące dźwięki w niszy, filmy najbardziej wirusowe z analizą wzorców, strategia hashtagów, formaty które działają najlepiej dla branży — plus 5 konkretnych akcji żeby pobić każdego z nich.</span></div>
+
+<div class="action-warn"><strong>Tabela porównawcza — Ty vs każdy konkurent na każdej platformie</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Pełna tabela: nazwa konkurenta, liczba obserwujących, średnia zaangażowania, najlepszy format, częstotliwość, brand voice, co robią lepiej od Ciebie, co Ty robisz lepiej od nich, konkretne 5 akcji do podjęcia żeby ich przeskoczyć w każdym aspekcie.</span></div>
+
+<h2>Social Media — analiza szczegółowa</h2>
+
+<h3>Instagram (@bellavitahair)</h3>
+<div class="card">
+<p><strong>Obserwujący:</strong> 280 | <strong>Posty:</strong> 47 (od 2022) | <strong>Średnia lajków:</strong> 12.4 | <strong>Engagement Rate:</strong> 0.62%</p>
+<p><strong>Content mix:</strong> 85% zdjęcia, 10% Reele, 5% Karuzele</p>
+<p><strong>Publikacja:</strong> 2-3 posty/miesiąc (nieregularnie, przerwy 2-3 tygodniowe)</p>
+</div>
+
+<div class="blur-section">
+<div class="action-critical"><strong>Problem #1: Nieregularne publikacje.</strong> 2-3 posty/msc to za mało — algorytm Instagrama „zapomina" o koncie. Rekomendacja: minimum 3-4 posty/tydzień.</div>
+
+<div class="action-warn"><strong>Problem #2: Za mało Karuzeli.</strong> Tylko 5% postów to Karuzele — a badania na 35 mln postów pokazują, że Karuzele generują 109% więcej zaangażowania. Zdjęcia metamorfoz w formie Karuzeli (przed/po) = idealny format dla salonu.</div>
+
+<h3>Facebook (Bella Vita Hair Studio)</h3>
+<div class="card">
+<p><strong>Polubienia:</strong> 890 | <strong>Opinie:</strong> 61 (4.8★) | <strong>Ostatni post:</strong> 18 dni temu</p>
+<p><strong>Status:</strong> Brak godzin otwarcia (wyświetla „Zamknięte"). Brak aktualnego cennika.</p>
+</div>
+<div class="action-warn"><strong>Facebook pokazuje „Zamknięte"</strong> — klient widzi to i myśli, że salon nie działa. Brak godzin + brak aktualnego posta = wrażenie porzuconego profilu.</div>
+
+<h2>Analiza SWOT — Bella Vita Hair Studio</h2>
+<div class="swot">
+<div class="swot-card swot-s"><h4 style="color:#10B981">MOCNE STRONY</h4>
+<p>• Dobra ocena Google 4.7★ (43 opinie)<br>• Doskonałe opinie FB (4.8★, 61 recenzji)<br>• Lojalna baza klientów (polecenia)<br>• Doświadczony zespół (3 fryzjerki, 1 kosmetyczka)<br>• Centralna lokalizacja (ul. Sienkiewicza)</p></div>
+
+<div class="swot-card swot-w"><h4 style="color:#DC2626">SŁABE STRONY</h4>
+<p>• Strona z 2020 — wolna, brak SEO, brak Schema<br>• 0 fraz w Top 3 Local Pack<br>• Instagram: 280 obs., ER 0.62%, nieregularny<br>• GBP: 8 zdjęć (konkurent ma 94)<br>• Brak Google Posts, brak usług w profilu</p></div>
+
+<div class="swot-card swot-o"><h4 style="color:#3B82F6">SZANSE</h4>
+<p>• Nisza: „koloryzacja kielce" — słaba konkurencja<br>• Google Posts — żaden lokalny salon tego nie robi regularnie<br>• Metamorfozy jako Karuzele/Reele — duży potencjał<br>• Backlink z lokalnego portalu (kielce.com.pl)</p></div>
+
+<div class="swot-card swot-t"><h4 style="color:#E8520F">ZAGROŻENIA</h4>
+<p>• Hair Studio K. rośnie najszybciej (+23 opinie/msc)<br>• Fryzjernia ma aktywny IG (1200 obs.) — przyciąga młodszych<br>• Core Update Google (marzec 2026) — wahania pozycji<br>• Nowy salon „Lux Hair" otwiera się na Czarnowie</p></div>
+</div>
+
+<h2>Diagnoza — TOP 22 problemów (priorytet)</h2>
+
+<div class="action-critical"><strong>1. CRITICAL: Strona WWW przestarzała i niezoptymalizowana</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Ładowanie 4.8s (norma &lt;2.5s), brak Schema markup, brak meta opisów, brak sitemap. Google traktuje stronę jako niskiej jakości — stąd pozycja #18-22 w organic. Nowa strona z SEO od dnia 1 to fundament.</span></div>
+
+<div class="action-critical"><strong>2. CRITICAL: Google Business Profile niekompletny</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">8 zdjęć (konkurent 94), brak Google Posts, brak usług z cenami, opis generyczny. Profile z 100+ zdjęciami mają 520% więcej zapytań o dojazd.</span></div>
+
+<div class="action-critical"><strong>3. CRITICAL: Za mało opinii Google vs konkurencja</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">43 opinie vs Hair Studio K. 187 (4.3x więcej). Review velocity (tempo nowych opinii) to #11 czynnik rankingowy Local Pack. Cel: 3-4 nowe opinie/tydzień.</span></div>
+
+<div class="action-warn"><strong>4. WAŻNE: Instagram nieregularny i za mało treści</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">2-3 posty/msc = algorytm „zapomina" o koncie. Fryzjernia publikuje 4x/tyg i ma 4x więcej obserwujących. Potrzebny plan contentu: 3-4 posty/tyg z metamorfozami, poradnikami i kulisami.</span></div>
+
+<div class="action-warn"><strong>5. WAŻNE: Facebook pokazuje „Zamknięte"</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Brak godzin otwarcia. Klient widzi „Zamknięte" i szuka dalej. Naprawa: 2 minuty.</span></div>
+
+<div class="action-warn"><strong>6. WAŻNE: Brak strategii hashtagów na IG</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">70% postów bez hashtagów = posty widzą tylko obecni obserwujący. Hashtagi zwiększają zasięg o 30-50%.</span></div>
+
+<div class="action"><strong>7. DO ZROBIENIA: Highlights na Instagramie</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Brak Highlights = klient wchodzi na profil i nie wie co oferujesz. Potrzebne: Oferta, Cennik, Metamorfozy, Opinie, O nas.</span></div>
+
+<div class="action"><strong>8. DO ZROBIENIA: Backlink z lokalnego portalu</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">kielce.com.pl ma katalog firm. Dodanie Bella Vita = dodatkowy sygnał dla Google + ruch z portalu. Darmowe.</span></div>
+
+<div class="action-critical"><strong>9. CRITICAL: Brak śledzenia konwersji — nie wiesz ile klientów tracisz dziennie</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Bez analityki nie wiesz skąd przychodzą klienci, co oglądają, gdzie rezygnują. To jak prowadzenie sklepu bez kasy — nie wiesz ile sprzedajesz i ile tracisz.</span></div>
+
+<div class="action-critical"><strong>10. CRITICAL: Strona niewidoczna dla wyszukiwarek AI — tracisz nowych klientów</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Coraz więcej osób szuka usług przez ChatGPT i Gemini zamiast Google. Bez odpowiedniej struktury treści AI nie poleci Twojej firmy.</span></div>
+
+<div class="action-critical"><strong>11. CRITICAL: Klienci widzą konkurencję zamiast Ciebie — utrata przychodu co miesiąc</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Na kluczowe frazy w Twojej branży i mieście pozycje zajmuje konkurencja. Każde wyszukiwanie to klient który trafia do nich zamiast do Ciebie.</span></div>
+
+<div class="action-critical"><strong>12. CRITICAL: Większość opinii Google bez odpowiedzi — to obniża zaufanie</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Klienci czytają nie tylko opinie ale też odpowiedzi właściciela. Brak odpowiedzi = wrażenie że firma nie dba o klientów.</span></div>
+
+<div class="action-critical"><strong>13. CRITICAL: Strona wolno się ładuje na telefonie — większość klientów odpada</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Ponad 70% odwiedzających korzysta z telefonu. Każda dodatkowa sekunda ładowania to kilka procent mniej klientów którzy zostają na stronie.</span></div>
+
+<div class="action-warn"><strong>14. WAŻNE: Brak cennika w internecie — klienci szukają cen zanim się skontaktują</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Większość klientów porównuje ceny online przed kontaktem. Jeśli nie znajdą cen u Ciebie — wybierają tego u kogo je widzą.</span></div>
+
+<div class="action-warn"><strong>15. WAŻNE: Profil firmowy w Google niekompletny — mniej wyświetleń na mapie</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Niekompletne profile wyświetlają się rzadziej i niżej. Brakujące zdjęcia, godziny otwarcia lub usługi to sygnał dla Google że firma jest nieaktywna.</span></div>
+
+<div class="action-warn"><strong>16. WAŻNE: Brak obecności na platformach wideo — największy kanał wzrostu w 2026</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Krótkie filmy to obecnie najskuteczniejszy sposób na dotarcie do nowych klientów. Firmy które publikują regularnie rosną kilkukrotnie szybciej od tych które tego nie robią.</span></div>
+
+<div class="action-warn"><strong>17. WAŻNE: Brak listy usług w profilu Google — klienci nie wiedzą co oferujesz</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Bez szczegółowej listy usług Google nie wie jak dopasować Twoją firmę do zapytań klientów. Konkurencja z pełną listą pojawia się na więcej fraz.</span></div>
+
+<div class="action-warn"><strong>18. WAŻNE: Klienci odwiedzają stronę ale nie wracają — brak systemu przypominania</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Zdecydowana większość osób odwiedzających stronę nie kontaktuje się za pierwszym razem. Bez systemu przypominania tracisz tych potencjalnych klientów na zawsze.</span></div>
+
+<div class="action"><strong>19. DO ZROBIENIA: Brak możliwości rezerwacji online — bariera dla klientów</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Klienci coraz częściej wolą zarezerwować usługę online niż dzwonić. Brak takiej możliwości to bariera która sprawia że idą tam gdzie jest łatwiej.</span></div>
+
+<div class="action"><strong>20. DO ZROBIENIA: Strona bez analityki — nie wiesz co działa a co nie</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Bez danych podejmujesz decyzje na ślepo. Nie wiesz które podstrony czytają klienci, skąd przychodzą, co ich interesuje najbardziej.</span></div>
+
+<div class="action"><strong>21. DO ZROBIENIA: Brak strategii budowania autorytetu strony w Google</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Strona bez linków z innych witryn jest przez Google traktowana jako nowa i niezaufana. Budowanie autorytetu to proces ale bez niego pozycje nie rosną.</span></div>
+
+<div class="action"><strong>22. DO ZROBIENIA: Brak optymalizacji grafik — strona jest wolniejsza niż powinna</strong><br><span style="filter:blur(5px);user-select:none;display:inline">Nieoptymalizowane obrazy spowalniają ładowanie strony. Nowoczesne formaty i kompresja mogą przyspieszyć stronę bez utraty jakości zdjęć.</span></div>
+
+<h2>Widoczność w wyszukiwarkach AI — ChatGPT, Google AI Mode, Perplexity, Claude, Gemini</h2>
+<div class="card"><p>45% konsumentów używa AI do rekomendacji lokalnych firm w 2026 (wzrost z 6% rok wcześniej). Sprawdzamy czy Twoja marka pojawia się w odpowiedziach wyszukiwarek AI.</p></div>
+
+<div class="action-critical"><strong>Audyt obecności w ChatGPT Search</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Sprawdzamy jak ChatGPT odpowiada na pytania klientów z Twojej branży i lokalizacji. Czy poleca Twoją firmę. Jakie firmy poleca zamiast Ciebie. Co możemy zrobić żeby Cię cytował.</span></div>
+
+<div class="action-critical"><strong>Audyt obecności w Google AI Mode i AI Overviews</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Google AI Mode self-citation rate to 17.42% (3x wzrost rok do roku). Sprawdzamy czy strona jest cytowana, jakie konkretne fragmenty AI używa, jak zoptymalizować strukturę treści pod cytowania.</span></div>
+
+<div class="action-critical"><strong>Audyt obecności w Perplexity, Claude, Gemini</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Każda wyszukiwarka AI ma inną logikę cytowań i inne preferencje co do źródeł. Sprawdzamy każdą osobno i dajemy konkretny plan optymalizacji pod każdą.</span></div>
+
+<div class="action-warn"><strong>GEO — Generative Engine Optimization (optymalizacja treści pod LLM)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Strukturalna optymalizacja treści zwiększa cytowania AI o 17.3%. Sprawdzamy jakie zmiany w strukturze, długości i formacie treści dadzą najwięcej cytacji w wyszukiwarkach AI dla Twojej branży.</span></div>
+
+<h2>Profil linków zewnętrznych i autorytet domeny</h2>
+
+<div class="action-critical"><strong>Pełna analiza linków zewnętrznych Twojej domeny</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Liczba domen linkujących, jakość każdej z nich, anchor texts, świeżość linków, zniwelowanie toksycznych. Pełna mapa linków z oceną każdego.</span></div>
+
+<div class="action-critical"><strong>Wzmianki o marce w sieci (z linkiem i bez)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Sprawdzamy gdzie Twoja marka jest wymieniana w internecie, czy z linkiem, w jakim kontekście, jakie jest sentyment. Plan jak zamienić wzmianki bez linka na linki.</span></div>
+
+<div class="action-critical"><strong>Lokalne katalogi i cytowania (NAP consistency)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Sprawdzamy spójność danych firmy (Nazwa, Adres, Telefon) we wszystkich katalogach lokalnych. Dla każdego niespójnego cytowania — konkretna akcja naprawcza. Lista 30+ katalogów branżowych do uzupełnienia.</span></div>
+
+<div class="action-warn"><strong>Analiza profilu linków konkurentów wyższych</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Skąd konkurenci mają linki — pełna lista źródeł z których możesz też je zdobyć. Opis każdego źródła: jak działa, kto może aplikować, czy płatne czy bezpłatne, czas uzyskania linka.</span></div>
+
+<h2>Tabela porównawcza — Ty vs każdy konkurent (na każdym wymiarze)</h2>
+<div class="card"><p>Pełen punktowy ranking Ty vs każdy konkurent — w każdym mierzalnym aspekcie. Bez owijania w bawełnę.</p></div>
+
+<div class="action-critical"><strong>Pełna tabela porównawcza dla wszystkich konkurentów wyższych</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Każdy wiersz to inny aspekt (szybkość strony, liczba podstron, Schema markup, GBP zdjęcia, opinie, IG followers, FB fans, TikTok, backlinki, AI visibility, blog cadence). Każda kolumna to inny konkurent. Twoja firma w pierwszej kolumnie. Zielone = jesteś lepszy. Czerwone = jesteś słabszy. Plus konkretna akcja do każdego czerwonego.</span></div>
+
+<div class="action-warn"><strong>Mapa luk konkurencyjnych — co masz, czego oni nie mają</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Twoje wyróżniki które konkurenci pomijają. Każdy z nich to potencjalny temat na content, post, kampanię. Lista 5-10 takich luk z planem jak je wykorzystać.</span></div>
+
+<h2>Re-audyt cykliczny — kaskadowe porównanie wyników</h2>
+<div class="card"><p>Po wdrożeniu nie kończymy. Co 30 dni robimy re-audyt który pokazuje dokładnie co się zmieniło — nie tylko od ostatniego raportu, ale od początku współpracy.</p></div>
+
+<div class="action-critical"><strong>Tabela kaskadowa T0 → T1 → T2 → T_current (rośnie z każdym cyklem)</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Pierwszy re-audyt: T0 → T1 (3 kolumny). Drugi: T0 → T1 → T2 (4 kolumny). Trzeci: T0 → T1 → T2 → T3 (5 kolumn). Widzisz pełną historię od początku, nie tylko ostatni miesiąc. Wszystkie kluczowe metryki w jednej tabeli.</span></div>
+
+<div class="action-critical"><strong>Sprawdzenie wszystkich pierwotnych rekomendacji</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Każda rekomendacja z poprzednich raportów oznaczana jako: ZADZIAŁAŁA / NIE ZADZIAŁAŁA / W TRAKCIE. Dla każdej która nie zadziałała — analiza dlaczego i alternatywa.</span></div>
+
+<div class="action-warn"><strong>Tabela PRZED/PO do publikacji w mediach społecznościowych</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Gotowa grafika z tabelą porównawczą do publikacji w Twoich social media. Pokazujesz klientom konkretne wyniki współpracy. To Twój marketing wirusowy.</span></div>
+
+<div class="action-warn"><strong>Plan na kolejne 30 dni — co dalej</strong><br><span style="filter:blur(5px);-webkit-filter:blur(5px);user-select:none;display:inline">Co miesiąc nowa lista priorytetowych akcji oparta na aktualnym stanie. Z analizą co się zmieniło w branży, w algorytmach, u konkurentów.</span></div>
+
+<h2>Strategia 90-dniowa — 3 fazy</h2>
+
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num" style="color:#DC2626">01</div>
+<div><div class="phase-title">FAZA 1: FUNDAMENT (dni 1-30)</div><div class="phase-dates">Naprawić podstawy, zatrzymać utratę klientów</div></div>
+</div>
+<p>☐ Nowa strona WWW z SEO + Schema markup | <strong>Impact: 10/10</strong><br>
+☐ Uzupełnić GBP: 30+ zdjęć, usługi z cenami, opis | <strong>Impact: 9/10</strong><br>
+☐ Ustawić godziny na FB | <strong>Impact: 7/10</strong><br>
+☐ Rozpocząć system zbierania opinii Google (cel: +12/msc) | <strong>Impact: 9/10</strong><br>
+☐ Instagram: konto biznesowe + 5 Highlights | <strong>Impact: 8/10</strong></p>
+<p><strong>KPI po fazie 1:</strong> 55+ opinii Google, strona &lt;2.5s, 40+ zdjęć GBP, IG konto biznesowe</p>
+</div>
+
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num" style="color:#E8520F">02</div>
+<div><div class="phase-title">FAZA 2: WZROST (dni 31-60)</div><div class="phase-dates">Budować widoczność, zdobywać nowych klientów</div></div>
+</div>
+<p>☐ Google Posts 1x/tydzień | <strong>Impact: 7/10</strong><br>
+☐ Instagram: 3-4 posty/tyg + Karuzele metamorfoz | <strong>Impact: 8/10</strong><br>
+☐ Odpowiadać na KAŻDĄ opinię &lt;24h | <strong>Impact: 7/10</strong><br>
+☐ Backlink z kielce.com.pl | <strong>Impact: 5/10</strong><br>
+☐ Blog na stronie: 2 artykuły SEO | <strong>Impact: 6/10</strong></p>
+<p><strong>KPI po fazie 2:</strong> 70+ opinii, IG 350+, 2-3 frazy w Top 5 LP, Google Posts regularnie</p>
+</div>
+
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num" style="color:#3B82F6">03</div>
+<div><div class="phase-title">FAZA 3: DOMINACJA (dni 61-90)</div><div class="phase-dates">Wyprzedzić konkurencję na kluczowych frazach</div></div>
+</div>
+<p>☐ 2 kolejne artykuły blogowe (long-tail SEO) | <strong>Impact: 6/10</strong><br>
+☐ System rezerwacji online na stronie | <strong>Impact: 7/10</strong><br>
+☐ Współpraca z lokalnym influencerem | <strong>Impact: 5/10</strong><br>
+☐ Remarketing FB/IG na odwiedzających stronę | <strong>Impact: 6/10</strong></p>
+<p><strong>KPI po fazie 3:</strong> 85+ opinii, IG 400+, 4+ frazy w Top 5 LP, strona w Top 10 organic na 3 frazy</p>
+</div>
+
+<h2>Tabela KPI — cele na 30 / 60 / 90 dni</h2>
+<table>
+<tr><th>Metryka</th><th>Stan obecny</th><th>Cel 30 dni</th><th>Cel 60 dni</th><th>Cel 90 dni</th></tr>
+<tr><td>Opinie Google</td><td>43</td><td><strong>55</strong></td><td><strong>70</strong></td><td><strong>85+</strong></td></tr>
+<tr><td>Zdjęcia GBP</td><td>8</td><td><strong>40</strong></td><td><strong>60</strong></td><td><strong>80+</strong></td></tr>
+<tr><td>Local Pack (Top 3)</td><td>0 fraz</td><td><strong>1-2</strong></td><td><strong>2-3</strong></td><td><strong>4+</strong></td></tr>
+<tr><td>Organic (Top 10)</td><td>0 fraz</td><td><strong>2-3</strong></td><td><strong>4-5</strong></td><td><strong>6+</strong></td></tr>
+<tr><td>IG obserwujący</td><td>280</td><td><strong>330</strong></td><td><strong>380</strong></td><td><strong>420+</strong></td></tr>
+<tr><td>IG Engagement Rate</td><td>0.62%</td><td><strong>0.9%</strong></td><td><strong>1.1%</strong></td><td><strong>1.3%+</strong></td></tr>
+<tr><td>Nowi klienci z internetu / msc</td><td>~5</td><td><strong>8-10</strong></td><td><strong>12-15</strong></td><td><strong>18-22</strong></td></tr>
+</table>
+
+<h2>Analiza Reeli i contentu — Ty vs konkurencja</h2>
+
+<h3>Co działa u konkurencji (Hair Studio K.)</h3>
+<div class="card">
+<p><strong>Najlepsze Reele Hair Studio K. (po wyświetleniach):</strong></p>
+<p>• <strong>Timelapse koloryzacji</strong> (12-15 sek) — średnio 4.2K wyświetleń. Hook: „Z ciemnego brązu na lodowy blond w 15 sekund"<br>
+• <strong>Metamorfoza przed/po z muzyką</strong> — średnio 3.8K. Format: zakrycie twarzy ręką → odsłonięcie efektu<br>
+• <strong>„Salon z perspektywy klientki"</strong> — średnio 2.9K. POV: wchodzisz, siadasz, efekt wow</p>
+<p style="margin-top:8px"><strong>Ich bio:</strong> „✂️ Hair Studio K. | Kielce | Koloryzacja • Strzyżenie • Stylizacja | 📞 Umów wizytę ↓" — zawiera emoji, specjalizację, CTA i link do rezerwacji.</p>
+<p style="margin-top:8px"><strong>Czego NIE robią dobrze:</strong> Zero Karuzeli edukacyjnych. Posty z samym zdjęciem (bez opisu) mają 5x mniej zaangażowania. Brak Stories — Highlights nieaktualne od 3 miesięcy.</p>
+</div>
+
+<h3>Co działa u Ciebie (Bella Vita)</h3>
+<div class="card">
+<p><strong>Twoje najlepsze posty:</strong></p>
+<p>• Metamorfoza balayage (Reel) — <strong>890 wyświetleń</strong> (Twój rekord). Hook dobry: „Klientka chciała naturalny efekt — zobaczcie co wyszło"<br>
+• Zdjęcie koloryzacji z opisem — <strong>34 lajki</strong> (3x ponad średnią). Opis personalny, klientka oznaczona<br>
+• Reel „kulisy salonu" — <strong>620 wyświetleń</strong>. Ludzie lubią zaglądać za kulisy</p>
+<p style="margin-top:8px"><strong>Co nie działa:</strong> Zdjęcia produktów bez kontekstu (4-6 lajków). Posty bez opisu i bez hashtagów. Reele dłuższe niż 30 sek (spadek o 40% wyświetleń).</p>
+</div>
+
+<h3>Rekomendacje — content i bio</h3>
+<div class="action-ok"><strong>Zmień bio na:</strong> „✂️ Bella Vita Hair Studio | Kielce, ul. Sienkiewicza<br>Koloryzacja • Balayage • Strzyżenie<br>📍 Umów wizytę — link poniżej ↓"<br>Dodaj: przycisk „Zadzwoń", link do strony, kategorię „Hair Salon".</div>
+
+<div class="action-ok"><strong>Reele które musisz robić (bazując na danych):</strong><br>
+• Timelapse metamorfozy (10-15 sek) — działa u konkurencji i u Ciebie<br>
+• Przed/po z hookiem w 1 sekundzie — najwyższy CTR<br>
+• Kulisy: „Dzień w salonie" — autentyczność przyciąga<br>
+<br><strong>Z czego zrezygnować:</strong><br>
+• Zdjęcia produktów bez kontekstu (niski engagement)<br>
+• Reele &gt;30 sek (drastyczny spadek oglądalności)<br>
+• Posty bez opisu — algorytm nie wie komu je pokazać</div>
+
+</div>
+
+<h2>Na czym opieramy nasze rekomendacje</h2>
+<div class="card">
+<p>Każda rekomendacja w tym raporcie opiera się na <strong>najnowszych wynikach badań</strong> dotyczących algorytmów Google, Instagrama i Facebooka — regularnie aktualizowanych i weryfikowanych przez nasz zespół.</p>
+<p style="margin-top:12px"><strong>Co analizujemy:</strong></p>
+<p>• <strong>Badania nad algorytmem Google</strong> — jak działają wyniki lokalne (Local Pack), co wpływa na pozycję w Mapach, jakie sygnały Google traktuje priorytetowo w 2026 roku<br>
+• <strong>Badania nad algorytmem Instagrama</strong> — jak algorytm decyduje komu pokazać Twoje posty, co zwiększa zasięg, jakie formaty (Reele, Karuzele, zdjęcia) mają najwyższe zaangażowanie<br>
+• <strong>Badania nad algorytmem Facebooka</strong> — jak działają opinie, co wpływa na widoczność strony firmowej, jakie posty docierają do nowych osób<br>
+• <strong>Szczegółowy audyt strony WWW</strong> — szybkość ładowania, optymalizacja mobilna, Schema markup, nagłówki bezpieczeństwa, struktura treści, meta tagi<br>
+• <strong>Audyt profili social media</strong> — analiza każdego posta, Reela i Story: co działa, co nie, jaki content generuje zapytania od klientów<br>
+• <strong>Audyt kont konkurencji</strong> — ilu mają obserwujących, jak często publikują, które ich Reele mają najwyższe wyświetlenia, jak wygląda ich bio, czego im brakuje<br>
+• <strong>Analiza opinii i reputacji</strong> — Google + Facebook + inne platformy, tempo nowych opinii, jakość odpowiedzi właściciela</p>
+<p style="margin-top:12px">Nasze rekomendacje to wynik <strong>połączenia aktualnej wiedzy o algorytmach z indywidualną analizą Twojej firmy i Twojej konkurencji</strong> — nie ogólne porady z internetu, lecz konkretne wnioski oparte na danych.</p>
+</div>
+
+<div class="sample-banner" style="margin-top:40px;background:#F5F0EB;border:1px solid #E8E0D8;color:#1A1A2E">
+    📊 To jest raport poglądowy. Twój raport będzie dotyczył Twojej firmy, Twojej konkurencji i Twojego rynku — z identyczną szczegółowością i jakością analizy.
+</div>
+
+<div class="footer">
+<p>Zautomatyzuj Się — Profesjonalna analiza widoczności online</p>
+<p style="margin-top:4px">zautomatyzujsie.com | zautomatyzujsie@gmail.com</p>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A')) {
+        if (e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A' || e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S') {
+            e.preventDefault();
+            return false;
+        }
+    }
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+});
+document.addEventListener('selectstart', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    e.preventDefault();
+});
+document.addEventListener('dragstart', e => e.preventDefault());
+console.log('%c⛔ STOP', 'color:red;font-size:60px;font-weight:bold');
+console.log('%cTa strona jest chroniona prawem autorskim. Kopiowanie kodu i metodologii jest zabronione.', 'color:red;font-size:16px');
+console.log('%c© 2026 Zautomatyzuj Się. Wszelkie prawa zastrzeżone.', 'font-size:14px');
+</script>
+
+
+    <div id="page-loader">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <img src="logo.jpg" alt="" class="loader-logo">
+    </div>
+    <div class="loader-dots">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+    </div>
+    <div class="loader-text">ŁADOWANIE</div>
+</div>
+    <script>
+    // === UNIFIED PAGE TRANSITIONS ===
+    // Every .html link click → loader 1800ms
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href$=".html"]');
+        if (!link) return;
+        // Skip iframe report links and external
+        if (link.href.indexOf('raport-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.href.indexOf('plan-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.getAttribute('target') === '_blank') return;
+
+        e.preventDefault();
+        var loader = document.getElementById('page-loader');
+        if (loader) loader.classList.add('active');
+        var dest = link.href;
+        setTimeout(function() { window.location.href = dest; }, 1800);
+    });
+
+    // Back/forward button → show loader briefly then hide
+    window.addEventListener('pageshow', function(event) {
+        var loader = document.getElementById('page-loader');
+        if (event.persisted) {
+            // Page restored from bfcache (back button)
+            if (loader) {
+                loader.classList.add('active');
+                setTimeout(function() { loader.classList.remove('active'); }, 1800);
+            }
+        } else {
+            // Normal navigation — hide loader
+            if (loader) loader.classList.remove('active');
+        }
+    });
+
+    // Safety: hide on load
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('page-loader');
+        if (loader && !loader.classList.contains('active')) {
+            loader.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>

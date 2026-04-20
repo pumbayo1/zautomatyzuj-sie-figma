@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /dziekujemy.html
+Disallow: /send.php
+
+Sitemap: https://zautomatyzujsie.com/sitemap.xml

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dziękujemy za kontakt! | Zautomatyzuj Się</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{overflow-x:hidden;max-width:100vw}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#FAFAF8;padding:20px;-webkit-user-select:none;user-select:none}
+.card{background:#FFFFFF;backdrop-filter:blur(20px);border:1px solid #E8E0D8;border-radius:24px;padding:56px 44px;max-width:560px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.06)}
+.icon{font-size:4.5rem;margin-bottom:20px;animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(0);opacity:0}50%{transform:scale(1.3)}100%{transform:scale(1);opacity:1}}
+h1{font-family:'Outfit',sans-serif;font-size:1.9rem;font-weight:700;margin-bottom:16px;color:#1A1A2E;-webkit-text-fill-color:#1A1A2E}
+p{color:#5A5A6E;font-size:1rem;line-height:1.8;margin-bottom:10px}
+.highlight{color:#E8520F;font-weight:600;-webkit-text-fill-color:#E8520F}
+.subtext{color:#5A5A6E;font-size:.9rem}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:.3s;border:none;text-decoration:none;margin-top:24px;background:#E8520F;color:#fff;box-shadow:0 4px 20px rgba(232,82,15,0.15)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,82,15,0.25)}
+.timer{margin-top:16px;font-size:.85rem;color:#E8520F;font-weight:600;font-family:'Outfit',sans-serif}
+.contact{margin-top:24px;padding-top:24px;border-top:1px solid #E8E0D8;font-size:.88rem;color:#5A5A6E}
+.contact a{color:#E8520F;font-weight:600;text-decoration:none;transition:color .3s}
+.contact a:hover{color:#D4442A}
+.logo-glow{width:70px;height:70px;border-radius:50%;margin:0 auto 20px;animation:logoGlow 3s ease-in-out infinite;box-shadow:0 0 20px rgba(232,82,15,0.15),0 0 40px rgba(232,82,15,0.08)}
+@keyframes logoGlow{0%,100%{box-shadow:0 0 20px rgba(232,82,15,0.15),0 0 40px rgba(232,82,15,0.08)}50%{box-shadow:0 0 30px rgba(232,82,15,0.25),0 0 60px rgba(232,82,15,0.15)}}
+@media(max-width:480px){.card{padding:40px 24px}h1{font-size:1.5rem}}
+
+#page-loader {
+    display: none !important;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #FAFAF8;
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#page-loader.active {
+    display: flex !important;
+}
+.loader-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    animation: loaderBreath 1.8s ease-in-out infinite;
+}
+.loader-ring {
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 114px; height: 114px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #E8520F;
+    border-right-color: #E8520F;
+    animation: loaderSpin 1.2s linear infinite;
+}
+.loader-ring-2 {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #D4442A;
+    border-left-color: #E8520F;
+    animation: loaderSpin 2s linear infinite reverse;
+    opacity: 0.5;
+}
+.loader-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+.loader-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #E8520F;
+    animation: loaderDotBounce 1.4s ease-in-out infinite;
+}
+.loader-dot:nth-child(2) { animation-delay: 0.2s; background: #E8520F; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; background: #D4442A; }
+.loader-text {
+    margin-top: 16px;
+    font-family: 'Outfit', sans-serif;
+    color: #5A5A6E;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    animation: loaderFade 2s ease-in-out infinite;
+}
+@keyframes loaderBreath {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(232,82,15,0.1), 0 0 40px rgba(232,82,15,0.08); }
+    50% { transform: scale(1.12); box-shadow: 0 0 40px rgba(232,82,15,0.25), 0 0 80px rgba(232,82,15,0.12), 0 0 120px rgba(232,82,15,0.06); }
+}
+@keyframes loaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes loaderDotBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes loaderFade {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <img src="logo.jpg" alt="Zautomatyzuj Się" class="logo-glow">
+    <div class="icon">✅</div>
+    <h1>Dziękujemy za zaufanie!</h1>
+    <p>Twoja wiadomość dotarła do nas. Właśnie analizujemy Twoje zapytanie i <span class="highlight">odpowiemy najszybciej jak to możliwe</span> — zazwyczaj w ciągu kilku godzin.</p>
+    <p class="subtext">Potwierdzenie zostało wysłane na Twój adres e-mail.</p>
+    <a href="#" id="back-home-btn" class="btn">← Wróć na stronę główną</a>
+    <div class="timer">Automatyczne przekierowanie za <span id="countdown">12</span> sekund...</div>
+    <div class="contact">
+        <p>Potrzebujesz szybszego kontaktu?</p>
+        <p>
+            <a href="https://ig.me/m/zautomatyzujsie" target="_blank" rel="noopener noreferrer">Napisz na Instagramie →</a>
+            &nbsp;|&nbsp;
+            <a href="https://m.me/zautomatyzujsie" target="_blank" rel="noopener noreferrer">Napisz na Facebooku →</a>
+        </p>
+        <p style="margin-top:8px"><a href="mailto:zautomatyzujsie@gmail.com">zautomatyzujsie@gmail.com</a></p>
+    </div>
+</div>
+
+<div id="page-loader">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <img src="logo.jpg" alt="" class="loader-logo">
+    </div>
+    <div class="loader-dots">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+    </div>
+    <div class="loader-text">ŁADOWANIE</div>
+</div>
+
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey && (e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S'||e.key==='c'||e.key==='C'||e.key==='a'||e.key==='A')) { e.preventDefault(); return false; }
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+});
+document.addEventListener('selectstart', e => { if (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return; e.preventDefault(); });
+document.addEventListener('dragstart', e => e.preventDefault());
+</script>
+
+<script>
+// Countdown + auto-redirect
+(function(){
+    var seconds = 12;
+    var el = document.getElementById('countdown');
+    var timer = setInterval(function(){
+        seconds--;
+        if(el) el.textContent = seconds;
+        if(seconds <= 0){
+            clearInterval(timer);
+            var loader = document.getElementById('page-loader');
+            if (loader) loader.classList.add('active');
+            setTimeout(function() { window.location.href = 'index.html'; }, 1800);
+        }
+    }, 1000);
+})();
+
+// Back home button
+document.getElementById('back-home-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('active');
+    setTimeout(function() { window.location.href = 'index.html'; }, 1800);
+});
+
+// Pageshow — hide or show loader
+window.addEventListener('pageshow', function(event) {
+    var loader = document.getElementById('page-loader');
+    if (event.persisted && loader) {
+        loader.classList.add('active');
+        setTimeout(function() { loader.classList.remove('active'); }, 1800);
+    } else if (loader) {
+        loader.classList.remove('active');
+    }
+});
+window.addEventListener('load', function() {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.remove('active');
+});
+</script>
+</body>
+</html>

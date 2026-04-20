@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Strona nie znaleziona | Zautomatyzuj Się</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+html,body{overflow-x:hidden;max-width:100vw;}
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FAFAF8; color: #1A1A2E; line-height: 1.7; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+        }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 700; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+        img { max-width: 100%; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .gradient-text { color: #E8520F; -webkit-text-fill-color: #E8520F;
+        }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; border-radius: 12px;
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem;
+            cursor: pointer; transition: all 0.3s ease; border: none; text-decoration: none;
+        }
+        .btn-primary {
+            background: #E8520F; color: #fff;
+            box-shadow: 0 4px 20px rgba(232,82,15,0.15);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,82,15,0.25); }
+        .btn-outline {
+            background: transparent; color: #E8520F; border: 2px solid rgba(232,82,15,0.5);
+        }
+        .btn-outline:hover { background: rgba(232,82,15,0.06); border-color: #E8520F; transform: translateY(-2px); }
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(250,250,248,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #E8E0D8; padding: 0 24px;
+        }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.3rem; display: flex; align-items: center; text-decoration: none; }
+        .nav-logo span { color: #1A1A2E; -webkit-text-fill-color: #1A1A2E; }
+        .nav-logo-img { height: 44px; width: 44px; border-radius: 50%; object-fit: cover; margin-right: 10px; vertical-align: middle; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { color: #5A5A6E; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #E8520F; }
+        .nav-cta {
+            padding: 10px 24px !important; font-size: 0.85rem !important; color: #fff !important;
+            background: #E8520F !important; border: none !important;
+            position: relative; overflow: hidden; animation: ctaGlow 2s ease-in-out infinite;
+        }
+        .nav-cta:hover { color: #fff !important; }
+        @keyframes ctaGlow {
+            0%, 100% { box-shadow: 0 0 8px rgba(232,82,15,0.15), 0 0 20px rgba(232,82,15,0.08); }
+            50% { box-shadow: 0 0 16px rgba(232,82,15,0.3), 0 0 40px rgba(232,82,15,0.12), 0 0 60px rgba(232,82,15,0.06); }
+        }
+        .nav-cta::after {
+            content: ''; position: absolute; top: -50%; left: -100%; width: 60%; height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg); animation: ctaSweep 3s ease-in-out infinite;
+        }
+        @keyframes ctaSweep { 0%, 70%, 100% { left: -100%; } 85% { left: 150%; } }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #1A1A2E; border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu {
+            display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+            background: rgba(250,250,248,0.98); backdrop-filter: blur(20px); z-index: 999;
+            flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #1A1A2E; font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 600; min-height: 44px; display: flex; align-items: center; padding: 8px 16px; }
+        .mobile-menu a:hover { color: #E8520F; }
+        .error-page {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            padding: 120px 24px 60px;
+        }
+        .error-code { font-family: 'Outfit', sans-serif; font-size: 8rem; font-weight: 700; line-height: 1; margin-bottom: 16px; }
+        .error-page h1 { font-size: 2rem; margin-bottom: 12px; color: #1A1A2E; }
+        .error-page p { color: #5A5A6E; font-size: 1.05rem; max-width: 480px; margin: 0 auto 32px; }
+        .error-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .footer { background: #F5F0EB; padding: 60px 0 30px; border-top: 1px solid #E8E0D8; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 48px; }
+        .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.2rem; color: #1A1A2E; -webkit-text-fill-color: #1A1A2E; margin-bottom: 12px; }
+        .footer-tagline { color: #5A5A6E; font-size: 0.9rem; margin-bottom: 16px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 40px; height: 40px; border-radius: 10px; background: #E8E0D8; border: 1px solid #E8E0D8; display: flex; align-items: center; justify-content: center; color: #5A5A6E; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
+        .footer-social a:hover { background: rgba(232,82,15,0.08); border-color: #E8520F; color: #E8520F; }
+        .footer h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: #1A1A2E; margin-bottom: 20px; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { color: #5A5A6E; font-size: 0.88rem; transition: color 0.3s; }
+        .footer-links a:hover { color: #E8520F; }
+        .footer-contact-item { color: #5A5A6E; font-size: 0.88rem; margin-bottom: 10px; }
+        .footer-contact-item a { color: #E8520F; }
+        .footer-bottom { padding-top: 30px; border-top: 1px solid #E8E0D8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-copyright { color: #8A8A9E; font-size: 0.8rem; }
+        .footer-note { color: #8A8A9E; font-size: 0.78rem; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .error-code { font-size: 5rem; }
+            .error-page h1 { font-size: 1.5rem; }
+            .error-links { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .hamburger { padding: 10px; min-width: 44px; min-height: 44px; justify-content: center; }
+        }
+        #page-loader {
+            display: none !important;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #FAFAF8;
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        #page-loader.active {
+            display: flex !important;
+        }
+
+#page-loader.fade-out {
+    opacity: 0;
+}
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    animation: loaderBreath 1.8s ease-in-out infinite;
+    position: relative;
+}
+
+.loader-ring {
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 114px; height: 114px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #E8520F;
+    border-right-color: #E8520F;
+    animation: loaderSpin 1.2s linear infinite;
+}
+
+.loader-ring-2 {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #D4442A;
+    border-left-color: #E8520F;
+    animation: loaderSpin 2s linear infinite reverse;
+    opacity: 0.5;
+}
+
+.loader-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.loader-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #E8520F;
+    animation: loaderDotBounce 1.4s ease-in-out infinite;
+}
+
+.loader-dot:nth-child(2) { animation-delay: 0.2s; background: #E8520F; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; background: #D4442A; }
+
+.loader-text {
+    margin-top: 16px;
+    font-family: "Outfit", sans-serif;
+    color: #5A5A6E;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    animation: loaderFade 2s ease-in-out infinite;
+}
+
+@keyframes loaderBreath {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(232,82,15,0.1), 0 0 40px rgba(232,82,15,0.08); }
+    50% { transform: scale(1.12); box-shadow: 0 0 40px rgba(232,82,15,0.25), 0 0 80px rgba(232,82,15,0.12), 0 0 120px rgba(232,82,15,0.06); }
+}
+
+@keyframes loaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes loaderDotBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes loaderFade {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav" role="navigation" aria-label="Nawigacja główna">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="Zautomatyzuj Się logo" class="nav-logo-img" width="44" height="44"><span>Zautomatyzuj Się</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" onclick="event.preventDefault();document.getElementById('page-loader').classList.add('active');setTimeout(function(){window.location.href='index.html'},1800);">← Strona główna</a></li>
+                <li><a href="kontakt.html" class="btn btn-primary nav-cta">Rozpocznij współpracę</a></li>
+            </ul>
+            <button class="hamburger" aria-expanded="false" onclick="document.querySelector('.mobile-menu').classList.toggle('active');this.setAttribute('aria-expanded',document.querySelector('.mobile-menu').classList.contains('active'))" aria-label="Menu mobilne" aria-controls="mobile-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" onclick="event.preventDefault();document.querySelector('.mobile-menu').classList.remove('active');document.getElementById('page-loader').classList.add('active');setTimeout(function(){window.location.href='index.html'},1800);">← Strona główna</a>
+        <a href="kontakt.html" class="btn btn-primary" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Rozpocznij współpracę</a>
+    </div>
+    <main>
+        <section class="error-page">
+            <div>
+                <div class="error-code gradient-text">404</div>
+                <h1>Ups! Ta strona nie istnieje</h1>
+                <p>Strona, której szukasz, mogła zostać przeniesiona, usunięta lub nigdy nie istniała. Sprawdź poniższe linki.</p>
+                <div class="error-links">
+                    <a href="index.html" class="btn btn-primary">Strona główna</a>
+                    <a href="analiza-firmy.html" class="btn btn-outline">Usługi</a>
+                    <a href="kontakt.html" class="btn btn-outline">Kontakt</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display:flex;align-items:center;gap:12px"><img src="logo.jpg" alt="Zautomatyzuj Się" class="nav-logo-img" width="48" height="48" style="width:48px;height:48px">Zautomatyzuj Się</div>
+                    <p class="footer-tagline">Twoja firma. Widoczna.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+                        <a href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Usługi</h4>
+                    <ul class="footer-links">
+                        <li><a href="analiza-firmy.html">Analiza firmy</a></li>
+                        <li><a href="analiza-firmy.html">Strony WWW</a></li>
+                        <li><a href="analiza-firmy.html">SEO</a></li>
+                        <li><a href="analiza-firmy.html">Social Media</a></li>
+                        <li><a href="analiza-firmy.html">Automatyzacja AI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Firma</h4>
+                    <ul class="footer-links">
+                        <li><a href="realizacje.html">Realizacje</a></li>
+                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <p class="footer-contact-item">
+                        <a href="mailto:zautomatyzujsie@gmail.com" style="color:#E8520F">zautomatyzujsie@gmail.com</a>
+                    </p>
+                    <p class="footer-contact-item">
+                        Instagram: <a href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"style="user-select:text;-webkit-user-select:text"><span>@zautomatyzujsie</span></a>
+                    </p>
+                    <p class="footer-contact-item">
+                        Facebook: <a href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"><span>Zautomatyzuj Się</span></a></p></div></div>
+            <div class="footer-bottom">
+                <span class="footer-copyright">&copy; 2026 Zautomatyzuj Się. Wszelkie prawa zastrzeżone.</span>
+                <span class="footer-note">Zautomatyzuj Się — Profesjonalna analiza widoczności online</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && (e.key==='u'||e.key==='U'||e.key==='s'||e.key==='S'||e.key==='c'||e.key==='C'||e.key==='a'||e.key==='A')) { e.preventDefault(); return false; }
+        if (e.key === 'F12') { e.preventDefault(); return false; }
+    });
+    document.addEventListener('selectstart', e => { if (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return; e.preventDefault(); });
+    document.addEventListener('dragstart', e => e.preventDefault());
+    </script>
+
+    <div id="page-loader">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <img src="logo.jpg" alt="" class="loader-logo">
+    </div>
+    <div class="loader-dots">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+    </div>
+    <div class="loader-text">ŁADOWANIE</div>
+</div>
+    <script>
+    // === UNIFIED PAGE TRANSITIONS ===
+    // Every .html link click → loader 1800ms
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href$=".html"]');
+        if (!link) return;
+        // Skip iframe report links and external
+        if (link.href.indexOf('raport-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.href.indexOf('plan-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.getAttribute('target') === '_blank') return;
+        
+        e.preventDefault();
+        var loader = document.getElementById('page-loader');
+        if (loader) loader.classList.add('active');
+        var dest = link.href;
+        setTimeout(function() { window.location.href = dest; }, 1800);
+    });
+
+    // Back/forward button → show loader briefly then hide
+    window.addEventListener('pageshow', function(event) {
+        var loader = document.getElementById('page-loader');
+        if (event.persisted) {
+            // Page restored from bfcache (back button)
+            if (loader) {
+                loader.classList.add('active');
+                setTimeout(function() { loader.classList.remove('active'); }, 1800);
+            }
+        } else {
+            // Normal navigation — hide loader
+            if (loader) loader.classList.remove('active');
+        }
+    });
+
+    // Safety: hide on load
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('page-loader');
+        if (loader && !loader.classList.contains('active')) {
+            loader.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>

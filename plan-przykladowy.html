@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Przykładowy plan wdrożeniowy krok po kroku | Zautomatyzuj Się</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{overflow-x:hidden;max-width:100vw}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#FAFAF8;color:#1A1A2E;line-height:1.8;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.wrap{max-width:800px;margin:0 auto;padding:20px}
+h1{font-family:'Outfit',sans-serif;font-size:1.8rem;color:#1A1A2E;margin-bottom:6px}
+h2{font-family:'Outfit',sans-serif;font-size:1.3rem;color:#1A1A2E;margin:36px 0 16px;padding-top:20px;border-top:1px solid #E8E0D8}
+h3{font-family:'Outfit',sans-serif;font-size:1.05rem;color:#E8520F;margin:24px 0 12px}
+p{margin-bottom:12px;font-size:.95rem;color:#5A5A6E}
+strong{color:#1A1A2E}
+a{color:#E8520F}
+.header{background:#FFFFFF;padding:36px 28px;border-radius:12px;margin-bottom:30px;border:1px solid #E8E0D8;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.header-sub{font-size:.85rem;color:#8892A0;margin-top:6px}
+.sample-banner{background:#E8520F;padding:16px 24px;border-radius:12px;text-align:center;margin-bottom:24px;color:#fff;font-weight:600;font-size:.95rem}
+.phase{background:#FFFFFF;border:1px solid #E8E0D8;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 1px 8px rgba(0,0,0,0.04)}
+.phase-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.phase-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff}
+.phase-urgent .phase-icon{background:#DC2626}
+.phase-strategic .phase-icon{background:#E8520F}
+.phase-long .phase-icon{background:#10B981}
+.phase-title{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:#1A1A2E}
+.phase-subtitle{font-size:.82rem;color:#8892A0}
+.step{background:#FFFFFF;border:1px solid #E8E0D8;border-radius:10px;padding:20px;margin:12px 0;position:relative;box-shadow:0 1px 6px rgba(0,0,0,0.03)}
+.step-num{position:absolute;top:-10px;left:16px;background:#3B82F6;color:#fff;font-size:.75rem;font-weight:800;padding:2px 10px;border-radius:10px}
+.step-urgent .step-num{background:#DC2626}
+.step-strategic .step-num{background:#E8520F}
+.step-long .step-num{background:#10B981}
+.step h4{font-family:'Outfit',sans-serif;font-size:1rem;color:#1A1A2E;margin:6px 0 10px}
+.step-what{background:#EFF6FF;border-left:3px solid #3B82F6;padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.92rem}
+.step-why{background:#F0FDF4;border-left:3px solid #10B981;padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.92rem}
+.step-how{background:#F5F3FF;border-left:3px solid #8B5CF6;padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.92rem}
+.step-effect{background:#FFFBEB;border-left:3px solid #F59E0B;padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.92rem}
+.step-how ol{margin-left:20px;margin-top:6px}
+.step-how li{margin-bottom:6px;color:#5A5A6E;font-size:.9rem}
+.label{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-right:6px}
+.label-what{background:#DBEAFE;color:#1E40AF}
+.label-why{background:#D1FAE5;color:#065F46}
+.label-how{background:#EDE9FE;color:#5B21B6}
+.label-effect{background:#FEF3C7;color:#92400E}
+.impact{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:.82rem}
+.impact-bar{height:8px;border-radius:4px;background:#E8E0D8;width:100px;overflow:hidden;display:inline-block}
+.impact-fill{height:100%;border-radius:4px}
+.impact-high .impact-fill{background:#10B981;width:80%}
+.impact-very-high .impact-fill{background:#3B82F6;width:95%}
+.impact-medium .impact-fill{background:#E8520F;width:60%}
+.note{background:#FFFBEB;border:1px solid #FEF3C7;border-radius:10px;padding:16px;margin:20px 0;font-size:.9rem;color:#92400E}
+.timeline{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+.timeline-item{flex:1;min-width:180px;background:#FFFFFF;border:1px solid #E8E0D8;border-radius:10px;padding:14px;text-align:center;box-shadow:0 1px 6px rgba(0,0,0,0.03)}
+.timeline-week{font-size:.82rem;color:#8892A0;margin-bottom:4px}
+.timeline-goal{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:#E8520F}
+.footer{text-align:center;padding:30px;color:#8892A0;font-size:.82rem;margin-top:40px;background:#F5F0EB;border-radius:12px}
+@media(max-width:700px){.wrap{padding:14px}.phase-header{flex-direction:column;text-align:center}.timeline{flex-direction:column}}
+@media print{body{background:#fff;color:#1A1A2E}h1,h2{color:#1A1A2E}h3{color:#E8520F}.step,.phase{border-color:#E8E0D8;background:#fff}.header{background:#F5F0EB}p,li{color:#5A5A6E}.step-what,.step-why,.step-how,.step-effect{background:#f8f8f8}}
+
+/* === BLUR EFFECT === */
+.blurred .step-what,
+.blurred .step-why,
+.blurred .step-how,
+.blurred .step-effect,
+.blurred .impact {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+}
+
+.blurred h4,
+.blurred .step-num {
+    filter: none !important;
+    -webkit-filter: none !important;
+    user-select: auto;
+}
+
+.blurred .phase-header,
+.blurred .phase-title,
+.blurred .phase-subtitle,
+.blurred .phase-icon {
+    filter: none !important;
+}
+
+/* Blur on phase subtitle content but not headers */
+.blurred-phase > *:not(.phase-header) {
+    filter: blur(5px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.blurred-phase .phase-header {
+    filter: none !important;
+}
+
+.blurred-phase .step h4,
+.blurred-phase .step .step-num {
+    filter: none !important;
+}
+    #page-loader {
+            display: none !important;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #FAFAF8;
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        #page-loader.active {
+            display: flex !important;
+        }
+
+#page-loader.fade-out {
+    opacity: 0;
+}
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    animation: loaderBreath 1.8s ease-in-out infinite;
+    position: relative;
+}
+
+.loader-ring {
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 114px; height: 114px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #E8520F;
+    border-right-color: #D4442A;
+    animation: loaderSpin 1.2s linear infinite;
+}
+
+.loader-ring-2 {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #10B981;
+    border-left-color: #E8520F;
+    animation: loaderSpin 2s linear infinite reverse;
+    opacity: 0.5;
+}
+
+.loader-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.loader-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #E8520F;
+    animation: loaderDotBounce 1.4s ease-in-out infinite;
+}
+
+.loader-dot:nth-child(2) { animation-delay: 0.2s; background: #D4442A; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; background: #10B981; }
+
+.loader-text {
+    margin-top: 16px;
+    font-family: "Outfit", sans-serif;
+    color: #8892A0;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    animation: loaderFade 2s ease-in-out infinite;
+}
+
+@keyframes loaderBreath {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(232,82,15,0.2), 0 0 40px rgba(232,82,15,0.1); }
+    50% { transform: scale(1.12); box-shadow: 0 0 40px rgba(232,82,15,0.4), 0 0 80px rgba(232,82,15,0.2), 0 0 120px rgba(232,82,15,0.1); }
+}
+
+@keyframes loaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes loaderDotBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes loaderFade {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="sample-banner">
+    PLAN POGLĄDOWY — na potrzeby prezentacji nazwy firm i dane zostały zmienione. Struktura, szczegółowość i jakość planu są identyczne z tym, co otrzymasz dla Twojej firmy.
+</div>
+
+<div class="header">
+<h1>Plan wdrożeniowy krok po kroku</h1>
+<p style="font-size:1.05rem;color:#1A1A2E;margin:8px 0"><strong>Bella Vita Hair Studio</strong> — Salon fryzjerski i kosmetyczny | Kielce</p>
+<div class="header-sub">Na podstawie 6 niezależnych analiz + bazy 847+ artykułów branżowych + 247+ wniosków z badań</div>
+<div class="header-sub" style="margin-top:8px">22 konkretnych kroków w 3 fazach. Każdy punkt opisany prostym językiem: co zrobić, dlaczego to ważne, jak to zrobić krok po kroku i jaki będzie efekt.</div>
+<div class="header-sub" style="margin-top:8px;color:#10B981"><strong>Aktualny stan: 0 fraz w Top 3 Local Pack | #18 Organic | 4.7★ Google (43 opinie) | 104 opinie łącznie</strong></div>
+</div>
+
+<div class="note">
+<strong>Jak czytać ten plan:</strong><br>
+<span class="label label-what">CO ZROBIĆ</span> — opis zadania prostym językiem<br>
+<span class="label label-why">DLACZEGO</span> — jak to wpłynie na widoczność i klientów<br>
+<span class="label label-how">JAK TO ZROBIĆ</span> — instrukcja krok po kroku<br>
+<span class="label label-effect">EFEKT</span> — co się zmieni po wdrożeniu
+</div>
+
+<div class="phase phase-urgent">
+<div class="phase-header">
+<div class="phase-icon">!</div>
+<div><div class="phase-title">FAZA 1: PILNE — zrób w tym tygodniu (5 kroków)</div><div class="phase-subtitle">Te zadania mają natychmiastowy wpływ na widoczność. Każdy dzień zwłoki = utraceni klienci. Łączny czas: ~1 godzina.</div></div>
+</div>
+
+<div class="step step-urgent">
+<div class="step-num">KROK 1</div>
+<h4>Uzupełnij Google Business Profile — zdjęcia i usługi</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Wgrać minimum 30 zdjęć na profil Google Maps i dodać wszystkie usługi z cenami.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Masz <strong>8 zdjęć</strong> — Hair Studio K. ma <strong>94 zdjęcia</strong> (12 razy więcej!). Badania pokazują: profile z 20+ zdjęciami mają <strong>5x więcej kliknięć</strong> w „Wyznacz trasę". Google wyświetla wyżej profile z dużą ilością zdjęć, bo uznaje je za bardziej wiarygodne. Klientka widzi zdjęcia metamorfoz i podejmuje decyzję szybciej. Twój konkurent dodaje 5-8 zdjęć tygodniowo — Ty musisz nadrobić zaległość.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Wejdź na <strong>business.google.com</strong> → Twój profil Bella Vita</li>
+<li>Kliknij zakładkę <strong>„Zdjęcia"</strong> → <strong>„Dodaj zdjęcia"</strong></li>
+<li>Wgraj z telefonu zdjęcia z różnych kategorii:
+<br>— Metamorfozy klientek (przed/po) — <strong>najważniejsze!</strong>
+<br>— Wnętrze salonu (czyste, profesjonalne stanowiska)
+<br>— Zespół przy pracy (buduje zaufanie)
+<br>— Produkty których używacie (marka = jakość)
+<br>— Efekty koloryzacji, balayage, upięcia</li>
+<li>Dodaj usługi z cenami:
+<br>— Strzyżenie damskie (od 80 zł)
+<br>— Koloryzacja (od 150 zł)
+<br>— Balayage (od 250 zł)
+<br>— Modelowanie (od 50 zł)
+<br>— Zabieg keratynowy (od 200 zł)</li>
+<li>Cel: minimum <strong>40 zdjęć łącznie</strong> (wgraj 32 nowe)</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Więcej kliknięć z Google Maps, lepsza pozycja w wynikach lokalnych. Klientka widzi profesjonalny salon i piękne metamorfozy — łatwiej dzwoni lub pisze.</div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 20 minut</span></div>
+</div>
+
+<div class="step step-urgent">
+<div class="step-num">KROK 2</div>
+<h4>Ustaw godziny na Facebooku</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Dodać godziny pracy na profilu Facebook. Teraz FB pokazuje „Zamknięte".</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Kiedy klientka wchodzi na Twój profil FB, widzi napis <strong>„Zamknięte"</strong> — myśli że salon nie działa albo jest po godzinach. To odstraszacz. Na Google masz inne godziny niż na stronie — sprzeczne informacje obniżają zaufanie. Fryzjernia (Twój konkurent) ma spójne godziny wszędzie — wygląda bardziej profesjonalnie.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Wejdź na stronę FB salonu</li>
+<li>Kliknij <strong>„Ustawienia strony"</strong></li>
+<li>Znajdź sekcję <strong>„Godziny"</strong></li>
+<li>Ustaw: <strong>Wt-Pt 9:00-18:00, Sob 9:00-14:00</strong></li>
+<li>Niedziela i poniedziałek: <strong>Zamknięte</strong></li>
+<li>Zapisz</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Profil wygląda profesjonalnie. Klientka nie jest odstraszona napisem „Zamknięte". Spójne dane na FB, Google i stronie budują zaufanie.</div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 2 minuty</span></div>
+</div>
+
+<div class="step step-urgent">
+<div class="step-num">KROK 3</div>
+<h4>Zacznij system zbierania opinii Google</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Po KAŻDEJ wizycie wysłać SMS z linkiem do opinii Google. Wydrukuj QR kod i postaw przy kasie.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Masz <strong>43 opinie</strong>, a Hair Studio K. ma <strong>187</strong> — ponad 4 razy więcej. Tempo nowych opinii (review velocity) to teraz <strong>#11 czynnik rankingowy w Google Maps</strong> — rok temu było na pozycji #93. To ogromna zmiana! Hair Studio K. dostaje ~23 nowe opinie miesięcznie — musisz się zbliżyć do tego tempa. Każda nowa opinia podnosi pozycję w Mapach.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Wejdź na <strong>business.google.com</strong> → profil Bella Vita</li>
+<li>Kliknij <strong>„Udostępnij formularz opinii"</strong> → skopiuj link</li>
+<li>Zapisz link w telefonie (w notatkach)</li>
+<li>Po wizycie wyślij SMS:
+<br><em>„Cześć [imię]! Dziękuję za wizytę 😊 Jeśli masz chwilkę, będzie mi bardzo miło za krótką opinię na Google — pomaga innym nas znaleźć: [LINK]. Dziękuję!"</em></li>
+<li>Wydrukuj <strong>QR kod</strong> do tego linku i postaw przy kasie (qr-code-generator.com — darmowy)</li>
+<li>Powtarzaj po KAŻDEJ wizycie — cel: <strong>3-4 nowe opinie tygodniowo</strong></li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> 3-4 opinie/tydzień = 55+ do końca miesiąca. Wyższa pozycja w Google Maps. Więcej klientek Cię widzi na mapie. Więcej telefonów i rezerwacji.</div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (kumuluje się!)</span> <span style="color:#8892A0">| Czas: 1 minuta po każdej wizycie</span></div>
+</div>
+
+<div class="step step-urgent">
+<div class="step-num">KROK 4</div>
+<h4>Przełącz Instagram na konto biznesowe</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Zmienić typ konta Instagram z osobistego na biznesowe (profesjonalne).</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Bez konta biznesowego <strong>nie masz dostępu do statystyk</strong> (Insights) — nie wiesz kto ogląda Twoje posty, w jakim jest wieku, skąd jest i o której godzinie jest aktywny. Nie masz przycisków <strong>„Zadzwoń" / „Email"</strong> — klientka musi sama szukać numeru. Nie możesz promować postów (płatne reklamy). Fryzjernia MA konto biznesowe — ma przewagę. To jak salon bez szyldu na drzwiach.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Wejdź w <strong>Ustawienia</strong> (ikona zębatki na profilu)</li>
+<li>Kliknij <strong>„Konto"</strong></li>
+<li>Kliknij <strong>„Przełącz na konto profesjonalne"</strong></li>
+<li>Wybierz kategorię: <strong>„Hair Salon"</strong> lub <strong>„Beauty Salon"</strong></li>
+<li>Wybierz typ: <strong>„Firma"</strong> (nie „Twórca")</li>
+<li>Uzupełnij dane kontaktowe (telefon, email, adres)</li>
+<li>Gotowe!</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Dostęp do statystyk, przyciski kontaktowe na profilu, możliwość reklam. Klientka może zadzwonić jednym kliknięciem. Zobaczysz które posty działają najlepiej i w jakie dni publikować.</div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 2 minuty</span></div>
+</div>
+
+<div class="step step-urgent">
+<div class="step-num">KROK 5</div>
+<h4>Dodaj 5 Highlights na Instagramie</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Stworzyć wyróżnione relacje (okrągłe ikonki na profilu) — to „mini-strona" na Instagramie.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Nie masz żadnych Highlights. Klientka wchodzi na profil i nie wie: ile kosztuje strzyżenie, jakie metamorfozy robicie, jakie macie opinie. Highlights to Twoja „wizytówka" — każdy może je obejrzeć bez obserwowania. Hair Studio K. ma 8 Highlights — klientka porównuje i wybiera pełniejszy profil.</div>
+<div class="step-how" style="filter:blur(5px);user-select:none"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Stwórz 5 Highlights z relacji (Stories):</li>
+<li><strong>„Metamorfozy"</strong> — zdjęcia przed/po (najbardziej angażujące!)</li>
+<li><strong>„Cennik"</strong> — aktualne ceny wszystkich usług</li>
+<li><strong>„Opinie"</strong> — screeny opinii z Google i Facebooka</li>
+<li><strong>„Zespół"</strong> — poznaj nas, kwalifikacje, specjalizacje</li>
+<li><strong>„Salon"</strong> — wnętrze, stanowiska, produkty</li>
+<li>Dodaj ładne okładki (Canva.com → szablon „Instagram Highlight Cover")</li>
+</ol></div>
+<div class="step-effect" style="filter:blur(5px);user-select:none"><span class="label label-effect">EFEKT</span> Klientka w 10 sekund widzi ceny, metamorfozy i opinie. Nie musi szukać informacji — wszystko na jednym profilu. To zwiększa szansę na wiadomość DM lub telefon.</div>
+<div class="impact impact-high" style="filter:blur(5px);user-select:none"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 30 minut</span></div>
+</div>
+
+</div>
+
+<div class="phase phase-strategic">
+<div class="phase-header">
+<div class="phase-icon">&#9733;</div>
+<div><div class="phase-title">FAZA 2: STRATEGICZNE — wdrożyć w ciągu miesiąca (3 kroki)</div><div class="phase-subtitle">Te zadania budują długoterminową przewagę. Wymagają regularności, ale efekty są trwałe i kumulują się.</div></div>
+</div>
+
+<div class="step step-strategic blurred">
+<div class="step-num">KROK 6</div>
+<h4>Zmień content mix na IG — więcej Karuzeli metamorfoz</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Publikować 3-4 posty tygodniowo, z czego minimum 2 Karuzele (posty z kilkoma slajdami do przewijania).</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Twoje dane mówią same za siebie: posty z metamorfozami (przed/po) dostają <strong>3x więcej lajków</strong> niż zwykłe zdjęcia. Badania na 35 milionach postów potwierdzają: Karuzele generują <strong>109% więcej zaangażowania</strong> niż inne formaty. Salon fryzjerski ma idealny content na Karuzele: metamorfozy, porady pielęgnacyjne, trendy koloryzacji. Klientki ZAPISUJĄ takie posty — to najsilniejszy sygnał dla algorytmu.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Tygodniowy plan publikacji:
+<br>— <strong>2x Karuzela</strong> (metamorfozy przed/po, porady)
+<br>— <strong>1x Reel</strong> (kulisy pracy, timelapse koloryzacji)
+<br>— <strong>1x Zdjęcie/Story</strong> (efekt końcowy, informacja o wolnych terminach)</li>
+<li>Tematy Karuzeli które działają:
+<br>— „Metamorfoza: z rudego na zimny blond — 3 godziny, efekt WOW"
+<br>— „5 błędów przy domowej koloryzacji"
+<br>— „Trend 2026: copper hair — komu pasuje?"
+<br>— „Jak dbać o włosy farbowane — 4 zasady"</li>
+<li>Tworzenie: Canva.com (darmowe) → szablon „Instagram Carousel" → 5-8 slajdów</li>
+<li>Ostatni slajd ZAWSZE: CTA („Zapisz post! Napisz DM żeby umówić się na metamorfozę!")</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Engagement Rate z obecnych 0.62% do 1.0-1.3%. Więcej zapisów postów = algorytm pokazuje Cię większej publiczności = nowe klientki Cię odkrywają.</div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 30-45 minut na Karuzelę</span></div>
+</div>
+
+<div class="step step-strategic blurred">
+<div class="step-num">KROK 7</div>
+<h4>Backlink z lokalnego portalu</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Dodać salon do katalogu firm na kielce.com.pl i innych lokalnych portalach.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Google traktuje linki z innych stron jako „głosy zaufania". Link z popularnego lokalnego portalu = sygnał że Bella Vita jest prawdziwą, wiarygodną firmą. Hair Studio K. ma 4 takie linki, Ty masz 0. Każdy dodatkowy backlink z lokalnej domeny podnosi pozycję.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Wejdź na <strong>kielce.com.pl</strong> → sekcja „Firmy" → „Dodaj firmę"</li>
+<li>Uzupełnij: nazwa, adres, telefon, www, opis usług</li>
+<li>Powtórz na: panoramafirm.pl, firmy.net, gowork.pl</li>
+<li>Upewnij się że <strong>NAP (nazwa, adres, telefon) jest IDENTYCZNY</strong> wszędzie — każda różnica dezorientuje Google</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Wyższy autorytet strony w Google. Więcej miejsc z których klientki mogą Cię znaleźć. Darmowe i jednorazowe.</div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni</span> <span style="color:#8892A0">| Czas: 15 minut łącznie</span></div>
+</div>
+
+<div class="step step-strategic blurred">
+<div class="step-num">KROK 8</div>
+<h4>Pierwsza publikacja na blogu — artykuł SEO</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Opublikować artykuł na stronie na temat np. „Koloryzacja włosów Kielce — jak wybrać idealny odcień?"</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Blog to dodatkowe strony które Google indeksuje. Każdy artykuł to nowy punkt wejścia do salonu w wyszukiwarce. Artykuł o „koloryzacja kielce" celuje w frazę na której jeszcze nie jesteś widoczna — a konkurencja jest słaba (salon Prestige ma 1 artykuł, reszta 0).</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Napisz (lub poproś nas o napisanie) artykuł 800-1200 słów</li>
+<li>Tytuł: „Koloryzacja włosów w Kielcach — jak wybrać idealny odcień? Poradnik fryzjera"</li>
+<li>Treść: rodzaje koloryzacji, komu co pasuje, jak dbać po zabiegu, zaproszenie do salonu</li>
+<li>Dodaj 3-4 zdjęcia metamorfoz z podpisami</li>
+<li>Link do usługi koloryzacji i do kontaktu</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Nowa strona w Google na frazę „koloryzacja kielce". Klientki szukające porady trafiają na Twój artykuł → na Twój salon.</div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni (rośnie z czasem)</span> <span style="color:#8892A0">| Czas: 2-3 godziny (lub zlecone nam)</span></div>
+</div>
+
+</div>
+
+<div class="phase phase-long">
+<div class="phase-header">
+<div class="phase-icon">&#8599;</div>
+<div><div class="phase-title">FAZA 3: DŁUGOTERMINOWE — ciągły rozwój (22 kroki)</div><div class="phase-subtitle">Te działania budują trwałą przewagę nad konkurencją. Efekty kumulują się miesiąc po miesiącu.</div></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 9</div>
+<h4>Kolejne artykuły blogowe (2x/miesiąc)</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Publikować 2 artykuły SEO miesięcznie na stronie.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Każdy artykuł to nowa szansa na pojawienie się w Google. W ciągu 3 miesięcy będziesz miała 6-8 artykułów celujących w różne frazy. Strony z blogiem mają <strong>434% więcej zaindeksowanych stron</strong> — to 434% więcej szans że klientka Cię znajdzie.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Tematy kolejnych artykułów:
+<br>— „Balayage czy ombre — czym się różnią i co wybrać?"
+<br>— „Jak dbać o blond żeby nie żółkł — 5 zasad fryzjera"
+<br>— „Strzyżenie bob 2026 — komu pasuje ten trend?"
+<br>— „Keratynowe prostowanie — czy warto?"</li>
+<li>Publikuj 1-2x w miesiącu (lepiej regularnie niż dużo na raz)</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Rosnąca widoczność w Google na coraz więcej fraz. Pozycja eksperta = zaufanie = więcej klientek.</div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki (kumuluje się!)</span> <span style="color:#8892A0">| Czas: 2-3h/artykuł (lub zlecone nam)</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 10</div>
+<h4>System rezerwacji online</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Dodać możliwość rezerwacji wizyty przez stronę WWW (formularz lub integracja z Booksy/Calendly).</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <strong>67% klientów</strong> preferuje rezerwację online zamiast dzwonienia. Klientka może zarezerwować o 23:00 w piątek — telefon o tej porze nie odbierzesz. Każda bariera = utracona klientka. Hair Studio K. ma rezerwację przez Booksy — część Twoich potencjalnych klientek idzie tam bo jest łatwiej.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Opcja A: Booksy (popular w Polsce, darmowa wersja podstawowa)</li>
+<li>Opcja B: Formularz kontaktowy na stronie z wyborem usługi i terminu</li>
+<li>Dodaj przycisk „Zarezerwuj online" na stronie, Google Business i Instagramie</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Rezerwacje 24/7, mniej nieodebranych telefonów, wygoda dla klientek. Profesjonalny wizerunek.</div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 1-2 godziny konfiguracji</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 11</div>
+<h4>Monitoring i optymalizacja co miesiąc</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> Co miesiąc sprawdzać pozycje w Google, analizować statystyki IG i GBP, dostosowywać strategię.</div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> Google i Instagram ciągle zmieniają algorytmy. To co działa dzisiaj może nie działać za 2 miesiące. Regularna analiza pozwala reagować na zmiany i wyprzedzać konkurencję zamiast gonić.</div>
+<div class="step-how"><span class="label label-how">JAK TO ZROBIĆ</span>
+<ol>
+<li>Raz w miesiącu: sprawdź pozycje na 6 kluczowych frazach</li>
+<li>Przejrzyj Insights na IG: które posty miały najlepszy zasięg</li>
+<li>Sprawdź Google Business: ile wyświetleń, kliknięć, telefonów</li>
+<li>Dostosuj strategię na podstawie danych (lub zleć nam comiesięczny raport)</li>
+</ol></div>
+<div class="step-effect"><span class="label label-effect">EFEKT</span> Ciągła poprawa wyników zamiast stagnacji. Wyprzedzanie konkurencji która nie monitoruje swoich danych.</div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (długoterminowo)</span> <span style="color:#8892A0">| Czas: 1h/miesiąc (lub zlecone nam)</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 12</div>
+<h4>Wdrożenie śledzenia zachowań klientów na stronie</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Zainstalować narzędzia analityczne na stronie żeby wiedzieć skąd przychodzą klienci, co oglądają i na jakim etapie rezygnują z kontaktu. Bez tego podejmujesz decyzje na ślepo.</span></div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <span style="filter:blur(5px);user-select:none;display:inline">Zdecydowana większość odwiedzających nie kontaktuje się za pierwszym razem. Wiedza o tym co robią na stronie pozwala poprawić słabe punkty i zwiększyć liczbę zapytań.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 15 minut</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 13</div>
+<h4>Optymalizacja treści pod nowe wyszukiwarki AI</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Przygotować treści na stronie w sposób zrozumiały dla nowych wyszukiwarek opartych na sztucznej inteligencji. Coraz więcej klientów szuka usług właśnie w ten sposób zamiast tradycyjnie przez Google.</span></div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <span style="filter:blur(5px);user-select:none;display:inline">Wyszukiwarki AI polecają firmy które mają dobrze ustrukturyzowane treści. Bez optymalizacji Twoja firma nie pojawi się w odpowiedziach gdy ktoś zapyta o usługi w Twoim mieście.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 2-3 godziny</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 14</div>
+<h4>System automatycznego zbierania opinii po wizycie</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Wdrożyć prosty system przypominania klientom o zostawieniu opinii po wizycie. Może to być wiadomość SMS, QR kod przy kasie lub krótka wiadomość po wizycie. Regularne opinie budują pozycję w Google.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (kumuluje się!)</span> <span style="color:#8892A0">| Czas: 30 minut setup</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 15</div>
+<h4>Uruchomienie kanału wideo z krótkimi materiałami</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Rozpocząć regularne publikowanie krótkich filmów pokazujących efekty Twojej pracy. Platformy wideo mają obecnie najwyższe zaangażowanie ze wszystkich kanałów i pozwalają dotrzeć do zupełnie nowych klientów.</span></div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 30 minut/tydzień</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 16</div>
+<h4>System przypominania klientom o Twojej firmie</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Wdrożyć sposób na dotarcie do osób które już odwiedziły Twoją stronę lub profil ale jeszcze się nie skontaktowały. Większość klientów potrzebuje kilku kontaktów z firmą zanim podejmie decyzję.</span></div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 1 godzina setup</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 17</div>
+<h4>Rozbudowa informacji o cenach i usługach online</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Dodać przejrzysty cennik i opis wszystkich usług na stronie i w profilu Google. Klienci porównują oferty online przed kontaktem — jeśli nie znajdą cen u Ciebie, wybierają konkurencję u której je widzą.</span></div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni</span> <span style="color:#8892A0">| Czas: 2 godziny</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 18</div>
+<h4>Nawiązanie współpracy z lokalnymi partnerami</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Nawiązać współpracę z lokalnymi firmami i osobami które mogą polecić Twoje usługi swoim klientom lub obserwującym. Wzajemne polecenia to jeden z najskuteczniejszych sposobów na pozyskanie nowych klientów.</span></div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni</span> <span style="color:#8892A0">| Czas: barter (0 zł)</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 19</div>
+<h4>Poprawa szybkości i wydajności strony</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Zoptymalizować stronę żeby ładowała się szybciej na telefonach i komputerach. Wolna strona to utraceni klienci — każda dodatkowa sekunda ładowania powoduje że część odwiedzających rezygnuje i szuka dalej.</span></div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 3-4 godziny</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 20</div>
+<h4>Program poleceń dla stałych klientów</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Wdrożyć program w którym obecni klienci polecają Twoją firmę znajomym w zamian za korzyść dla obu stron. Polecenia od znajomych to najbardziej zaufane źródło nowych klientów.</span></div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni</span> <span style="color:#8892A0">| Czas: 30 minut</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 21</div>
+<h4>Regularna komunikacja z bazą klientów</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Zbierać dane kontaktowe klientów i regularnie wysyłać im wartościowe treści oraz informacje o promocjach. Utrzymywanie kontaktu z istniejącymi klientami jest wielokrotnie tańsze niż pozyskiwanie nowych.</span></div>
+<div class="impact impact-medium"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>średni (rośnie z bazą)</span> <span style="color:#8892A0">| Czas: 1h/miesiąc</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 22</div>
+<h4>Comiesięczna analiza wyników i dostosowanie strategii</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Co miesiąc sprawdzać pozycje w Google, analizować statystyki social media i ruch na stronie. Porównywać z konkurencją i dostosowywać działania. Rynek się zmienia — kto nie monitoruje wyników, ten zostaje w tyle.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (długoterminowo)</span> <span style="color:#8892A0">| Czas: 1h/miesiąc (lub zlecone nam)</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 23</div>
+<h4>Pełen audyt konkurencji w Google — rozkład na 5 grup czynników</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Każdego konkurenta wyższego od Ciebie rozłożyć na pięć grup czynników (on-page, off-page, UX, content, sygnały lokalne). Dla każdego znaleźć dlaczego są wyżej i przygotować konkretną drogę przebicia w każdym aspekcie. To podstawa każdej skutecznej strategii pozycjonowania.</span></div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <span style="filter:blur(5px);user-select:none;display:inline">Nie da się być pierwszym, nie wiedząc dokładnie kto jest wyżej i dlaczego. Każdy konkurent ma swoją słabość — trzeba ją tylko znaleźć i wykorzystać.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 4-6 godzin</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 24</div>
+<h4>Pełna analiza 5–10 konkurentów na Instagramie</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Wytypować 5-10 najlepszych konkurentów na Instagramie i każdego z nich rozłożyć na czynniki: format mix, brand voice, hashtagi, częstotliwość, najlepsze posty, najgorsze posty, godziny publikacji. Stworzyć tabelę porównawczą Ty vs każdy z nich.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 3-5 godzin</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 25</div>
+<h4>Pełna analiza 5–10 konkurentów na Facebooku</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Identyczny proces dla Facebooka. Każda platforma ma osobną logikę algorytmu, osobnych konkurentów i osobny plan przebicia. Sprawdzić aktywność, opinie, wydarzenia, najczęstsze pytania w komentarzach.</span></div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 3-4 godziny</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 26</div>
+<h4>Pełna analiza 5–10 konkurentów na TikToku</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Identyczny proces dla TikToka. Sprawdzić średni czas oglądania, wskaźnik dokończeń, trendujące dźwięki w niszy, filmy najbardziej wirusowe, hashtagi. TikTok ma najwyższe zaangażowanie ze wszystkich platform w 2026 roku.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 3-5 godzin</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 27</div>
+<h4>Optymalizacja widoczności w wyszukiwarkach AI</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Sprawdzić jak ChatGPT, Google AI Mode, Perplexity, Claude i Gemini odpowiadają na pytania klientów z Twojej branży. Czy polecają Twoją firmę. Jeśli nie — zrobić strukturalną optymalizację treści pod cytowania LLM. 45% konsumentów używa AI do rekomendacji lokalnych firm w 2026.</span></div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <span style="filter:blur(5px);user-select:none;display:inline">Coraz więcej osób pyta AI „polec mi salon w mojej okolicy" zamiast szukać w Google. Bez optymalizacji pod LLM tracisz cały ten kanał.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (rośnie kanał)</span> <span style="color:#8892A0">| Czas: 5-8 godzin</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 28</div>
+<h4>Profil linków zewnętrznych i autorytet domeny</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Pełna analiza linków zewnętrznych (Twoich i konkurencji), wzmianek o marce z linkami i bez, lokalnych katalogów i cytowań NAP. Lista 30+ konkretnych źródeł z których możesz zdobyć linki — z opisem każdego, czy płatne, czas uzyskania.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki (kumuluje się)</span> <span style="color:#8892A0">| Czas: 4-6 godzin</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 29</div>
+<h4>Pełna tabela porównawcza Ty vs każdy konkurent (na każdym wymiarze)</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Stworzyć jedną dużą tabelę porównawczą — wszystkie mierzalne aspekty (szybkość, podstrony, Schema, zdjęcia GBP, opinie, IG/FB/TikTok followers, blog cadence, AI visibility) Ty vs każdy konkurent. Zielone = lepszy, czerwone = słabszy. Plus konkretna akcja do każdego czerwonego.</span></div>
+<div class="impact impact-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>wysoki</span> <span style="color:#8892A0">| Czas: 2-3 godziny</span></div>
+</div>
+
+<div class="step step-long blurred">
+<div class="step-num">KROK 30</div>
+<h4>Re-audyt kaskadowy co 30 dni — kompletna historia wzrostu</h4>
+<div class="step-what"><span class="label label-what">CO ZROBIĆ</span> <span style="filter:blur(5px);user-select:none;display:inline">Co 30 dni robić re-audyt który pokazuje pełną historię od początku współpracy (T0 → T1 → T2 → T_current). Każda kolejna runda dodaje kolumnę do tabeli porównawczej. Sprawdzenie wszystkich pierwotnych rekomendacji jako zadziałały / nie zadziałały. Tabela PRZED/PO gotowa do publikacji w mediach społecznościowych.</span></div>
+<div class="step-why"><span class="label label-why">DLACZEGO</span> <span style="filter:blur(5px);user-select:none;display:inline">Po 6 miesiącach widzisz dokładnie ile zmieniło się od początku współpracy, nie tylko od ostatniego miesiąca. To Twoje narzędzie marketingowe i Twoja gwarancja jakości.</span></div>
+<div class="impact impact-very-high"><span>Wpływ:</span> <span class="impact-bar"><span class="impact-fill"></span></span> <span>bardzo wysoki</span> <span style="color:#8892A0">| Czas: 2h/miesiąc (lub zlecone nam)</span></div>
+</div>
+
+</div>
+
+<h2>Podsumowanie — oś czasu</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-week">Tydzień 1</div>
+<div class="timeline-goal">Fundamenty<br><span style="font-size:.82rem;color:#8892A0">Kroki 1-5</span></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-week">Tydzień 2-4</div>
+<div class="timeline-goal">Wzrost<br><span style="font-size:.82rem;color:#8892A0">Kroki 6-8</span></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-week">Miesiąc 2-3</div>
+<div class="timeline-goal">Dominacja<br><span style="font-size:.82rem;color:#8892A0">Kroki 9-22</span></div>
+</div>
+</div>
+
+<div class="sample-banner" style="margin-top:40px;background:#F5F0EB;border:1px solid #E8E0D8;color:#1A1A2E">
+    📋 To jest plan poglądowy. Na potrzeby prezentacji nazwy firm i dane zostały zmienione. Twój plan będzie dotyczył Twojej firmy, Twojej konkurencji i Twojego rynku — z identyczną szczegółowością i prostym językiem.
+</div>
+
+<div class="footer">
+<p>Zautomatyzuj Się — Profesjonalna analiza widoczności online</p>
+<p style="margin-top:4px">zautomatyzujsie.com | zautomatyzujsie@gmail.com</p>
+<p style="margin-top:4px">Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół — to nasza przewaga.</p>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A')) {
+        if (e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A' || e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S') {
+            e.preventDefault();
+            return false;
+        }
+    }
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+});
+document.addEventListener('selectstart', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    e.preventDefault();
+});
+document.addEventListener('dragstart', e => e.preventDefault());
+console.log('%c⛔ STOP', 'color:red;font-size:60px;font-weight:bold');
+console.log('%cTa strona jest chroniona prawem autorskim. Kopiowanie kodu i metodologii jest zabronione.', 'color:red;font-size:16px');
+console.log('%c© 2026 Zautomatyzuj Się. Wszelkie prawa zastrzeżone.', 'font-size:14px');
+</script>
+
+
+    <div id="page-loader">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <img src="logo.jpg" alt="" class="loader-logo">
+    </div>
+    <div class="loader-dots">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+    </div>
+    <div class="loader-text">ŁADOWANIE</div>
+</div>
+    <script>
+    // === UNIFIED PAGE TRANSITIONS ===
+    // Every .html link click → loader 1800ms
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href$=".html"]');
+        if (!link) return;
+        // Skip iframe report links and external
+        if (link.href.indexOf('raport-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.href.indexOf('plan-przykladowy') !== -1 && link.closest('.report-modal-body')) return;
+        if (link.getAttribute('target') === '_blank') return;
+
+        e.preventDefault();
+        var loader = document.getElementById('page-loader');
+        if (loader) loader.classList.add('active');
+        var dest = link.href;
+        setTimeout(function() { window.location.href = dest; }, 1800);
+    });
+
+    // Back/forward button → show loader briefly then hide
+    window.addEventListener('pageshow', function(event) {
+        var loader = document.getElementById('page-loader');
+        if (event.persisted) {
+            // Page restored from bfcache (back button)
+            if (loader) {
+                loader.classList.add('active');
+                setTimeout(function() { loader.classList.remove('active'); }, 1800);
+            }
+        } else {
+            // Normal navigation — hide loader
+            if (loader) loader.classList.remove('active');
+        }
+    });
+
+    // Safety: hide on load
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('page-loader');
+        if (loader && !loader.classList.contains('active')) {
+            loader.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>
