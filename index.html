@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zautomatyzuj się | Strony WWW, SEO, PrestaShop i wdrożenia dla firm</title>
+  <meta name="description" content="Zautomatyzuj Się tworzy strony WWW, sklepy PrestaShop, prowadzi SEO, social media i wdraża rozwiązania dla nowych firm, e-commerce oraz procesów sprzedaży.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f15a1e">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="Zautomatyzuj się | Strony WWW, SEO, PrestaShop i wdrożenia dla firm">
+  <meta property="og:description" content="Strony internetowe, SEO, AI Search, PrestaShop, programy handlowo-magazynowe i automatyzacje dla firm.">
+  <meta property="og:image" content="assets/logo-z.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Zautomatyzuj Się",
+          "logo": "assets/logo-z.png",
+          "email": "zautomatyzujsie@gmail.com",
+          "sameAs": [
+            "https://www.instagram.com/zautomatyzujsie/",
+            "https://www.facebook.com/zautomatyzujsie"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Zautomatyzuj Się",
+          "description": "Strony internetowe, SEO, sklepy PrestaShop, automatyzacje procesów oraz wdrożenia systemów dla firm.",
+          "areaServed": "PL",
+          "serviceType": [
+            "Strony WWW",
+            "SEO",
+            "AI Search",
+            "PrestaShop",
+            "Programy handlowo-magazynowe",
+            "CRM i automatyzacja"
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --surface-soft: #fff6f1;
+      --surface-success: #f1fbf7;
+      --text: #454545;
+      --text-dark: #3f3f3f;
+      --muted: #6b6b6b;
+      --line: #e5e5e5;
+      --line-strong: #d8d8d8;
+      --orange: #f15a1e;
+      --orange-dark: #e34d12;
+      --green: #16b879;
+      --red: #ff5147;
+      --footer: #4b4b4b;
+      --shadow: 0 18px 50px rgba(72, 72, 72, 0.06);
+      --shadow-soft: 0 10px 26px rgba(72, 72, 72, 0.04);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --container: 1420px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 209, 190, 0.45), transparent 22%),
+        radial-gradient(circle at 90% 16%, rgba(242, 236, 233, 0.6), transparent 24%),
+        linear-gradient(180deg, #fafafa 0%, #f7f7f7 100%);
+      line-height: 1.55;
+      min-width: 320px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+      position: relative;
+    }
+
+    .section--divider {
+      box-shadow: inset 0 14px 32px rgba(0, 0, 0, 0.02);
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 3.3vw, 3.2rem);
+      line-height: 1.06;
+      text-align: center;
+      letter-spacing: -0.04em;
+    }
+
+    .section-subtitle {
+      margin: 0 auto;
+      max-width: 850px;
+      text-align: center;
+      color: var(--text);
+      font-size: clamp(1rem, 1.65vw, 1.1rem);
+    }
+
+    .section-copy {
+      margin: 24px auto 0;
+      max-width: 930px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .accent {
+      color: var(--orange);
+    }
+
+    .dark {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      min-height: 54px;
+      padding: 0 24px;
+      font-weight: 700;
+      transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background-color 140ms ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn {
+      color: #fff;
+      background: var(--orange);
+      box-shadow: 0 14px 24px rgba(241, 90, 30, 0.18);
+    }
+
+    .btn-outline {
+      color: var(--orange);
+      background: transparent;
+      border-color: var(--orange);
+    }
+
+    .btn:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .site-header__inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand__mark {
+      width: 28px;
+      height: 28px;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .brand__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.18);
+    }
+
+    .brand__word {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+    }
+
+    .brand__word .accent {
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.9rem;
+    }
+
+    .nav__links a {
+      color: var(--text-dark);
+    }
+
+    .nav__links a:hover {
+      color: var(--orange);
+    }
+
+    .nav__cta {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text-dark);
+      margin: 4px auto;
+      border-radius: 2px;
+    }
+
+    .hero {
+      padding: 58px 0 76px;
+      background:
+        radial-gradient(circle at 16% 14%, rgba(255, 222, 206, 0.72), transparent 28%),
+        radial-gradient(circle at 84% 20%, rgba(255, 224, 209, 0.68), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(243, 243, 243, 0.95), transparent 30%),
+        linear-gradient(180deg, #fff9f6 0%, #f7f7f7 88%);
+      box-shadow: inset 0 -14px 24px rgba(0, 0, 0, 0.02);
+    }
+
+    .hero__inner {
+      text-align: center;
+    }
+
+    .hero__logo-wrap {
+      width: 228px;
+      height: 228px;
+      margin: 0 auto 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(252, 240, 235, 0.96));
+      border: 5px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.02), 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero__logo-wrap img {
+      width: 112px;
+      transform: scale(1.15);
+      opacity: 0.26;
+    }
+
+    .hero__title {
+      margin: 0;
+      font-family: "Outfit", sans-serif;
+      color: var(--text-dark);
+      font-size: clamp(3rem, 5.2vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .hero__title strong {
+      font-weight: 800;
+    }
+
+    .hero__text {
+      max-width: 920px;
+      margin: 20px auto 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.18rem);
+      color: #4d4d4d;
+    }
+
+    .hero__actions {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 1080px;
+      margin: 56px auto 0;
+    }
+
+    .hero__stat {
+      text-align: center;
+    }
+
+    .hero__stat strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .hero__stat span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .hero__stat .dark {
+      display: inline;
+    }
+
+    .problem-grid,
+    .services-grid,
+    .newbiz-grid,
+    .why-grid,
+    .pricing-grid,
+    .footer-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .problem-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 48px;
+    }
+
+    .problem-card,
+    .service-card,
+    .newbiz-card,
+    .why-card {
+      text-align: center;
+    }
+
+    .problem-card img,
+    .service-card img,
+    .newbiz-card img,
+    .why-card img,
+    .report-card img,
+    .guarantee__logo,
+    .price-card__logo {
+      width: 78px;
+      margin: 0 auto 20px;
+      transform: scale(1.06);
+    }
+
+    .problem-card h3,
+    .service-card h3,
+    .newbiz-card h3,
+    .why-card h3 {
+      margin: 0 0 14px;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.22rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--orange);
+    }
+
+    .problem-card p,
+    .service-card p,
+    .newbiz-card p,
+    .why-card p,
+    .report-card p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .problem-note,
+    .process-note {
+      max-width: 1240px;
+      margin: 34px auto 0;
+      border: 2px solid var(--orange);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .problem-note strong,
+    .process-note strong {
+      color: var(--orange);
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 58px;
+      row-gap: 46px;
+    }
+
+    .service-card {
+      text-align: left;
+      padding: 0 10px;
+    }
+
+    .service-card img {
+      margin-left: 0;
+    }
+
+    .service-card h3 {
+      text-align: left;
+    }
+
+    .service-card p {
+      text-align: left;
+    }
+
+    .process {
+      margin-top: 52px;
+    }
+
+    .process__line {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-top: 34px;
+    }
+
+    .process__line::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 8%;
+      right: 8%;
+      height: 4px;
+      background: rgba(241, 90, 30, 0.5);
+      border-radius: 99px;
+    }
+
+    .process__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .process__step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 10px;
+    }
+
+    .process__badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #ff864a, var(--orange-dark));
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(241, 90, 30, 0.22);
+    }
+
+    .process__step h3 {
+      margin: 0 0 10px;
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.15;
+    }
+
+    .process__step p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .case-wrap {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) 72px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .case-arrow {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 0;
+      background: linear-gradient(180deg, #ff8d53, var(--orange-dark));
+      color: #fff;
+      font-size: 2rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(241, 90, 30, 0.2);
+    }
+
+    .case-card {
+      border: 3px solid var(--orange);
+      border-radius: 20px;
+      background: #fff;
+      padding: 26px 22px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .case-card__top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 10px;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .case-location {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .case-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .case-box {
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      padding: 24px 24px 20px;
+      min-height: 280px;
+    }
+
+    .case-box--before {
+      background: #fff4f3;
+    }
+
+    .case-box--after {
+      background: #f2fbf7;
+    }
+
+    .case-box__title {
+      margin: 0 0 22px;
+      font-weight: 800;
+      color: var(--orange);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .case-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-list li {
+      display: flex;
+      gap: 14px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .case-list__icon {
+      flex: 0 0 24px;
+      font-size: 1.6rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .case-list__icon--bad {
+      color: var(--red);
+    }
+
+    .case-list__icon--good {
+      color: var(--green);
+    }
+
+    .case-arrow-mid {
+      text-align: center;
+      color: var(--orange);
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .case-metric {
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      padding: 28px 16px 24px;
+      text-align: center;
+    }
+
+    .case-metric strong {
+      display: block;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .case-metric span {
+      display: block;
+      margin-top: 16px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .case-meta {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .case-quote {
+      margin: 18px auto 0;
+      max-width: 760px;
+      text-align: center;
+      padding-top: 18px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.45rem, 2vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .case-quote .accent {
+      font-weight: 800;
+    }
+
+    .case-card__cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid var(--orange);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .dot.is-active {
+      background: var(--orange);
+    }
+
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 38px;
+      max-width: 800px;
+      margin: 52px auto 0;
+    }
+
+    .report-card {
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      background: #fff;
+      padding: 30px 26px 26px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .report-card h3 {
+      margin: 0 0 12px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.28rem;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .report-card a {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .reports-note {
+      max-width: 800px;
+      margin: 34px auto 0;
+      border: 1px solid rgba(241, 90, 30, 0.22);
+      border-radius: 18px;
+      background: #feefe8;
+      padding: 28px 26px;
+      text-align: center;
+    }
+
+    .reports-note h3 {
+      margin: 0 0 16px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.5rem;
+    }
+
+    .reports-note p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .reports-note strong {
+      display: block;
+      margin-top: 18px;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .reports-note .btn {
+      margin-top: 26px;
+    }
+
+    .newbiz-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 50px;
+    }
+
+    .newbiz-card h3 {
+      color: var(--text-dark);
+    }
+
+    .newbiz-note {
+      margin-top: 36px;
+      text-align: center;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .newbiz-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 48px;
+    }
+
+    .why-card {
+      text-align: left;
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      background: #fff;
+      padding: 22px 26px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .why-card img {
+      width: 62px;
+      margin: 0;
+    }
+
+    .why-card h3 {
+      margin: 0 0 10px;
+      text-align: left;
+      color: var(--orange);
+    }
+
+    .why-card p {
+      text-align: left;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 54px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      background: #fff;
+      padding: 28px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .price-card--featured {
+      border-width: 2px;
+      border-color: var(--orange);
+    }
+
+    .price-badge {
+      position: absolute;
+      left: 50%;
+      top: -20px;
+      transform: translateX(-50%);
+      min-height: 38px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ff874b, var(--orange));
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .price-card h3 {
+      margin: 0 0 16px;
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .price-card__price {
+      margin: 0 0 28px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .price-card__lead {
+      margin: 0 0 28px;
+      color: var(--text);
+      min-height: 94px;
+    }
+
+    .price-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+      color: var(--text);
+    }
+
+    .price-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .price-list__check {
+      color: var(--green);
+      font-size: 1.4rem;
+      line-height: 1;
+      flex: 0 0 18px;
+      margin-top: 1px;
+    }
+
+    .price-card__note {
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      padding: 12px 10px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .price-card__actions {
+      margin-top: 18px;
+    }
+
+    .price-card__actions .btn,
+    .price-card__actions .btn-outline {
+      width: 100%;
+      min-height: 54px;
+      border-radius: 12px;
+    }
+
+    .pricing-footer-note {
+      margin-top: 36px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .pricing-footer-note .accent {
+      font-weight: 700;
+    }
+
+    .guarantee {
+      max-width: 800px;
+      margin: 10px auto 0;
+      border: 2px solid rgba(241, 90, 30, 0.75);
+      border-radius: 20px;
+      padding: 52px 50px 36px;
+      background: #fff;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .guarantee__logo {
+      width: 92px;
+      margin-bottom: 24px;
+    }
+
+    .guarantee h2 {
+      margin: 0 0 14px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .guarantee p {
+      margin: 0 auto;
+      max-width: 650px;
+      color: var(--text);
+    }
+
+    .guarantee__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 620px;
+      margin: 36px auto 0;
+    }
+
+    .guarantee__option strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .guarantee__summary {
+      margin-top: 34px;
+      color: var(--orange);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .guarantee__foot {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: 54px auto 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 22px;
+      border: 0;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question span:last-child {
+      flex: 0 0 auto;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--muted);
+      transition: transform 140ms ease;
+    }
+
+    .faq-item[data-open="true"] .faq-question span:last-child {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 22px 20px;
+      color: var(--text);
+    }
+
+    .faq-item[data-open="true"] .faq-answer {
+      display: block;
+    }
+
+    .cta-bottom {
+      text-align: center;
+      padding-bottom: 78px;
+    }
+
+    .cta-bottom h2 {
+      margin: 0;
+      color: var(--text-dark);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .cta-bottom p {
+      margin: 12px auto 0;
+      max-width: 560px;
+      font-size: 1.06rem;
+      color: var(--text);
+    }
+
+    .cta-bottom .btn {
+      margin-top: 26px;
+      min-width: 278px;
+      border-radius: 8px;
+    }
+
+    .site-footer {
+      background: var(--footer);
+      color: #fff;
+      padding: 58px 0 340px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
+      align-items: start;
+    }
+
+    .footer-brand__top {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .footer-brand__mark {
+      width: 26px;
+      height: 26px;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .footer-brand__mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.2);
+    }
+
+    .footer-brand__word {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .footer-grid h3 {
+      margin: 0 0 22px;
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .footer-grid p,
+    .footer-grid li {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .footer-grid ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .footer-icon {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .footer-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .footer-link {
+      color: #ff9b61;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1300px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .newbiz-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero__stats,
+      .problem-grid,
+      .services-grid,
+      .process__grid,
+      .why-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .case-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .case-arrow {
+        display: none;
+      }
+
+      .case-compare,
+      .reports-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-arrow-mid {
+        transform: rotate(90deg);
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
+      .nav-toggle {
+        display: inline-block;
+      }
+
+      .nav {
+        position: fixed;
+        inset: 72px 12px auto;
+        display: none;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .nav.is-open {
+        display: block;
+      }
+
+      .nav__links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .nav__cta {
+        margin-top: 18px;
+        width: 100%;
+        min-height: 48px;
+      }
+
+      .hero__stats,
+      .problem-grid,
+      .services-grid,
+      .process__grid,
+      .newbiz-grid,
+      .why-grid,
+      .pricing-grid,
+      .footer-grid,
+      .guarantee__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process__line::before {
+        display: none;
+      }
+
+      .case-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .why-card {
+        grid-template-columns: 1fr;
+      }
+
+      .why-card img {
+        margin: 0 auto;
+      }
+
+      .why-card h3,
+      .why-card p {
+        text-align: center;
+      }
+
+      .site-footer {
+        padding-bottom: 120px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .hero {
+        padding: 38px 0 58px;
+      }
+
+      .hero__logo-wrap {
+        width: 174px;
+        height: 174px;
+      }
+
+      .hero__logo-wrap img {
+        width: 84px;
+      }
+
+      .hero__actions {
+        gap: 14px;
+      }
+
+      .btn,
+      .btn-outline {
+        width: 100%;
+      }
+
+      .hero__stats,
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .case-card {
+        padding: 20px 16px 20px;
+      }
+
+      .case-compare {
+        gap: 18px;
+      }
+
+      .guarantee {
+        padding: 38px 20px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#start" aria-label="Zautomatyzuj Się">
+        <span class="brand__mark">
+          <img src="assets/logo-z.png" alt="Logo Zautomatyzuj Się">
+        </span>
+        <span class="brand__word">zautomatyzuj<span class="accent">się</span></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav" data-nav>
+        <nav class="nav__links" aria-label="Główna nawigacja">
+          <a href="#uslugi">Usługi</a>
+          <a href="#jak-dzialamy">Jak działamy</a>
+          <a href="#case-study">Case Study</a>
+          <a href="#ksef">Gotowi na KSeF!</a>
+          <a href="#raport">Raport</a>
+          <a href="#o-nas">O Nas</a>
+          <a href="#cennik">Cennik</a>
+          <a href="#faq">FAQ</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="btn nav__cta" href="#kontakt">Rozpocznij współpracę</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero__inner">
+        <div class="hero__logo-wrap">
+          <img src="assets/logo-z.png" alt="">
+        </div>
+        <h1 class="hero__title">Twoja firma. <strong>Widoczna.</strong></h1>
+        <p class="hero__text">
+          Łączymy sztuczną inteligencję z marketingiem cyfrowym, żeby Twoja firma
+          była <span class="accent dark">#1 w Google</span>, social media i w głowach klientów.
+          <span class="dark">Działamy w całej Polsce!</span>
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="#kontakt">Bezpłatna analiza firmy</a>
+          <a class="btn-outline" href="#case-study">Zobacz efekty</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <strong>1089+</strong>
+            <span><span class="dark">źródeł</span><br>w bazie wiedzy</span>
+          </div>
+          <div class="hero__stat">
+            <strong>543+</strong>
+            <span><span class="dark">potwierdzonych</span><br>wniosków</span>
+          </div>
+          <div class="hero__stat">
+            <strong>154</strong>
+            <span><span class="dark">źródeł</span> monitorowanych<br>codziennie</span>
+          </div>
+          <div class="hero__stat">
+            <strong>#1</strong>
+            <span>pozycje w <span class="dark">Google</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container">
+        <h2 class="section-title">Czy Twoja firma istnieje w internecie?</h2>
+        <p class="section-subtitle">Sprawdź, czy nie tracisz klientów każdego dnia.</p>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Brak strony WWW</h3>
+            <p>83% klientów <span class="dark">szuka firm w Google</span>. Jeśli Cię tam nie ma - nie istniejesz.</p>
+          </article>
+          <article class="problem-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Brak widoczności w Google</h3>
+            <p>Twoja konkurencja jest na pierwszej stronie.<br>Ty jesteś na dziesiątej.</p>
+          </article>
+          <article class="problem-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Social media bez efektów</h3>
+            <p>Publikujesz posty, ale nikt ich nie widzi?<br>Algorytm Cię zignorował.</p>
+          </article>
+        </div>
+
+        <div class="problem-note">
+          <strong>My to naprawiamy.</strong> Dzięki naszym rozwiązaniom przeanalizujemy wszystko - od Google,
+          przez social media, po konkurencję - i damy Ci szczegółowy plan napisany prostym językiem,
+          gotowy do wdrożenia. A jeśli chcesz? Wdrożymy go razem z Tobą.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--divider" id="uslugi">
+      <div class="container">
+        <h2 class="section-title">Co robimy</h2>
+        <p class="section-subtitle">Kompletny pakiet usług dla Twojej firmy. Jedno miejsce, jeden partner.</p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Pełna analiza firmy w sieci</h3>
+            <p>Audyt strony WWW, SEO, Google Business Profile, opinii oraz Instagrama, Facebooka i TikToka - minimum 100 ostatnich postów każdej platformy. Plus analiza konkurencji w Google i w mediach społecznościowych.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Strony WWW od zera</h3>
+            <p>Budujemy strony oparte na badaniach UX z 2026 roku - zoptymalizowane pod Google i nowe wyszukiwarki AI od pierwszego dnia. Dane strukturalne, szybkość, dostępność, mobilność, GEO.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Pozycjonowanie SEO i AI Search</h3>
+            <p>Wyprowadzamy Cię na #1 w Google, mapach oraz w odpowiedziach wyszukiwarek AI - ChatGPT, Google AI Mode, Perplexity, Claude, Gemini. Każda decyzja oparta na aktualnym badaniu z 2026 roku.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Social media - Twoje i konkurencji</h3>
+            <p>Deep dive Twojego Instagrama, Facebooka i TikToka oraz pięciu do dziesięciu konkurentów na każdej platformie. Strategia treści oparta na najnowszych badaniach branżowych.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Re-audyt po wdrożeniu</h3>
+            <p>Po 14-30 dniach od wdrożenia sprawdzamy, co się zmieniło. Tabela porównawcza PRZED i PO z konkretnymi liczbami, gotowa do publikacji w mediach społecznościowych.</p>
+          </article>
+          <article class="service-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Stałe prowadzenie firmy</h3>
+            <p>Comiesięczne raporty, ciągła aktualizacja strategii o najnowsze badania i trendy. Reagujemy na zmiany algorytmów Google, Instagrama, TikToka i wyszukiwarek AI w czasie rzeczywistym.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-dzialamy">
+      <div class="container">
+        <h2 class="section-title">Jak działamy</h2>
+        <p class="section-subtitle">Od analizy do efektów w 4 krokach.</p>
+
+        <div class="process">
+          <div class="process__line">
+            <div class="process__grid">
+              <article class="process__step">
+                <div class="process__badge">1</div>
+                <h3>Bezpłatna konsultacja</h3>
+                <p>Rozmawiamy o Twojej firmie.<br>Bez zobowiązań.</p>
+              </article>
+              <article class="process__step">
+                <div class="process__badge">2</div>
+                <h3>Analiza z AI</h3>
+                <p>W oparciu o najnowsze wyniki badań, wspólnie z AI analizujemy Twoją obecność online, konkurencję i szanse na wzrost.</p>
+              </article>
+              <article class="process__step">
+                <div class="process__badge">3</div>
+                <h3>Plan działania</h3>
+                <p>Dostajesz konkretny raport: co zrobić, dlaczego i jak.</p>
+              </article>
+              <article class="process__step">
+                <div class="process__badge">4</div>
+                <h3>Wdrożenie + Efekty</h3>
+                <p>Wdrażamy zmiany i monitorujemy wyniki. Widzisz postępy w czasie rzeczywistym.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-note">
+          <strong>Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół - to nasza przewaga.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--divider" id="case-study">
+      <div class="container">
+        <h2 class="section-title">Efekty naszej pracy</h2>
+        <p class="section-subtitle">Realne wyniki, realne firmy, realne dane.</p>
+
+        <div class="case-wrap">
+          <button class="case-arrow" type="button" data-case-prev aria-label="Poprzedni case">‹</button>
+
+          <div>
+            <article class="case-card" data-case-card>
+              <div class="case-card__top">
+                <span class="case-badge">Realizacja</span>
+                <span class="case-location" data-case-location>Salon kosmetyczny - Warszawa Mokotów</span>
+              </div>
+
+              <div class="case-compare">
+                <div class="case-box case-box--before">
+                  <h3 class="case-box__title">Przed</h3>
+                  <ul class="case-list" data-case-before></ul>
+                </div>
+
+                <div class="case-arrow-mid">→</div>
+
+                <div class="case-box case-box--after">
+                  <h3 class="case-box__title" style="color: var(--green);">Po 30 dniach</h3>
+                  <ul class="case-list" data-case-after></ul>
+                </div>
+              </div>
+
+              <div class="case-metrics" data-case-metrics></div>
+
+              <div class="case-meta">Czas realizacji: <span class="dark" data-case-time>30 dni</span></div>
+              <div class="case-quote" data-case-quote></div>
+
+              <div class="case-card__cta">
+                <a class="btn" href="#kontakt">Chcesz takie efekty? Rozpocznij współpracę</a>
+              </div>
+            </article>
+
+            <div class="dots" data-case-dots></div>
+          </div>
+
+          <button class="case-arrow" type="button" data-case-next aria-label="Następny case">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="raport">
+      <div class="container">
+        <h2 class="section-title">Co dokładnie dostajesz?</h2>
+        <p class="section-subtitle">Każdy klient otrzymuje dwa dokumenty. Kliknij żeby zobaczyć pełny przykład.</p>
+        <p class="section-copy">
+          Poniżej dwa kompletne raporty poglądowe - na ich potrzeby nazwy firm i dane zostały zmienione,
+          ale struktura, szczegółowość i jakość są identyczne z tym co otrzymasz Ty.
+        </p>
+
+        <div class="reports-grid">
+          <article class="report-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Raport główny - pełna analiza</h3>
+            <p>Pozycje Google, analiza konkurencji z liczbami, SWOT, diagnoza problemów, strategia 90-dniowa, tabela KPI, źródła.</p>
+            <a href="#kontakt">Kliknij żeby otworzyć →</a>
+          </article>
+          <article class="report-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Plan wdrożenia - krok po kroku</h3>
+            <p>14 kroków w 3 fazach, każdy opisany prostym językiem: co zrobić, dlaczego, jak i jaki będzie efekt.</p>
+            <a href="#kontakt">Kliknij żeby otworzyć →</a>
+          </article>
+        </div>
+
+        <div class="reports-note">
+          <h3>To nie jest kolejny ogólnikowy raport.</h3>
+          <p>To kompletna analiza Twojej firmy, Twojej konkurencji i Twojego rynku - z konkretnymi krokami opisanymi tak, żebyś mógł je wdrożyć sam lub razem z nami. Czegoś takiego nie dostaniesz nigdzie indziej.</p>
+          <strong>Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół - to nasza przewaga.</strong>
+          <a class="btn" href="#kontakt">Otrzymaj taki raport dla swojej firmy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--divider" id="ksef">
+      <div class="container">
+        <h2 class="section-title">Jesteś nową firmą?</h2>
+        <p class="section-subtitle">Zautomatyzujemy Twój biznes od <span class="accent dark">A</span> do <span class="accent dark">Z</span>.</p>
+        <p class="section-copy">
+          Dobieramy i wdrażamy programy handlowo-magazynowe, kadrowe, księgowe oraz systemy CRM - dokładnie pod Twoją działalność.
+          Nieważne, czy prowadzisz jednoosobową firmę, sklep internetowy, czy średnie przedsiębiorstwo - nasi wdrożeniowcy mają doświadczenie
+          w systemach ERP zarówno dla dużych organizacji, jak i dla mikrofirm.
+        </p>
+
+        <div class="newbiz-grid">
+          <article class="newbiz-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Programy handlowo-magazynowe</h3>
+            <p>Fakturowanie, magazyn, zamówienia, sprzedaż - wszystko w jednym systemie.</p>
+          </article>
+          <article class="newbiz-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>PrestaShop i e-commerce</h3>
+            <p>Sklepy PrestaShop, konfiguracja sprzedaży, płatności, dostaw, modułów i integracji z zapleczem firmy.</p>
+          </article>
+          <article class="newbiz-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>CRM i automatyzacja</h3>
+            <p>Zarządzanie klientami, leady, pipeline sprzedażowy, automatyczne przypomnienia i raporty.</p>
+          </article>
+          <article class="newbiz-card">
+            <img src="assets/logo-z.png" alt="">
+            <h3>Pełna automatyzacja procesów</h3>
+            <p>Integracje między systemami, automatyczne faktury, powiadomienia, raporty - zero ręcznej pracy.</p>
+          </article>
+        </div>
+
+        <p class="newbiz-note">Napisz do nas, jaki typ działalności prowadzisz i czego potrzebujesz - przygotujemy ofertę skrojoną pod Twój biznes.</p>
+        <div class="newbiz-cta">
+          <a class="btn" href="#kontakt">Zapytaj o wdrożenie</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="o-nas">
+      <div class="container">
+        <h2 class="section-title">Dlaczego Zautomatyzuj Się?</h2>
+        <p class="section-subtitle">To, co nas wyróżnia od innych agencji.</p>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <img src="assets/logo-z.png" alt="">
+            <div>
+              <h3>Dane, nie opinie</h3>
+              <p>Każda rekomendacja poparta analizą ponad 1089 źródeł branżowych - codziennie monitorujemy 154 publikacji z 2026 roku. <span class="dark">Działamy na faktach, nie na przeczuciach.</span></p>
+            </div>
+          </article>
+          <article class="why-card">
+            <img src="assets/logo-z.png" alt="">
+            <div>
+              <h3>Konkurencja na dwóch torach</h3>
+              <p>Analizujemy konkurencję nie tylko w Google, ale również na każdej platformie społecznościowej. Pełna analiza Twoich konkurentów na Instagramie, Facebooku i TikToku - <span class="dark">wiemy dokładnie co działa u nich i jak ich pobić.</span></p>
+            </div>
+          </article>
+          <article class="why-card">
+            <img src="assets/logo-z.png" alt="">
+            <div>
+              <h3>Kompletny pakiet</h3>
+              <p>Audyt + strona + SEO + social media + Google Business + AI Search + re-audyty co 30 dni. <span class="dark">Jedno miejsce, jeden partner, zero chaosu.</span></p>
+            </div>
+          </article>
+          <article class="why-card">
+            <img src="assets/logo-z.png" alt="">
+            <div>
+              <h3>Bez umów</h3>
+              <p>Miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz. <span class="dark">Bez kar, bez drobnego druku.</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--divider" id="cennik">
+      <div class="container">
+        <h2 class="section-title">Ile to kosztuje?</h2>
+        <p class="section-subtitle">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Konsultacja</h3>
+            <div class="price-card__price">0zł</div>
+            <p class="price-card__lead">Porozmawiajmy o Twojej firmie. <span class="dark">Bez zobowiązań, bez presji.</span></p>
+            <ul class="price-list">
+              <li><span class="price-list__check">✓</span><span>30 minut rozmowy online lub telefonicznie</span></li>
+              <li><span class="price-list__check">✓</span><span>Przedstawienie możliwości dla Twojej firmy</span></li>
+              <li><span class="price-list__check">✓</span><span>Odpowiedzi na Twoje pytania</span></li>
+              <li><span class="price-list__check">✓</span><span>Zero zobowiązań - decydujesz po rozmowie</span></li>
+            </ul>
+            <div class="price-card__note">W innych polskich agencjach: <span class="dark">300-1500 PLN/h</span>, czas oczekiwania 5-14 dni. U nas: <span class="dark">bezpłatnie</span>, nawet w 24 godziny.</div>
+            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Umów rozmowę</a></div>
+          </article>
+
+          <article class="price-card">
+            <h3>Audyt firmy</h3>
+            <div class="price-card__price">1299 zł</div>
+            <p class="price-card__lead"><span class="dark">Dowiedz się dokładnie</span> co działa, co nie i dlaczego klienci trafiają do konkurencji.</p>
+            <ul class="price-list">
+              <li><span class="price-list__check">✓</span><span>Szczegółowa analiza Twojej widoczności w Google</span></li>
+              <li><span class="price-list__check">✓</span><span>Analiza profili social media (Instagram, Facebook)</span></li>
+              <li><span class="price-list__check">✓</span><span>Audyt Google Business Profile (opinie, zdjęcia, kategorie)</span></li>
+              <li><span class="price-list__check">✓</span><span>Pełna analiza konkurencji - kto Cię wyprzedza i dlaczego</span></li>
+              <li><span class="price-list__check">✓</span><span>Audyt strony WWW (szybkość, SEO, bezpieczeństwo)</span></li>
+              <li><span class="price-list__check">✓</span><span>Raport HTML z konkretnymi danymi i liczbami</span></li>
+              <li><span class="price-list__check">✓</span><span>Lista problemów uszeregowana od najważniejszego</span></li>
+            </ul>
+            <div class="price-card__note">W innych polskich agencjach: <span class="dark">2 500-8 000 PLN</span>, realizacja 2-5 tygodni. U nas: <span class="dark">1299 PLN</span>, gotowe w 2-5 dni roboczych.</div>
+            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Zamów teraz</a></div>
+          </article>
+
+          <article class="price-card price-card--featured">
+            <div class="price-badge">Najpopularniejszy</div>
+            <h3>Audyt + Plan wdrożenia</h3>
+            <div class="price-card__price">1999 zł</div>
+            <p class="price-card__lead">Pełna analiza + gotowy plan krok po kroku napisany prostym językiem. <span class="dark">Wiesz co robić i jak.</span></p>
+            <ul class="price-list">
+              <li><span class="price-list__check">✓</span><span>Wszystko z pakietu Audyt firmy</span></li>
+              <li><span class="price-list__check">✓</span><span>Szczegółowy plan wdrożenia krok po kroku</span></li>
+              <li><span class="price-list__check">✓</span><span>Każdy krok opisany prostym językiem: co, dlaczego, jak</span></li>
+              <li><span class="price-list__check">✓</span><span>Priorytetyzacja - od czego zacząć żeby efekty były najszybciej</span></li>
+              <li><span class="price-list__check">✓</span><span>Tabela celów na 30, 60 i 90 dni</span></li>
+              <li><span class="price-list__check">✓</span><span>Godzinna konsultacja online - wyjaśnimy każdy punkt</span></li>
+              <li><span class="price-list__check">✓</span><span>Możliwość zadawania pytań po konsultacji (email)</span></li>
+              <li><span class="price-list__check">✓</span><span>Re-audyt po 30 dniach - sprawdzimy co się zmieniło i co dalej</span></li>
+            </ul>
+            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: <span class="dark">1999 PLN</span>, gotowe w 3-7 dni roboczych.</div>
+            <div class="price-card__actions"><a class="btn" href="#kontakt">Zamów teraz</a></div>
+          </article>
+
+          <article class="price-card">
+            <h3>Audyt + Wdrożenie</h3>
+            <div class="price-card__price">Indywidualnie</div>
+            <p class="price-card__lead">Nie chcesz robić tego sam? Zrobimy to razem z Tobą - <span class="dark">od analizy do efektów.</span></p>
+            <ul class="price-list">
+              <li><span class="price-list__check">✓</span><span>Wszystko z pakietu Audyt lub Audyt + Plan</span></li>
+              <li><span class="price-list__check">✓</span><span>Budowa lub przebudowa strony WWW</span></li>
+              <li><span class="price-list__check">✓</span><span>Optymalizacja Google Business Profile</span></li>
+              <li><span class="price-list__check">✓</span><span>Pozycjonowanie SEO</span></li>
+              <li><span class="price-list__check">✓</span><span>Strategia i prowadzenie social media</span></li>
+              <li><span class="price-list__check">✓</span><span>Stały kontakt i wsparcie</span></li>
+            </ul>
+            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: wycena po zakresie i wdrożeniu.</div>
+            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Skontaktuj się</a></div>
+          </article>
+
+          <article class="price-card">
+            <h3>Stała opieka</h3>
+            <div class="price-card__price">Indywidualnie</div>
+            <p class="price-card__lead">Stała opieka po wdrożeniu. Dbamy o to, żeby <span class="dark">Twoja firma była zawsze o krok przed konkurencją.</span></p>
+            <ul class="price-list">
+              <li><span class="price-list__check">✓</span><span>Comiesięczny raport wyników z konkretnymi liczbami</span></li>
+              <li><span class="price-list__check">✓</span><span>Bieżąca aktualizacja strategii o najnowsze badania branżowe</span></li>
+              <li><span class="price-list__check">✓</span><span>Reagowanie na zmiany algorytmów Google, Instagrama, TikToka i wyszukiwarek AI</span></li>
+              <li><span class="price-list__check">✓</span><span>Monitoring nowych trendów w Twojej branży</span></li>
+              <li><span class="price-list__check">✓</span><span>Optymalizacja strony pod nowe sygnały rankingowe</span></li>
+              <li><span class="price-list__check">✓</span><span>Tworzenie i odświeżanie treści na bazie wniosków z badań</span></li>
+              <li><span class="price-list__check">✓</span><span>Stały kontakt i konsultacje merytoryczne</span></li>
+            </ul>
+            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: model stałej opieki dopasowany do firmy.</div>
+            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Skontaktuj się</a></div>
+          </article>
+        </div>
+
+        <p class="pricing-footer-note">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji</span>. Nie podpisujesz umowy - pracujemy miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz bez kar.</p>
+      </div>
+    </section>
+
+    <section class="section" id="gwarancja">
+      <div class="container">
+        <div class="guarantee">
+          <img class="guarantee__logo" src="assets/logo-z.png" alt="">
+          <h2>Realne efekty albo zwrot pieniędzy</h2>
+          <p>Nie obiecujemy cudów - obiecujemy mierzalne wyniki. Jeśli po 90 dniach współpracy nie zobaczysz wzrostu widoczności w Google, większego ruchu na stronie i zapytań od klientów - masz dwie opcje:</p>
+
+          <div class="guarantee__grid">
+            <div class="guarantee__option">
+              <strong>1</strong>
+              <div>Zwracamy <span class="dark">100% pieniędzy</span></div>
+            </div>
+            <div class="guarantee__option">
+              <strong>2</strong>
+              <div>Pracujemy za <span class="dark">darmo kolejne 30 dni</span> aż do efektów</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 28px;">Ty wybierasz. Bo to Twój biznes i Twoja decyzja.</p>
+          <div class="guarantee__summary">Zero ryzyka po Twojej stronie. Całkowite zaufanie po naszej.</div>
+          <div class="guarantee__foot">Gwarancja obejmuje uzgodnione wspólnie wskaźniki efektywności (KPI) określone przed rozpoczęciem współpracy.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--divider" id="faq">
+      <div class="container">
+        <h2 class="section-title">Najczęstsze pytania</h2>
+        <p class="section-subtitle">Wszystko, co chcesz wiedzieć zanim napiszesz.</p>
+
+        <div class="faq">
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Ile kosztuje współpraca?</span><span>⌄</span></button>
+            <div class="faq-answer">Mamy kilka wariantów współpracy: od bezpłatnej konsultacji, przez audyt i plan wdrożenia, po pełne wdrożenie i stałą opiekę. Zakres dobieramy do etapu firmy i realnych potrzeb.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Jak szybko zobaczę efekty?</span><span>⌄</span></button>
+            <div class="faq-answer">Pierwsze efekty zwykle widać w 7-14 dni od wdrożenia. Pełna optymalizacja pozycji i wyników to proces 30-90 dni zależnie od branży, konkurencji i punktu startowego.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Dla kogo są Wasze usługi?</span><span>⌄</span></button>
+            <div class="faq-answer">Dla mikro i małych firm, lokalnych usług, e-commerce, nowych działalności oraz firm, które chcą uporządkować stronę, marketing i proces sprzedaży w jednym miejscu.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Czy potrzebuję strony internetowej?</span><span>⌄</span></button>
+            <div class="faq-answer">W większości przypadków tak, bo strona porządkuje komunikację, sprzedaż i dane. Jeśli działasz na samych social mediach, zwykle to właśnie strona jest brakującym elementem wzrostu.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Czym różnicie się od innych agencji?</span><span>⌄</span></button>
+            <div class="faq-answer">Łączymy analizę, stronę, SEO, AI Search, wdrożenia systemowe i automatyzacje. Nie rozbijasz współpracy między kilku wykonawców i nie składasz efektu samodzielnie.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Czy analizujecie też media społecznościowe konkurencji?</span><span>⌄</span></button>
+            <div class="faq-answer">Tak. Analizujemy nie tylko Google, ale też Instagram, Facebook i TikTok, żeby zobaczyć co realnie działa w Twojej branży i gdzie konkurencja zdobywa uwagę klientów.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Czy optymalizujecie też pod wyszukiwarki AI?</span><span>⌄</span></button>
+            <div class="faq-answer">Tak. Uwzględniamy Google AI Mode, ChatGPT, Perplexity, Gemini i Claude. To nie jest osobny dodatek, tylko część nowoczesnej widoczności marki.</div>
+          </article>
+          <article class="faq-item" data-open="false">
+            <button class="faq-question" type="button"><span>Co dzieje się po audycie i wdrożeniu?</span><span>⌄</span></button>
+            <div class="faq-answer">Po wdrożeniu robimy re-audyt, porównujemy wyniki przed i po oraz planujemy kolejne kroki. Możesz zakończyć współpracę albo przejść w model stałej opieki.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-bottom" id="kontakt">
+      <div class="container">
+        <h2>Gotowy żeby <span class="accent">Twoja firma</span> była <span class="accent">#1</span>?</h2>
+        <p>Bezpłatna analiza Twojej firmy.<br><span class="dark">Bez zobowiązań. Bez ukrytych kosztów.</span><br>Realne efekty albo zwrot pieniędzy.</p>
+        <a class="btn" href="mailto:zautomatyzujsie@gmail.com">Rozpocznij współpracę</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__top">
+            <span class="footer-brand__mark"><img src="assets/logo-z.png" alt="Logo Zautomatyzuj Się"></span>
+            <span class="footer-brand__word">zautomatyzuj<span class="accent">się</span></span>
+          </div>
+          <p>Twoja firma. <span class="dark" style="color:#fff;">Widoczna.</span></p>
+          <div class="footer-icons">
+            <a class="footer-icon" href="https://www.facebook.com/zautomatyzujsie" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073c0 6.019 4.388 11.008 10.125 11.927v-8.438H7.078v-3.49h3.047V9.41c0-3.022 1.792-4.693 4.533-4.693 1.313 0 2.686.235 2.686.235v2.969H15.83c-1.491 0-1.956.931-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.081 24 18.092 24 12.073z"/></svg>
+            </a>
+            <a class="footer-icon" href="https://www.instagram.com/zautomatyzujsie/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm11.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Usługi</h3>
+          <ul>
+            <li><a href="#uslugi">Analiza firmy</a></li>
+            <li><a href="#uslugi">Strony WWW</a></li>
+            <li><a href="#uslugi">SEO</a></li>
+            <li><a href="#uslugi">Social Media</a></li>
+            <li><a href="#ksef">Automatyzacja</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Firma</h3>
+          <ul>
+            <li><a href="#case-study">Realizacje</a></li>
+            <li><a href="#raport">Przykładowy raport</a></li>
+            <li><a href="#o-nas">O Nas</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a class="footer-link" href="mailto:zautomatyzujsie@gmail.com">zautomatyzujsie@gmail.com</a></li>
+            <li>Instagram: <a class="footer-link" href="https://www.instagram.com/zautomatyzujsie/">@zautomatyzujsie</a></li>
+            <li>Facebook: <a class="footer-link" href="https://www.facebook.com/zautomatyzujsie">Zautomatyzuj Się</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector("[data-nav-toggle]");
+    const nav = document.querySelector("[data-nav]");
+
+    if (navToggle && nav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    const cases = [
+      {
+        location: "Salon kosmetyczny - Warszawa Mokotów",
+        time: "30 dni",
+        before: [
+          "Strona z 2019, niezoptymalizowana",
+          "0 fraz w Top 10 Google",
+          "Instagram: 340 obserwujących",
+          "2-3 nowych klientów z internetu na miesiąc"
+        ],
+        after: [
+          "Nowa strona z SEO + Schema markup",
+          "3 frazy w Top 10 Google",
+          "Instagram: 460 obserwujących (+35%)",
+          "5-6 nowych klientów z internetu"
+        ],
+        metrics: [
+          { value: "+35%", label: "obserwujących IG" },
+          { value: "0 → 13", label: "polubień FB" },
+          { value: "4x", label: "więcej zapytań" },
+          { value: "5.0 ★ 89", label: "opinii w Google" }
+        ],
+        quote: "“Klientki zaczęły <span class=\"accent\">same</span> nas <span class=\"accent\">znajdować</span> w Google.”"
+      },
+      {
+        location: "Zajęcia dla dzieci - Kielce",
+        time: "7 dni",
+        before: [
+          "0 stron zaindeksowanych w Google",
+          "Brak widoczności w wyszukiwarce",
+          "Brak strony internetowej",
+          "Tylko profil na Instagramie"
+        ],
+        after: [
+          "10 stron zaindeksowanych w Google",
+          "#1 w Google Maps na 6 fraz",
+          "#2 w wynikach organicznych",
+          "16 podstron + blog firmowy"
+        ],
+        metrics: [
+          { value: "0 → 16", label: "stron WWW" },
+          { value: "0 → #1", label: "Google Maps" },
+          { value: "#6 → #2", label: "wyniki organiczne" },
+          { value: "5.0 ★ 89", label: "opinii w Google" }
+        ],
+        quote: "“Od <span class=\"accent\">zera</span> do <span class=\"accent\">lidera</span> w Google w 7 dni.”"
+      },
+      {
+        location: "Gabinet fizjoterapii - Kraków",
+        time: "30 dni",
+        before: [
+          "Wizytówka Google bez optymalizacji",
+          "Brak strony internetowej",
+          "12 opinii Google (4.2★)",
+          "Klienci tylko z polecenia"
+        ],
+        after: [
+          "#6 Local Pack na główną frazę",
+          "Strona 6 podstron + blog",
+          "19 opinii Google (4.6★)",
+          "~15% klientów z Google"
+        ],
+        metrics: [
+          { value: "0 → #6", label: "Google Maps" },
+          { value: "0 → 6", label: "stron WWW" },
+          { value: "+58%", label: "więcej opinii" },
+          { value: "4.2 → 4.6", label: "ocena Google" }
+        ],
+        quote: "“Wreszcie ktoś <span class=\"accent\">wyjaśnił mi</span> co robić - i <span class=\"accent\">zrobił to ze mną</span>.”"
+      },
+      {
+        location: "Szkoła językowa - Łódź",
+        time: "30 dni",
+        before: [
+          "Stara strona na Wix, brak SEO",
+          "Facebook: 500 polubień, 2 zapytania/msc",
+          "Brak widoczności w Google Maps",
+          "Zapisy głównie z ulotek i polecenia"
+        ],
+        after: [
+          "Nowa strona z 8 podstronami + SEO",
+          "Facebook: 640 polubień, 8 zapytań/msc",
+          "#8 w Google Maps na 2 frazy",
+          "Pierwsze zapisy przez formularz online"
+        ],
+        metrics: [
+          { value: "+28%", label: "polubień FB" },
+          { value: "0 → #8", label: "Google Maps" },
+          { value: "4x", label: "więcej zapytań" },
+          { value: "0 → 8", label: "stron WWW" }
+        ],
+        quote: "“Pierwszy raz ktoś <span class=\"accent\">napisał</span> do nas <span class=\"accent\">przez Google</span> - to działa.”"
+      }
+    ];
+
+    const caseLocation = document.querySelector("[data-case-location]");
+    const caseBefore = document.querySelector("[data-case-before]");
+    const caseAfter = document.querySelector("[data-case-after]");
+    const caseMetrics = document.querySelector("[data-case-metrics]");
+    const caseTime = document.querySelector("[data-case-time]");
+    const caseQuote = document.querySelector("[data-case-quote]");
+    const caseDots = document.querySelector("[data-case-dots]");
+    const prevBtn = document.querySelector("[data-case-prev]");
+    const nextBtn = document.querySelector("[data-case-next]");
+    let caseIndex = 0;
+
+    function renderCase(index) {
+      const item = cases[index];
+      if (!item) return;
+
+      caseLocation.textContent = item.location;
+      caseTime.textContent = item.time;
+      caseBefore.innerHTML = item.before.map((row) => `<li><span class="case-list__icon case-list__icon--bad">×</span><span>${row}</span></li>`).join("");
+      caseAfter.innerHTML = item.after.map((row) => `<li><span class="case-list__icon case-list__icon--good">✓</span><span>${row}</span></li>`).join("");
+      caseMetrics.innerHTML = item.metrics.map((metric) => `<div class="case-metric"><strong>${metric.value}</strong><span>${metric.label}</span></div>`).join("");
+      caseQuote.innerHTML = item.quote;
+
+      caseDots.querySelectorAll(".dot").forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === index);
+      });
+    }
+
+    if (caseDots) {
+      cases.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "dot" + (index === 0 ? " is-active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Pokaż case ${index + 1}`);
+        dot.addEventListener("click", () => {
+          caseIndex = index;
+          renderCase(caseIndex);
+        });
+        caseDots.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        caseIndex = (caseIndex - 1 + cases.length) % cases.length;
+        renderCase(caseIndex);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        caseIndex = (caseIndex + 1) % cases.length;
+        renderCase(caseIndex);
+      });
+    }
+
+    renderCase(caseIndex);
+
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      button.addEventListener("click", () => {
+        const open = item.getAttribute("data-open") === "true";
+        document.querySelectorAll(".faq-item").forEach((entry) => {
+          entry.setAttribute("data-open", "false");
+        });
+        item.setAttribute("data-open", String(!open));
+      });
+    });
+  </script>
+</body>
+</html>
