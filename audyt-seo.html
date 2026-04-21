@@ -78,6 +78,74 @@ body {
         .mobile-menu.active { display: flex; }
         .mobile-menu a { color: #1A1A2E; font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 600; min-height: 44px; display: flex; align-items: center; padding: 8px 16px; }
         .mobile-menu a:hover { color: #E8520F; }
+        .nav-item { position: relative; }
+        .nav-item--dropdown { display: flex; align-items: center; }
+        .nav-trigger {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #5A5A6E; font-size: 0.9rem; font-weight: 500;
+            background: none; border: none; padding: 0; cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-trigger:hover,
+        .nav-item--dropdown:hover .nav-trigger,
+        .nav-item--dropdown:focus-within .nav-trigger { color: #E8520F; }
+        .nav-trigger-icon {
+            width: 8px; height: 8px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg) translateY(-1px);
+            transition: transform 0.2s ease;
+        }
+        .nav-item--dropdown:hover .nav-trigger-icon,
+        .nav-item--dropdown:focus-within .nav-trigger-icon { transform: rotate(-135deg) translateY(1px); }
+        .dropdown {
+            position: absolute; top: calc(100% + 16px); left: 0;
+            min-width: 296px; padding: 12px;
+            border: 1px solid #E8E0D8; border-radius: 18px;
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            display: grid; gap: 6px;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+        .dropdown a {
+            display: grid; gap: 4px;
+            padding: 12px 14px; border-radius: 14px;
+            color: #1A1A2E; font-size: 0.92rem; font-weight: 600; line-height: 1.3;
+        }
+        .dropdown a small { color: #5A5A6E; font-size: 0.78rem; font-weight: 500; }
+        .dropdown a:hover { background: rgba(232,82,15,0.06); color: #E8520F; }
+        .nav-item--dropdown:hover .dropdown,
+        .nav-item--dropdown:focus-within .dropdown {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .mobile-menu-group {
+            display: flex; flex-direction: column; gap: 10px;
+            width: 100%; align-items: center;
+        }
+        .mobile-menu-toggle {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            min-height: 44px; padding: 8px 16px;
+            background: none; border: none;
+            color: #1A1A2E; font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 600;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle-icon {
+            width: 10px; height: 10px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+        }
+        .mobile-menu-group.active .mobile-menu-toggle-icon { transform: rotate(-135deg); }
+        .mobile-menu-submenu {
+            display: none; flex-direction: column; align-items: center; gap: 16px;
+        }
+        .mobile-menu-group.active .mobile-menu-submenu { display: flex; }
+        .mobile-menu-submenu a {
+            font-size: 1rem; font-weight: 500; color: #5A5A6E;
+        }
+        .mobile-menu-submenu a:hover { color: #E8520F; }
         .hero { min-height: 70vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 72px; }
         .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, #FAFAF8 0%, #F5F0EB 25%, #FFF8F0 50%, #F5F0EB 75%, #FAFAF8 100%); background-size: 400% 400%; animation: heroGradient 15s ease infinite; }
         @keyframes heroGradient { 0%, 100% { background-position: 0% 50%; } 25% { background-position: 100% 0%; } 50% { background-position: 100% 100%; } 75% { background-position: 0% 100%; } }
@@ -248,20 +316,50 @@ body {
     </style>
 </head>
 <body>
-    <nav class="nav" role="navigation" aria-label="Nawigacja">
+    <nav class="nav" role="navigation" aria-label="Nawigacja główna">
         <div class="nav-inner">
             <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="Zautomatyzuj Się logo" class="nav-logo-img" width="44" height="44"><span>Zautomatyzuj Się</span></a>
             <ul class="nav-links">
-                <li><a href="index.html" onclick="event.preventDefault();document.getElementById('page-loader').classList.add('active');setTimeout(function(){window.location.href='index.html'},1800);">← Strona główna</a></li>
+                <li class="nav-item nav-item--dropdown">
+                    <button class="nav-trigger" type="button" aria-haspopup="true">Usługi <span class="nav-trigger-icon" aria-hidden="true"></span></button>
+                    <div class="dropdown">
+                        <a href="sklepy-internetowe.html">Sklepy internetowe<small>Sprzedaż, UX i rozwój e-commerce</small></a>
+                        <a href="strony-www.html">Strony WWW<small>Nowoczesne strony dla leadów i marki</small></a>
+                        <a href="wdrozenia-programow-dla-firm.html">Wdrożenia programów dla firm<small>ERP, CRM, magazyn, sprzedaż, KSeF</small></a>
+                        <a href="automatyzacja-procesow-w-firmie.html">Automatyzacja procesów w firmie<small>Workflow, oszczędność czasu i mniej błędów</small></a>
+                        <a href="integratory.html">Integratory<small>Łączenie systemów, marketplace i logistyki</small></a>
+                    </div>
+                </li>
+                <li><a href="index.html#jak-dzialamy">Jak działamy</a></li>
+                <li><a href="index.html#case-study">Case study</a></li>
+                <li><a href="index.html#raport">Raport</a></li>
+                <li><a href="index.html#dlaczego">O nas</a></li>
+                <li><a href="cennik.html">Cennik</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
                 <li><a href="kontakt.html" class="btn btn-primary nav-cta">Rozpocznij współpracę</a></li>
             </ul>
-            <button class="hamburger" aria-expanded="false" onclick="document.querySelector('.mobile-menu').classList.toggle('active');this.setAttribute('aria-expanded',document.querySelector('.mobile-menu').classList.contains('active'))" aria-label="Menu mobilne">
+            <button class="hamburger" aria-expanded="false" onclick="document.querySelector('.mobile-menu').classList.toggle('active');this.setAttribute('aria-expanded',document.querySelector('.mobile-menu').classList.contains('active'))" aria-label="Menu mobilne" aria-controls="mobile-menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html" onclick="event.preventDefault();document.querySelector('.mobile-menu').classList.remove('active');document.getElementById('page-loader').classList.add('active');setTimeout(function(){window.location.href='index.html'},1800);">← Strona główna</a>
+        <div class="mobile-menu-group">
+            <button class="mobile-menu-toggle" type="button" aria-expanded="false" onclick="var group=this.parentNode;var open=group.classList.toggle('active');this.setAttribute('aria-expanded',open)">Usługi <span class="mobile-menu-toggle-icon" aria-hidden="true"></span></button>
+            <div class="mobile-menu-submenu">
+                <a href="sklepy-internetowe.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Sklepy internetowe</a>
+                <a href="strony-www.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Strony WWW</a>
+                <a href="wdrozenia-programow-dla-firm.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Wdrożenia programów dla firm</a>
+                <a href="automatyzacja-procesow-w-firmie.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Automatyzacja procesów w firmie</a>
+                <a href="integratory.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Integratory</a>
+            </div>
+        </div>
+        <a href="index.html#jak-dzialamy" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Jak działamy</a>
+        <a href="index.html#case-study" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Case study</a>
+        <a href="index.html#raport" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Raport</a>
+        <a href="index.html#dlaczego" onclick="document.querySelector('.mobile-menu').classList.remove('active')">O nas</a>
+        <a href="cennik.html" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Cennik</a>
+        <a href="index.html#faq" onclick="document.querySelector('.mobile-menu').classList.remove('active')">FAQ</a>
         <a href="kontakt.html" class="btn btn-primary" onclick="document.querySelector('.mobile-menu').classList.remove('active')">Rozpocznij współpracę</a>
     </div>
 
@@ -402,28 +500,30 @@ body {
                 <div>
                     <h4>Usługi</h4>
                     <ul class="footer-links">
-                        <li><a href="analiza-firmy.html">Analiza firmy</a></li>
-                        <li><a href="strony-internetowe.html">Strony WWW</a></li>
-                        <li><a href="audyt-seo.html">Audyt SEO</a></li>
-                        <li><a href="automatyzacja-marketingu.html">Automatyzacja</a></li>
+                        <li><a href="sklepy-internetowe.html">Sklepy internetowe</a></li>
+                        <li><a href="strony-www.html">Strony WWW</a></li>
+                        <li><a href="wdrozenia-programow-dla-firm.html">Wdrożenia programów dla firm</a></li>
+                        <li><a href="automatyzacja-procesow-w-firmie.html">Automatyzacja procesów</a></li>
+                        <li><a href="integratory.html">Integratory</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Firma</h4>
                     <ul class="footer-links">
-                        <li><a href="realizacje.html">Realizacje</a></li>
-                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="index.html#case-study">Case study</a></li>
+                        <li><a href="index.html#raport">Raport</a></li>
+                        <li><a href="index.html#dlaczego">O nas</a></li>
+                        <li><a href="cennik.html">Cennik</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
-                        <li><a href="kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Kontakt</h4>
-                    <p class="footer-contact-item">
-                        <a href="mailto:zautomatyzujsie@gmail.com" style="color:#E8520F">zautomatyzujsie@gmail.com</a>
-                    </p>
-                    <p class="footer-contact-item">Instagram: <a href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"style="user-select:text;-webkit-user-select:text"><span>@zautomatyzujsie</span></a></p>
-                    <p class="footer-contact-item">Facebook: <a href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"><span>Zautomatyzuj Się</span></a></p></div></div>
+                    <p class="footer-contact-item"><a href="mailto:zautomatyzujsie@gmail.com" style="color:#E8520F">zautomatyzujsie@gmail.com</a></p>
+                    <p class="footer-contact-item">Instagram: <a href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"><span>@zautomatyzujsie</span></a></p>
+                    <p class="footer-contact-item">Facebook: <a href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer"><span>Zautomatyzuj Się</span></a></p>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <span class="footer-copyright">&copy; 2026 Zautomatyzuj Się. Wszelkie prawa zastrzeżone.</span>
                 <span class="footer-note">Zautomatyzuj Się — Profesjonalna analiza widoczności online</span>

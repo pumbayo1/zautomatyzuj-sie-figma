@@ -322,8 +322,14 @@
       min-width: 0;
     }
 
-    .nav__links a {
+    .nav__links a,
+    .nav__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       position: relative;
+      border: 0;
+      background: transparent;
       color: var(--text-strong);
       font-size: 0.88rem;
       font-weight: 600;
@@ -331,9 +337,11 @@
       transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
       white-space: nowrap;
       opacity: 0.78;
+      cursor: pointer;
     }
 
-    .nav__links a::after {
+    .nav__links a::after,
+    .nav__trigger::after {
       content: "";
       position: absolute;
       left: 0;
@@ -347,20 +355,99 @@
       transition: transform 180ms ease;
     }
 
-    .nav__links a.is-emphasis {
-      font-weight: 800;
-      opacity: 1;
-    }
-
-    .nav__links a.is-current {
+    .nav__links a.is-current,
+    .nav__trigger.is-current,
+    .nav__trigger:hover,
+    .nav__item--dropdown.is-open .nav__trigger {
       color: var(--accent);
       opacity: 1;
       transform: translateY(-1px);
     }
 
     .nav__links a.is-current::after,
-    .nav__links a:hover::after {
+    .nav__links a:hover::after,
+    .nav__trigger.is-current::after,
+    .nav__trigger:hover::after,
+    .nav__item--dropdown.is-open .nav__trigger::after {
       transform: scaleX(1);
+    }
+
+    .nav__item {
+      position: relative;
+    }
+
+    .nav__trigger-icon {
+      width: 9px;
+      height: 9px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 180ms ease;
+    }
+
+    .nav__item--dropdown.is-open .nav__trigger-icon {
+      transform: rotate(-135deg) translateY(0);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 0;
+      min-width: 296px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 6px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+    }
+
+    .dropdown a {
+      display: grid;
+      gap: 4px;
+      padding: 14px 14px 13px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .dropdown a small {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .dropdown a:hover {
+      background: rgba(241, 90, 30, 0.06);
+    }
+
+    .nav__item--dropdown.is-open .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .nav__item--dropdown:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav__item--dropdown:hover .nav__trigger {
+        color: var(--accent);
+        opacity: 1;
+      }
+
+      .nav__item--dropdown:hover .nav__trigger::after {
+        transform: scaleX(1);
+      }
     }
 
     .nav .btn {
@@ -463,11 +550,14 @@
       box-shadow: var(--shadow);
     }
 
-    .mobile-nav__panel a {
+    .mobile-nav__panel a,
+    .mobile-nav__toggle {
       padding: 12px 14px;
       border-radius: 12px;
+      border: 0;
       background: #fafafa;
       font-weight: 600;
+      text-align: left;
       transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
     }
 
@@ -475,6 +565,47 @@
       background: rgba(241, 90, 30, 0.1);
       color: var(--accent);
       transform: translateX(2px);
+    }
+
+    .mobile-nav__group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-nav__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .mobile-nav__toggle-icon {
+      width: 9px;
+      height: 9px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 180ms ease;
+    }
+
+    .mobile-nav__group.is-open .mobile-nav__toggle-icon {
+      transform: rotate(-135deg);
+    }
+
+    .mobile-nav__submenu {
+      display: grid;
+      gap: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 220ms ease;
+    }
+
+    .mobile-nav__group.is-open .mobile-nav__submenu {
+      max-height: 460px;
+    }
+
+    .mobile-nav__submenu a {
+      background: rgba(241, 90, 30, 0.05);
     }
 
     .hero {
@@ -2169,16 +2300,22 @@
 
       <nav class="nav" aria-label="Nawigacja główna">
         <ul class="nav__links">
-          <li><a href="#uslugi">Usługi</a></li>
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__trigger" type="button" aria-expanded="false" aria-controls="services-menu">Usługi <span class="nav__trigger-icon" aria-hidden="true"></span></button>
+            <div class="dropdown" id="services-menu">
+              <a href="sklepy-internetowe.html">Sklepy internetowe<small>Sprzedaż, UX i rozwój e-commerce</small></a>
+              <a href="strony-www.html">Strony WWW<small>Nowoczesne strony dla leadów i marki</small></a>
+              <a href="wdrozenia-programow-dla-firm.html">Wdrożenia programów dla firm<small>ERP, CRM, magazyn, sprzedaż, KSeF</small></a>
+              <a href="automatyzacja-procesow-w-firmie.html">Automatyzacja procesów w firmie<small>Workflow, oszczędność czasu i mniej błędów</small></a>
+              <a href="integratory.html">Integratory<small>Łączenie systemów, marketplace i logistyki</small></a>
+            </div>
+          </li>
           <li><a href="#jak-dzialamy">Jak działamy</a></li>
           <li><a href="#case-study">Case study</a></li>
-          <li><a href="#wdrozenia" class="is-emphasis">Gotowi na KSeF!</a></li>
-          <li><a href="#wdrozenia">Wdrożenia</a></li>
           <li><a href="#raport">Raport</a></li>
           <li><a href="#dlaczego">O Nas</a></li>
           <li><a href="#cennik">Cennik</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
         </ul>
         <a href="kontakt.html" class="btn">Rozpocznij współpracę</a>
       </nav>
@@ -2193,16 +2330,22 @@
 
     <div class="container mobile-nav" id="mobile-nav">
       <div class="mobile-nav__panel">
-        <a href="#uslugi">Usługi</a>
+        <div class="mobile-nav__group">
+          <button class="mobile-nav__toggle" type="button" aria-expanded="false">Usługi <span class="mobile-nav__toggle-icon" aria-hidden="true"></span></button>
+          <div class="mobile-nav__submenu">
+            <a href="sklepy-internetowe.html">Sklepy internetowe</a>
+            <a href="strony-www.html">Strony WWW</a>
+            <a href="wdrozenia-programow-dla-firm.html">Wdrożenia programów dla firm</a>
+            <a href="automatyzacja-procesow-w-firmie.html">Automatyzacja procesów w firmie</a>
+            <a href="integratory.html">Integratory</a>
+          </div>
+        </div>
         <a href="#jak-dzialamy">Jak działamy</a>
         <a href="#case-study">Case study</a>
-        <a href="#wdrozenia">Gotowi na KSeF!</a>
-        <a href="#wdrozenia">Wdrożenia</a>
         <a href="#raport">Raport</a>
         <a href="#dlaczego">O Nas</a>
         <a href="#cennik">Cennik</a>
         <a href="#faq">FAQ</a>
-        <a href="#kontakt">Kontakt</a>
         <a href="kontakt.html" class="btn">Rozpocznij współpracę</a>
       </div>
     </div>
@@ -2804,6 +2947,32 @@
       var headerProgressBar = document.querySelector(".site-header__progress-bar");
       var menuButton = document.querySelector(".menu-toggle");
       var mobileNav = document.getElementById("mobile-nav");
+      var dropdownItem = document.querySelector(".nav__item--dropdown");
+      var dropdownTrigger = dropdownItem ? dropdownItem.querySelector(".nav__trigger") : null;
+      var mobileGroup = document.querySelector(".mobile-nav__group");
+      var mobileToggle = mobileGroup ? mobileGroup.querySelector(".mobile-nav__toggle") : null;
+
+      if (dropdownTrigger && dropdownItem) {
+        dropdownTrigger.addEventListener("click", function (event) {
+          event.preventDefault();
+          var open = dropdownItem.classList.toggle("is-open");
+          dropdownTrigger.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!dropdownItem.contains(event.target)) {
+            dropdownItem.classList.remove("is-open");
+            dropdownTrigger.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            dropdownItem.classList.remove("is-open");
+            dropdownTrigger.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
 
       if (menuButton && mobileNav) {
         menuButton.addEventListener("click", function () {
@@ -2821,6 +2990,13 @@
             menuButton.setAttribute("aria-expanded", "false");
             menuButton.classList.remove("is-open");
           });
+        });
+      }
+
+      if (mobileToggle && mobileGroup) {
+        mobileToggle.addEventListener("click", function () {
+          var open = mobileGroup.classList.toggle("is-open");
+          mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
         });
       }
 
