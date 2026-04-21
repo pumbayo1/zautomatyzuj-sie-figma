@@ -269,14 +269,46 @@
     }
 
     .brand__logo {
+      position: relative;
       display: inline-flex;
       width: 44px;
       height: 44px;
       flex: 0 0 44px;
       border-radius: 50%;
-      background: center / contain no-repeat url("logo.png");
+      background: none;
       filter: drop-shadow(0 8px 12px rgba(241, 90, 30, 0.18));
       animation: iconBreath 8.8s ease-in-out infinite;
+      overflow: hidden;
+      --logo-shift-duration: 8.8s;
+    }
+
+    .brand__logo::before,
+    .brand__logo::after,
+    .hero__icon-core::before,
+    .hero__icon-core::after,
+    .section-icon::before,
+    .section-icon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      will-change: opacity;
+    }
+
+    .brand__logo::before,
+    .hero__icon-core::before,
+    .section-icon::before {
+      background-image: url("logo-white.png");
+      animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
+    }
+
+    .brand__logo::after,
+    .hero__icon-core::after,
+    .section-icon::after {
+      background-image: url("logo.png");
+      animation: logoFadeOrange var(--logo-shift-duration) ease-in-out infinite;
     }
 
     .brand__wordmark {
@@ -689,13 +721,13 @@
       width: 176px;
       height: 176px;
       border-radius: 50%;
-      background: center / contain no-repeat url("logo.png");
       filter:
         drop-shadow(0 18px 34px rgba(221, 76, 18, 0.16))
         drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
       transform: scale(1);
       animation: logoPulse 9.6s ease-in-out infinite;
       overflow: hidden;
+      --logo-shift-duration: 9.6s;
     }
 
     .hero__icon-core > .zmark,
@@ -876,11 +908,11 @@
       flex-shrink: 0;
       width: 108px;
       height: 108px;
-      background: center / contain no-repeat url("logo.png");
       filter: drop-shadow(0 16px 24px rgba(221, 76, 18, 0.12));
       animation: iconBreath 10.4s ease-in-out infinite;
       animation-play-state: paused;
       overflow: hidden;
+      --logo-shift-duration: 10.4s;
     }
 
     .section-icon--small {
@@ -1776,8 +1808,17 @@
     }
 
     .site-footer__brand .brand__logo {
-      background-image: url("logo-white.png");
       filter: drop-shadow(0 8px 14px rgba(255, 255, 255, 0.08));
+    }
+
+    .site-footer__brand .brand__logo::before {
+      opacity: 1;
+      animation: none;
+    }
+
+    .site-footer__brand .brand__logo::after {
+      opacity: 0;
+      animation: none;
     }
 
     .site-footer__brand .brand__soft {
@@ -1893,8 +1934,6 @@
         opacity: 0.9;
         transform: scale(0.992);
         filter:
-          brightness(0.84)
-          saturate(1.02)
           drop-shadow(0 16px 30px rgba(221, 76, 18, 0.14))
           drop-shadow(0 8px 18px rgba(0, 0, 0, 0.14));
       }
@@ -1903,8 +1942,6 @@
         opacity: 1;
         transform: scale(1.042);
         filter:
-          brightness(1.12)
-          saturate(1.1)
           drop-shadow(0 28px 48px rgba(221, 76, 18, 0.24))
           drop-shadow(0 14px 22px rgba(0, 0, 0, 0.22));
       }
@@ -1915,8 +1952,6 @@
       100% {
         opacity: 0.88;
         filter:
-          brightness(0.9)
-          saturate(1.02)
           drop-shadow(0 12px 18px rgba(221, 76, 18, 0.07));
         transform: translateY(0) scale(0.978);
       }
@@ -1924,10 +1959,30 @@
       50% {
         opacity: 1;
         filter:
-          brightness(1.08)
-          saturate(1.1)
           drop-shadow(0 20px 30px rgba(221, 76, 18, 0.16));
         transform: translateY(-1px) scale(1.042);
+      }
+    }
+
+    @keyframes logoFadeWhite {
+      0%,
+      100% {
+        opacity: 0.98;
+      }
+
+      50% {
+        opacity: 0.08;
+      }
+    }
+
+    @keyframes logoFadeOrange {
+      0%,
+      100% {
+        opacity: 0.18;
+      }
+
+      50% {
+        opacity: 1;
       }
     }
 
@@ -2597,49 +2652,6 @@
       </div>
     </section>
 
-    <section class="section" id="wdrozenia">
-      <div class="container">
-        <h2 class="section-title reveal">Jesteś nową firmą?</h2>
-        <p class="section-subtitle reveal">Pomagamy poukładać narzędzia, procesy i pierwsze wdrożenia od startu.</p>
-        <p class="section-copy reveal">
-          Dobieramy i wdrażamy narzędzia sprzedażowe, magazynowe, księgowe i CRM tak,
-          aby firma od początku pracowała w uporządkowanym systemie. Dzięki temu łatwiej rosnąć,
-          delegować zadania i utrzymać kontrolę nad operacjami.
-        </p>
-
-        <div class="newbiz-grid">
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Programy handlowo-magazynowe</h3>
-            <p>Obsługa sprzedaży, magazynu, zamówień i dokumentów w jednym, spójnym środowisku.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Kadry i księgowość</h3>
-            <p>Rozwiązania kadrowo-płacowe i księgowe dopasowane do skali działalności oraz modelu pracy.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>CRM i automatyzacja</h3>
-            <p>Zarządzanie leadami, pipeline sprzedażowym, zadaniami i komunikacją z klientem w jednym miejscu.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Pełna automatyzacja procesów</h3>
-            <p>Integracje między systemami, automatyczne powiadomienia, raporty i powtarzalne procesy ograniczające ręczną pracę.</p>
-          </article>
-        </div>
-
-        <p class="newbiz-note reveal">Opisz, jak działa Twoja firma dzisiaj, a przygotujemy propozycję narzędzi i etapów wdrożenia dopasowaną do realnych potrzeb.</p>
-        <div class="newbiz-cta reveal">
-          <a href="kontakt.html?temat=Automatyzacja" class="btn">Zapytaj o wdrożenie</a>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="dlaczego">
       <div class="container">
         <h2 class="section-title reveal">Dlaczego Zautomatyzuj Się?</h2>
@@ -2678,99 +2690,6 @@
             </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="cennik">
-      <div class="container">
-        <h2 class="section-title reveal">Ile to kosztuje?</h2>
-        <p class="section-subtitle reveal">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
-
-        <div class="pricing-grid">
-          <article class="price-card reveal">
-            <h3>Konsultacja</h3>
-            <div class="price-card__value">0 zł</div>
-            <p class="price-card__lead">Rozmowa wstępna o sytuacji firmy, celach i możliwych kierunkach działania.</p>
-            <ul class="check-list">
-              <li>30 minut rozmowy online lub telefonicznie</li>
-              <li>Wstępne rozpoznanie potrzeb i priorytetów</li>
-              <li>Odpowiedzi na pytania dotyczące współpracy</li>
-              <li>Decyzja o kolejnych krokach po Twojej stronie</li>
-            </ul>
-            <div class="price-note">Termin ustalamy indywidualnie, zwykle w ciągu <strong>1-2 dni roboczych</strong>.</div>
-            <div class="price-actions"><a href="kontakt.html" class="btn-outline">Umów rozmowę</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Audyt firmy</h3>
-            <div class="price-card__value">1299 zł</div>
-            <p class="price-card__lead">Diagnoza obecnej sytuacji firmy wraz z listą najważniejszych problemów i obszarów do poprawy.</p>
-            <ul class="check-list">
-              <li>Analiza widoczności firmy w Google</li>
-              <li>Przegląd profili social media i spójności komunikacji</li>
-              <li>Audyt Google Business Profile</li>
-              <li>Analiza konkurencji i punktów przewagi</li>
-              <li>Audyt strony WWW pod kątem treści i techniki</li>
-              <li>Raport z wnioskami i rekomendacjami</li>
-              <li>Priorytety działań na najbliższy etap</li>
-            </ul>
-            <div class="price-note">Termin realizacji: zwykle <strong>2-5 dni roboczych</strong>, zależnie od zakresu i liczby kanałów.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn-outline">Zapytaj o audyt</a></div>
-          </article>
-
-          <article class="price-card price-card--featured reveal">
-            <div class="price-badge">Najpopularniejszy</div>
-            <h3>Audyt + Plan wdrożenia</h3>
-            <div class="price-card__value">1999 zł</div>
-            <p class="price-card__lead">Pełna analiza plus uporządkowany plan działania dla właściciela firmy lub zespołu wdrożeniowego.</p>
-            <ul class="check-list">
-              <li>Wszystko z pakietu Audyt firmy</li>
-              <li>Szczegółowy plan wdrożenia krok po kroku</li>
-              <li>Opis działań: co zrobić, po co i w jakiej kolejności</li>
-              <li>Priorytetyzacja pod szybkie i długofalowe efekty</li>
-              <li>Plan na 30, 60 i 90 dni</li>
-              <li>Godzinna konsultacja omawiająca materiał</li>
-              <li>Możliwość doprecyzowania pytań po spotkaniu</li>
-              <li>Rekomendacja kolejnego etapu współpracy</li>
-            </ul>
-            <div class="price-note">Najczęściej wybierany wariant przez firmy, które chcą uporządkować działania przed wdrożeniem.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn">Zamów analizę</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Audyt + Wdrożenie</h3>
-            <div class="price-card__value">Indywidualnie</div>
-            <p class="price-card__lead">Dla firm, które chcą przejść od diagnozy od razu do uporządkowanego wdrożenia.</p>
-            <ul class="check-list">
-              <li>Wszystko z pakietu Audyt lub Audyt + Plan</li>
-              <li>Budowa lub przebudowa strony WWW</li>
-              <li>Optymalizacja profilu firmy w Google</li>
-              <li>Prace SEO i uporządkowanie treści</li>
-              <li>Wsparcie przy komunikacji i materiałach</li>
-              <li>Stały kontakt projektowy</li>
-            </ul>
-            <div class="price-note">Zakres, harmonogram i wycena ustalamy po analizie potrzeb oraz skali projektu.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Strona%20WWW" class="btn-outline">Skontaktuj się</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Stała opieka</h3>
-            <div class="price-card__value">Indywidualnie</div>
-            <p class="price-card__lead">Dla firm, które potrzebują regularnego rozwoju strony, treści, widoczności i procesów.</p>
-            <ul class="check-list">
-              <li>Regularny raport postępów i rekomendacji</li>
-              <li>Aktualizacja treści, strony i priorytetów SEO</li>
-              <li>Wsparcie przy kolejnych wdrożeniach</li>
-              <li>Monitoring zmian w widoczności i komunikacji</li>
-              <li>Konsultacje merytoryczne w trakcie współpracy</li>
-              <li>Stały kontakt i szybkie korekty kierunku</li>
-            </ul>
-            <div class="price-note">Elastyczny model miesięczny z zakresem dopasowanym do etapu rozwoju firmy.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Automatyzacja" class="btn-outline">Skontaktuj się</a></div>
-          </article>
-        </div>
-
-        <p class="pricing-summary reveal">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji.</span> Nie podpisujesz umowy na lata. Pracujemy jasno, etapami i z czytelnym zakresem.</p>
       </div>
     </section>
 
