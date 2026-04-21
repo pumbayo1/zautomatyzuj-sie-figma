@@ -207,6 +207,7 @@
       border-bottom: 1px solid rgba(230, 230, 230, 0.8);
       box-shadow: 0 10px 26px rgba(25, 25, 25, 0.035);
       backdrop-filter: blur(18px);
+      transition: transform 260ms ease, background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
     }
 
     .site-header__inner {
@@ -215,6 +216,22 @@
       align-items: center;
       justify-content: space-between;
       gap: 28px;
+      transition: min-height 220ms ease, gap 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom-color: rgba(226, 226, 226, 0.96);
+      box-shadow: 0 14px 34px rgba(25, 25, 25, 0.08);
+    }
+
+    .site-header.is-scrolled .site-header__inner {
+      min-height: 66px;
+      gap: 22px;
+    }
+
+    .site-header.is-hidden {
+      transform: translateY(calc(-100% - 8px));
     }
 
     .brand {
@@ -227,6 +244,7 @@
       letter-spacing: -0.06em;
       white-space: nowrap;
       flex: 0 0 auto;
+      transition: transform 220ms ease, opacity 220ms ease;
     }
 
     .brand__logo {
@@ -245,6 +263,12 @@
       gap: 0;
       font-size: clamp(1.42rem, 1.62vw, 1.96rem);
       line-height: 1;
+      transition: transform 220ms ease;
+    }
+
+    .site-header.is-scrolled .brand {
+      transform: scale(0.96);
+      transform-origin: left center;
     }
 
     .brand__soft {
@@ -277,18 +301,44 @@
     }
 
     .nav__links a {
+      position: relative;
       color: var(--text-strong);
       font-size: 0.88rem;
       font-weight: 600;
       padding: 12px 0;
-      transition: color 160ms ease, opacity 160ms ease;
+      transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
       white-space: nowrap;
       opacity: 0.78;
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 138, 86, 0.9), rgba(241, 90, 30, 1));
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease;
     }
 
     .nav__links a.is-emphasis {
       font-weight: 800;
       opacity: 1;
+    }
+
+    .nav__links a.is-current {
+      color: var(--accent);
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .nav__links a.is-current::after,
+    .nav__links a:hover::after {
+      transform: scaleX(1);
     }
 
     .nav .btn {
@@ -297,11 +347,18 @@
       font-size: 0.82rem;
       white-space: nowrap;
       flex: 0 0 auto;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .site-header.is-scrolled .nav .btn {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(241, 90, 30, 0.16);
     }
 
     .nav__links a:hover {
       color: var(--accent);
       opacity: 1;
+      transform: translateY(-1px);
     }
 
     .menu-toggle {
@@ -315,6 +372,7 @@
       justify-content: center;
       padding: 0;
       cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
     }
 
     .menu-toggle span,
@@ -326,7 +384,7 @@
       border-radius: 999px;
       background: var(--text-strong);
       position: relative;
-      transition: transform 160ms ease, opacity 160ms ease;
+      transition: transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
     }
 
     .menu-toggle span::before,
@@ -344,9 +402,33 @@
       top: 6px;
     }
 
+    .menu-toggle.is-open {
+      background: rgba(241, 90, 30, 0.06);
+      border-color: rgba(241, 90, 30, 0.25);
+      box-shadow: 0 10px 18px rgba(241, 90, 30, 0.08);
+    }
+
+    .menu-toggle.is-open span {
+      background: transparent;
+    }
+
+    .menu-toggle.is-open span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.is-open span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
     .mobile-nav {
       display: none;
-      padding-bottom: 14px;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding-bottom: 0;
+      transition: max-height 240ms ease, opacity 180ms ease, padding-bottom 180ms ease;
     }
 
     .mobile-nav__panel {
@@ -364,6 +446,13 @@
       border-radius: 12px;
       background: #fafafa;
       font-weight: 600;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .mobile-nav__panel a.is-current {
+      background: rgba(241, 90, 30, 0.1);
+      color: var(--accent);
+      transform: translateX(2px);
     }
 
     .hero {
@@ -1751,8 +1840,14 @@
         display: inline-flex;
       }
 
-      .mobile-nav.is-open {
+      .mobile-nav {
         display: block;
+      }
+
+      .mobile-nav.is-open {
+        max-height: 760px;
+        opacity: 1;
+        padding-bottom: 14px;
       }
 
       .process-line {
@@ -1816,6 +1911,10 @@
 
       .hero__actions {
         gap: 14px;
+      }
+
+      .site-header.is-scrolled .site-header__inner {
+        min-height: 62px;
       }
 
       .hero__stats,
@@ -2639,6 +2738,7 @@
 
   <script>
     (function () {
+      var siteHeader = document.querySelector(".site-header");
       var menuButton = document.querySelector(".menu-toggle");
       var mobileNav = document.getElementById("mobile-nav");
 
@@ -2646,12 +2746,67 @@
         menuButton.addEventListener("click", function () {
           var open = mobileNav.classList.toggle("is-open");
           menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+          menuButton.classList.toggle("is-open", open);
+          if (siteHeader) {
+            siteHeader.classList.remove("is-hidden");
+          }
         });
 
         mobileNav.querySelectorAll("a").forEach(function (link) {
           link.addEventListener("click", function () {
             mobileNav.classList.remove("is-open");
             menuButton.setAttribute("aria-expanded", "false");
+            menuButton.classList.remove("is-open");
+          });
+        });
+      }
+
+      var lastScrollY = window.scrollY;
+      var ticking = false;
+
+      function updateHeaderState() {
+        var currentScroll = window.scrollY;
+        var scrolled = currentScroll > 24;
+        var menuOpen = mobileNav && mobileNav.classList.contains("is-open");
+
+        if (siteHeader) {
+          siteHeader.classList.toggle("is-scrolled", scrolled);
+
+          if (menuOpen || currentScroll < 120 || currentScroll < lastScrollY || Math.abs(currentScroll - lastScrollY) < 10) {
+            siteHeader.classList.remove("is-hidden");
+          } else if (currentScroll > lastScrollY) {
+            siteHeader.classList.add("is-hidden");
+          }
+        }
+
+        lastScrollY = currentScroll;
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeaderState);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateHeaderState();
+
+      var sectionLinkGroups = {};
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        var href = link.getAttribute("href");
+        if (!href || href.length < 2) return;
+        var id = href.slice(1);
+        if (!sectionLinkGroups[id]) {
+          sectionLinkGroups[id] = [];
+        }
+        sectionLinkGroups[id].push(link);
+      });
+
+      function setCurrentSection(id) {
+        Object.keys(sectionLinkGroups).forEach(function (key) {
+          sectionLinkGroups[key].forEach(function (link) {
+            link.classList.toggle("is-current", key === id);
           });
         });
       }
@@ -2671,6 +2826,32 @@
           revealObserver.observe(item);
         }
       });
+
+      var observedSections = Array.from(document.querySelectorAll("main[id], section[id]")).filter(function (section) {
+        return section.id && sectionLinkGroups[section.id];
+      });
+
+      if (observedSections.length) {
+        var sectionObserver = new IntersectionObserver(function (entries) {
+          var visibleEntries = entries.filter(function (entry) { return entry.isIntersecting; });
+          visibleEntries.sort(function (a, b) {
+            return b.intersectionRatio - a.intersectionRatio;
+          });
+
+          if (visibleEntries[0]) {
+            setCurrentSection(visibleEntries[0].target.id);
+          }
+        }, {
+          rootMargin: "-25% 0px -55% 0px",
+          threshold: [0.15, 0.35, 0.6]
+        });
+
+        observedSections.forEach(function (section) {
+          sectionObserver.observe(section);
+        });
+
+        setCurrentSection("top");
+      }
 
       var faqs = document.querySelectorAll(".faq-item");
       faqs.forEach(function (item) {
