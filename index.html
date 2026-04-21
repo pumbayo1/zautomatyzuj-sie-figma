@@ -297,14 +297,13 @@
 
     .brand__logo::before,
     .section-icon::before {
-      background-image: url("logo.png");
-      filter: brightness(0) invert(1);
+      background-image: url("logo-white.png");
       animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
     }
 
     .brand__logo::after,
     .section-icon::after {
-      background-image: url("logo.png");
+      background-image: url("logo-orange.png");
       animation: logoFadeOrange var(--logo-shift-duration) ease-in-out infinite;
     }
 
@@ -709,17 +708,7 @@
     }
 
     .hero__icon-ring::after {
-      content: "";
-      position: absolute;
-      inset: 3px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.7);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 24px rgba(255, 255, 255, 0.08);
-      opacity: 0.9;
-      z-index: 1;
-      animation: heroRingShift 9.6s ease-in-out infinite;
+      display: none;
     }
 
     .hero__icon-core {
@@ -728,28 +717,40 @@
       width: 176px;
       height: 176px;
       border-radius: 50%;
-      background:
-        radial-gradient(circle at 50% 34%, rgba(255, 249, 244, 0.62) 0%, rgba(255, 244, 238, 0.4) 38%, rgba(255, 244, 236, 0.18) 62%, rgba(255, 255, 255, 0) 82%);
+      background: transparent;
       isolation: isolate;
       filter:
         drop-shadow(0 18px 34px rgba(221, 76, 18, 0.16))
         drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
       transform: scale(1);
       animation: logoPulse 9.6s ease-in-out infinite;
-      overflow: hidden;
+      overflow: visible;
+    }
+
+    .hero__icon-core::before,
+    .hero__icon-core::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: 0;
+      pointer-events: none;
+      will-change: opacity;
     }
 
     .hero__icon-core::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: center / contain no-repeat url("logo.png");
+      background-image: url("logo-white.png");
       opacity: 0.96;
-      mix-blend-mode: multiply;
-      filter: saturate(1.04) contrast(1.01);
-      z-index: 0;
-      pointer-events: none;
+      animation: logoFadeWhite 9.6s ease-in-out infinite;
+    }
+
+    .hero__icon-core::after {
+      background-image: url("logo-orange.png");
+      opacity: 0.88;
+      animation: logoFadeOrange 9.6s ease-in-out infinite;
     }
 
     .hero__icon-core > .zmark {
@@ -1839,7 +1840,7 @@
     .site-footer__brand .brand__logo::before {
       opacity: 1;
       animation: none;
-      filter: brightness(0) invert(1);
+      filter: none;
     }
 
     .site-footer__brand .brand__logo::after {
