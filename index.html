@@ -269,14 +269,43 @@
     }
 
     .brand__logo {
+      position: relative;
       display: inline-flex;
       width: 44px;
       height: 44px;
       flex: 0 0 44px;
       border-radius: 50%;
-      background: center / contain no-repeat url("logo.png");
+      background: none;
       filter: drop-shadow(0 8px 12px rgba(241, 90, 30, 0.18));
       animation: iconBreath 8.8s ease-in-out infinite;
+      overflow: hidden;
+      --logo-shift-duration: 8.8s;
+    }
+
+    .brand__logo::before,
+    .brand__logo::after,
+    .section-icon::before,
+    .section-icon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      will-change: opacity;
+    }
+
+    .brand__logo::before,
+    .section-icon::before {
+      background-image: url("logo.png");
+      filter: brightness(0) invert(1);
+      animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
+    }
+
+    .brand__logo::after,
+    .section-icon::after {
+      background-image: url("logo.png");
+      animation: logoFadeOrange var(--logo-shift-duration) ease-in-out infinite;
     }
 
     .brand__wordmark {
@@ -617,6 +646,65 @@
         linear-gradient(180deg, rgba(255, 247, 241, 0.88) 0%, rgba(255, 251, 247, 0.52) 42%, rgba(255, 255, 255, 0) 100%);
     }
 
+    .hero__atmosphere {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero__spark {
+      position: absolute;
+      width: min(28vw, 360px);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.34), rgba(255, 189, 160, 0.18), rgba(255, 255, 255, 0));
+      filter: blur(1.2px);
+      opacity: 0;
+      transform: rotate(-18deg);
+      animation: heroSparkFall 17s linear infinite;
+    }
+
+    .hero__spark::before {
+      content: "";
+      position: absolute;
+      right: 18%;
+      top: -18px;
+      width: 66px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 182, 150, 0.16) 0%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0) 72%);
+      filter: blur(8px);
+    }
+
+    .hero__spark--1 {
+      top: 14%;
+      left: -12%;
+      animation-delay: -2s;
+    }
+
+    .hero__spark--2 {
+      top: 22%;
+      right: -14%;
+      animation-delay: -8s;
+      animation-duration: 19s;
+    }
+
+    .hero__spark--3 {
+      top: 58%;
+      left: -8%;
+      animation-delay: -11s;
+      animation-duration: 21s;
+    }
+
+    .hero__spark--4 {
+      top: 8%;
+      left: 54%;
+      animation-delay: -14s;
+      animation-duration: 18s;
+    }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -644,6 +732,7 @@
       background-size: 76px 76px;
       opacity: 0.34;
       z-index: 0;
+      animation: heroGridDrift 26s linear infinite;
     }
 
     .hero__icon-wrap {
@@ -665,6 +754,7 @@
       border: 0;
       box-shadow: none;
       overflow: visible;
+      isolation: isolate;
     }
 
     .hero__icon-ring::before {
@@ -680,16 +770,34 @@
     }
 
     .hero__icon-ring::after {
-      content: none;
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      padding: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 230, 216, 0.96) 18%, rgba(255, 170, 130, 0.92) 48%, rgba(241, 103, 46, 0.98) 76%, rgba(215, 72, 24, 1) 100%);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.94;
+      z-index: 1;
+      animation: heroRingShift 9.6s ease-in-out infinite;
     }
 
     .hero__icon-core {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      display: grid;
+      place-items: center;
       width: 176px;
       height: 176px;
       border-radius: 50%;
-      background: center / contain no-repeat url("logo.png");
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255, 252, 249, 0.96) 0%, rgba(255, 246, 239, 0.92) 34%, rgba(252, 238, 228, 0.84) 58%, rgba(255, 247, 241, 0.52) 78%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(180deg, rgba(255, 249, 244, 0.96) 0%, rgba(255, 244, 237, 0.88) 54%, rgba(255, 250, 246, 0.76) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
       filter:
         drop-shadow(0 18px 34px rgba(221, 76, 18, 0.16))
         drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
@@ -698,7 +806,34 @@
       overflow: hidden;
     }
 
-    .hero__icon-core > .zmark,
+    .hero__icon-core::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 48% 30%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 248, 242, 0.18) 42%, rgba(255, 255, 255, 0) 74%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero__icon-core > .zmark {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      transform: translateX(-3px) scale(0.94);
+      font-size: 6.25rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 230, 216, 0.96) 20%, rgba(255, 173, 134, 0.94) 46%, rgba(240, 103, 46, 0.98) 74%, rgba(215, 72, 24, 1) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 12px 20px rgba(241, 90, 30, 0.08);
+      animation: heroMarkShift 9.6s ease-in-out infinite;
+    }
+
+    .hero__icon-core > .zmark::after {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 189, 151, 0.96) 46%, rgba(215, 72, 24, 1) 100%);
+      box-shadow: 0 6px 12px rgba(241, 90, 30, 0.12);
+    }
+
     .section-icon > .zmark {
       display: none;
     }
@@ -876,11 +1011,11 @@
       flex-shrink: 0;
       width: 108px;
       height: 108px;
-      background: center / contain no-repeat url("logo.png");
       filter: drop-shadow(0 16px 24px rgba(221, 76, 18, 0.12));
       animation: iconBreath 10.4s ease-in-out infinite;
       animation-play-state: paused;
       overflow: hidden;
+      --logo-shift-duration: 10.4s;
     }
 
     .section-icon--small {
@@ -1776,8 +1911,18 @@
     }
 
     .site-footer__brand .brand__logo {
-      background-image: url("logo-white.png");
       filter: drop-shadow(0 8px 14px rgba(255, 255, 255, 0.08));
+    }
+
+    .site-footer__brand .brand__logo::before {
+      opacity: 1;
+      animation: none;
+      filter: brightness(0) invert(1);
+    }
+
+    .site-footer__brand .brand__logo::after {
+      opacity: 0;
+      animation: none;
     }
 
     .site-footer__brand .brand__soft {
@@ -1887,14 +2032,69 @@
       }
     }
 
+    @keyframes heroGridDrift {
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.28;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: 0.38;
+      }
+    }
+
+    @keyframes heroSparkFall {
+      0% {
+        transform: translate3d(0, -24px, 0) rotate(-18deg);
+        opacity: 0;
+      }
+
+      12% {
+        opacity: 0.16;
+      }
+
+      68% {
+        opacity: 0.08;
+      }
+
+      100% {
+        transform: translate3d(180px, 250px, 0) rotate(-18deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes heroRingShift {
+      0%,
+      100% {
+        opacity: 0.78;
+        filter: brightness(1.02) saturate(0.92);
+      }
+
+      50% {
+        opacity: 1;
+        filter: brightness(1.18) saturate(1.08);
+      }
+    }
+
+    @keyframes heroMarkShift {
+      0%,
+      100% {
+        filter: brightness(0.98) saturate(0.92);
+      }
+
+      50% {
+        filter: brightness(1.08) saturate(1.08);
+      }
+    }
+
     @keyframes logoPulse {
       0%,
       100% {
         opacity: 0.9;
         transform: scale(0.992);
         filter:
-          brightness(0.84)
-          saturate(1.02)
           drop-shadow(0 16px 30px rgba(221, 76, 18, 0.14))
           drop-shadow(0 8px 18px rgba(0, 0, 0, 0.14));
       }
@@ -1903,8 +2103,6 @@
         opacity: 1;
         transform: scale(1.042);
         filter:
-          brightness(1.12)
-          saturate(1.1)
           drop-shadow(0 28px 48px rgba(221, 76, 18, 0.24))
           drop-shadow(0 14px 22px rgba(0, 0, 0, 0.22));
       }
@@ -1915,8 +2113,6 @@
       100% {
         opacity: 0.88;
         filter:
-          brightness(0.9)
-          saturate(1.02)
           drop-shadow(0 12px 18px rgba(221, 76, 18, 0.07));
         transform: translateY(0) scale(0.978);
       }
@@ -1924,10 +2120,30 @@
       50% {
         opacity: 1;
         filter:
-          brightness(1.08)
-          saturate(1.1)
           drop-shadow(0 20px 30px rgba(221, 76, 18, 0.16));
         transform: translateY(-1px) scale(1.042);
+      }
+    }
+
+    @keyframes logoFadeWhite {
+      0%,
+      100% {
+        opacity: 0.98;
+      }
+
+      50% {
+        opacity: 0.08;
+      }
+    }
+
+    @keyframes logoFadeOrange {
+      0%,
+      100% {
+        opacity: 0.18;
+      }
+
+      50% {
+        opacity: 1;
       }
     }
 
@@ -2092,6 +2308,10 @@
         height: 340px;
       }
 
+      .hero__spark {
+        width: min(46vw, 240px);
+      }
+
       .hero__icon-ring {
         width: 160px;
         height: 160px;
@@ -2100,6 +2320,10 @@
       .hero__icon-core {
         width: 148px;
         height: 148px;
+      }
+
+      .hero__icon-core > .zmark {
+        font-size: 5.2rem;
       }
 
       .hero__actions {
@@ -2358,6 +2582,12 @@
 
   <main id="top">
     <section class="hero section section--compact">
+      <div class="hero__atmosphere" aria-hidden="true">
+        <span class="hero__spark hero__spark--1"></span>
+        <span class="hero__spark hero__spark--2"></span>
+        <span class="hero__spark hero__spark--3"></span>
+        <span class="hero__spark hero__spark--4"></span>
+      </div>
       <div class="container">
         <div class="hero__icon-wrap reveal is-visible">
           <div class="hero__icon-ring">
@@ -2597,49 +2827,6 @@
       </div>
     </section>
 
-    <section class="section" id="wdrozenia">
-      <div class="container">
-        <h2 class="section-title reveal">Jesteś nową firmą?</h2>
-        <p class="section-subtitle reveal">Pomagamy poukładać narzędzia, procesy i pierwsze wdrożenia od startu.</p>
-        <p class="section-copy reveal">
-          Dobieramy i wdrażamy narzędzia sprzedażowe, magazynowe, księgowe i CRM tak,
-          aby firma od początku pracowała w uporządkowanym systemie. Dzięki temu łatwiej rosnąć,
-          delegować zadania i utrzymać kontrolę nad operacjami.
-        </p>
-
-        <div class="newbiz-grid">
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Programy handlowo-magazynowe</h3>
-            <p>Obsługa sprzedaży, magazynu, zamówień i dokumentów w jednym, spójnym środowisku.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Kadry i księgowość</h3>
-            <p>Rozwiązania kadrowo-płacowe i księgowe dopasowane do skali działalności oraz modelu pracy.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>CRM i automatyzacja</h3>
-            <p>Zarządzanie leadami, pipeline sprzedażowym, zadaniami i komunikacją z klientem w jednym miejscu.</p>
-          </article>
-
-          <article class="newbiz-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Pełna automatyzacja procesów</h3>
-            <p>Integracje między systemami, automatyczne powiadomienia, raporty i powtarzalne procesy ograniczające ręczną pracę.</p>
-          </article>
-        </div>
-
-        <p class="newbiz-note reveal">Opisz, jak działa Twoja firma dzisiaj, a przygotujemy propozycję narzędzi i etapów wdrożenia dopasowaną do realnych potrzeb.</p>
-        <div class="newbiz-cta reveal">
-          <a href="kontakt.html?temat=Automatyzacja" class="btn">Zapytaj o wdrożenie</a>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="dlaczego">
       <div class="container">
         <h2 class="section-title reveal">Dlaczego Zautomatyzuj Się?</h2>
@@ -2678,99 +2865,6 @@
             </div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="cennik">
-      <div class="container">
-        <h2 class="section-title reveal">Ile to kosztuje?</h2>
-        <p class="section-subtitle reveal">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
-
-        <div class="pricing-grid">
-          <article class="price-card reveal">
-            <h3>Konsultacja</h3>
-            <div class="price-card__value">0 zł</div>
-            <p class="price-card__lead">Rozmowa wstępna o sytuacji firmy, celach i możliwych kierunkach działania.</p>
-            <ul class="check-list">
-              <li>30 minut rozmowy online lub telefonicznie</li>
-              <li>Wstępne rozpoznanie potrzeb i priorytetów</li>
-              <li>Odpowiedzi na pytania dotyczące współpracy</li>
-              <li>Decyzja o kolejnych krokach po Twojej stronie</li>
-            </ul>
-            <div class="price-note">Termin ustalamy indywidualnie, zwykle w ciągu <strong>1-2 dni roboczych</strong>.</div>
-            <div class="price-actions"><a href="kontakt.html" class="btn-outline">Umów rozmowę</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Audyt firmy</h3>
-            <div class="price-card__value">1299 zł</div>
-            <p class="price-card__lead">Diagnoza obecnej sytuacji firmy wraz z listą najważniejszych problemów i obszarów do poprawy.</p>
-            <ul class="check-list">
-              <li>Analiza widoczności firmy w Google</li>
-              <li>Przegląd profili social media i spójności komunikacji</li>
-              <li>Audyt Google Business Profile</li>
-              <li>Analiza konkurencji i punktów przewagi</li>
-              <li>Audyt strony WWW pod kątem treści i techniki</li>
-              <li>Raport z wnioskami i rekomendacjami</li>
-              <li>Priorytety działań na najbliższy etap</li>
-            </ul>
-            <div class="price-note">Termin realizacji: zwykle <strong>2-5 dni roboczych</strong>, zależnie od zakresu i liczby kanałów.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn-outline">Zapytaj o audyt</a></div>
-          </article>
-
-          <article class="price-card price-card--featured reveal">
-            <div class="price-badge">Najpopularniejszy</div>
-            <h3>Audyt + Plan wdrożenia</h3>
-            <div class="price-card__value">1999 zł</div>
-            <p class="price-card__lead">Pełna analiza plus uporządkowany plan działania dla właściciela firmy lub zespołu wdrożeniowego.</p>
-            <ul class="check-list">
-              <li>Wszystko z pakietu Audyt firmy</li>
-              <li>Szczegółowy plan wdrożenia krok po kroku</li>
-              <li>Opis działań: co zrobić, po co i w jakiej kolejności</li>
-              <li>Priorytetyzacja pod szybkie i długofalowe efekty</li>
-              <li>Plan na 30, 60 i 90 dni</li>
-              <li>Godzinna konsultacja omawiająca materiał</li>
-              <li>Możliwość doprecyzowania pytań po spotkaniu</li>
-              <li>Rekomendacja kolejnego etapu współpracy</li>
-            </ul>
-            <div class="price-note">Najczęściej wybierany wariant przez firmy, które chcą uporządkować działania przed wdrożeniem.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn">Zamów analizę</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Audyt + Wdrożenie</h3>
-            <div class="price-card__value">Indywidualnie</div>
-            <p class="price-card__lead">Dla firm, które chcą przejść od diagnozy od razu do uporządkowanego wdrożenia.</p>
-            <ul class="check-list">
-              <li>Wszystko z pakietu Audyt lub Audyt + Plan</li>
-              <li>Budowa lub przebudowa strony WWW</li>
-              <li>Optymalizacja profilu firmy w Google</li>
-              <li>Prace SEO i uporządkowanie treści</li>
-              <li>Wsparcie przy komunikacji i materiałach</li>
-              <li>Stały kontakt projektowy</li>
-            </ul>
-            <div class="price-note">Zakres, harmonogram i wycena ustalamy po analizie potrzeb oraz skali projektu.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Strona%20WWW" class="btn-outline">Skontaktuj się</a></div>
-          </article>
-
-          <article class="price-card reveal">
-            <h3>Stała opieka</h3>
-            <div class="price-card__value">Indywidualnie</div>
-            <p class="price-card__lead">Dla firm, które potrzebują regularnego rozwoju strony, treści, widoczności i procesów.</p>
-            <ul class="check-list">
-              <li>Regularny raport postępów i rekomendacji</li>
-              <li>Aktualizacja treści, strony i priorytetów SEO</li>
-              <li>Wsparcie przy kolejnych wdrożeniach</li>
-              <li>Monitoring zmian w widoczności i komunikacji</li>
-              <li>Konsultacje merytoryczne w trakcie współpracy</li>
-              <li>Stały kontakt i szybkie korekty kierunku</li>
-            </ul>
-            <div class="price-note">Elastyczny model miesięczny z zakresem dopasowanym do etapu rozwoju firmy.</div>
-            <div class="price-actions"><a href="kontakt.html?temat=Automatyzacja" class="btn-outline">Skontaktuj się</a></div>
-          </article>
-        </div>
-
-        <p class="pricing-summary reveal">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji.</span> Nie podpisujesz umowy na lata. Pracujemy jasno, etapami i z czytelnym zakresem.</p>
       </div>
     </section>
 

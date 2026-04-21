@@ -181,12 +181,42 @@ img {
 }
 
 .brand__logo {
+  position: relative;
   width: 44px;
   height: 44px;
   flex: 0 0 44px;
   border-radius: 50%;
-  background: center / contain no-repeat url("logo.png");
+  background: none;
   filter: drop-shadow(0 8px 12px rgba(221, 76, 18, 0.18));
+  animation: iconBreath 8.8s ease-in-out infinite;
+  overflow: hidden;
+  --logo-shift-duration: 8.8s;
+}
+
+.brand__logo::before,
+.brand__logo::after,
+.hero-badge__orb::before,
+.hero-badge__orb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  will-change: opacity;
+}
+
+.brand__logo::before,
+.hero-badge__orb::before {
+  background-image: url("logo.png");
+  filter: brightness(0) invert(1);
+  animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
+}
+
+.brand__logo::after,
+.hero-badge__orb::after {
+  background-image: url("logo.png");
+  animation: logoFadeOrange var(--logo-shift-duration) ease-in-out infinite;
 }
 
 .brand__wordmark {
@@ -597,12 +627,14 @@ main {
 }
 
 .hero-badge__orb {
+  position: relative;
   width: 188px;
   height: 188px;
   border-radius: 50%;
-  background: center / contain no-repeat url("logo.png");
   filter: drop-shadow(0 20px 38px rgba(221, 76, 18, 0.18));
   animation: iconBreath 10.4s ease-in-out infinite;
+  overflow: hidden;
+  --logo-shift-duration: 10.4s;
 }
 
 .hero-badge__note {
@@ -824,6 +856,10 @@ main {
   gap: 24px;
 }
 
+.price-grid--services {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .price-card {
   position: relative;
   padding: 28px 24px 26px;
@@ -905,6 +941,17 @@ main {
   gap: 12px;
 }
 
+.site-footer__brand .brand__logo::before {
+  opacity: 1;
+  animation: none;
+  filter: brightness(0) invert(1);
+}
+
+.site-footer__brand .brand__logo::after {
+  opacity: 0;
+  animation: none;
+}
+
 .site-footer__tag {
   margin: 14px 0 0;
   color: rgba(255, 255, 255, 0.72);
@@ -981,8 +1028,6 @@ main {
   100% {
     opacity: 0.88;
     filter:
-      brightness(0.9)
-      saturate(1.02)
       drop-shadow(0 12px 18px rgba(221, 76, 18, 0.07));
     transform: translateY(0) scale(0.978);
   }
@@ -990,10 +1035,30 @@ main {
   50% {
     opacity: 1;
     filter:
-      brightness(1.08)
-      saturate(1.1)
       drop-shadow(0 20px 30px rgba(221, 76, 18, 0.16));
     transform: translateY(-1px) scale(1.042);
+  }
+}
+
+@keyframes logoFadeWhite {
+  0%,
+  100% {
+    opacity: 0.98;
+  }
+
+  50% {
+    opacity: 0.08;
+  }
+}
+
+@keyframes logoFadeOrange {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
 
