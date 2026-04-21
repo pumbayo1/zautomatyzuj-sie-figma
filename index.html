@@ -300,7 +300,8 @@
     .brand__logo::before,
     .hero__icon-core::before,
     .section-icon::before {
-      background-image: url("logo-white.png");
+      background-image: url("logo.png");
+      filter: brightness(0) invert(1);
       animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
     }
 
@@ -1814,6 +1815,7 @@
     .site-footer__brand .brand__logo::before {
       opacity: 1;
       animation: none;
+      filter: brightness(0) invert(1);
     }
 
     .site-footer__brand .brand__logo::after {
