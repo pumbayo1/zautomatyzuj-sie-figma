@@ -401,6 +401,8 @@ img {
   justify-content: center;
   padding: 0;
   cursor: pointer;
+  justify-self: end;
+  align-self: center;
 }
 
 .menu-toggle span,
@@ -1221,6 +1223,27 @@ main {
 }
 
 @media (max-width: 920px) {
+  .site-header__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px;
+    min-height: 70px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .brand__logo {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .brand__wordmark {
+    font-size: clamp(1.18rem, 6.4vw, 1.55rem);
+  }
+
   .nav {
     display: none;
   }
@@ -1231,14 +1254,31 @@ main {
 
   .menu-toggle {
     display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
   }
 
   .mobile-nav {
     display: block;
+    padding-top: 8px;
+  }
+
+  .mobile-nav__panel {
+    gap: 8px;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .mobile-nav a,
+  .mobile-nav__toggle {
+    min-height: 46px;
+    padding: 12px 13px;
+    font-size: 0.98rem;
   }
 
   .page-hero {
-    padding-top: 74px;
+    padding: 64px 0 26px;
   }
 
   .page-hero__grid,
@@ -1252,7 +1292,49 @@ main {
   }
 
   .hero-badge {
-    min-height: 300px;
+    min-height: 248px;
+    padding: 22px;
+  }
+
+  .hero-badge::before {
+    inset: 14px;
+    border-radius: 20px;
+  }
+
+  .hero-badge__orb {
+    width: 132px;
+    height: 132px;
+  }
+
+  .hero-badge__note {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 14px 14px 13px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .stat {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .stat strong {
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+  }
+
+  .stat span {
+    margin-top: 8px;
+    font-size: 0.88rem;
+  }
+
+  .card {
+    padding: 24px 20px 20px;
   }
 
   .price-card--expandable .price-card__summary {
@@ -1269,15 +1351,72 @@ main {
 
 @media (max-width: 640px) {
   .container {
-    width: min(var(--container), calc(100% - 24px));
+    width: min(var(--container), calc(100% - 20px));
   }
 
   .site-header__inner {
-    min-height: 72px;
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  .brand__logo {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  .brand__wordmark {
+    font-size: 1.12rem;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
   }
 
   .section {
-    padding: 72px 0;
+    padding: 60px 0;
+  }
+
+  .section--compact {
+    padding: 52px 0;
+  }
+
+  .page-hero {
+    padding: 52px 0 18px;
+  }
+
+  .eyebrow {
+    gap: 8px;
+    padding: 8px 11px;
+    font-size: 0.72rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.6rem);
+    line-height: 1.04;
+    letter-spacing: -0.05em;
+  }
+
+  .page-hero__lead,
+  .section-lead,
+  .cta-band p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .page-hero__actions {
+    margin-top: 24px;
+  }
+
+  .hero-badge {
+    min-height: 224px;
+    padding: 18px;
+  }
+
+  .hero-badge__orb {
+    width: 118px;
+    height: 118px;
   }
 
   .page-hero__actions,
@@ -1289,6 +1428,19 @@ main {
   .btn,
   .btn-outline {
     width: 100%;
+  }
+
+  .grid {
+    gap: 18px;
+  }
+
+  .card {
+    padding: 22px 18px 18px;
+  }
+
+  .card h3,
+  .card h2 {
+    font-size: clamp(1.35rem, 7vw, 1.85rem);
   }
 
   .price-card--featured .price-card__summary {
@@ -1303,6 +1455,12 @@ main {
 
   .site-footer {
     padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stats {
+    grid-template-columns: 1fr;
   }
 }
 
