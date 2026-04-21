@@ -63,6 +63,96 @@
     });
   }
 
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function animateAccordionOpen(card, body) {
+    card.dataset.animating = "true";
+    card.open = true;
+    body.style.transition = "none";
+    body.style.height = "0px";
+    body.style.opacity = "0";
+    body.style.transform = "translateY(-6px)";
+
+    window.requestAnimationFrame(function () {
+      var targetHeight = body.scrollHeight;
+      body.style.transition = "height 260ms ease, opacity 220ms ease, transform 220ms ease";
+      body.style.height = targetHeight + "px";
+      body.style.opacity = "1";
+      body.style.transform = "translateY(0)";
+    });
+
+    body.addEventListener("transitionend", function handleOpen(event) {
+      if (event.propertyName !== "height") {
+        return;
+      }
+      body.removeEventListener("transitionend", handleOpen);
+      body.style.transition = "";
+      body.style.height = "auto";
+      body.style.opacity = "";
+      body.style.transform = "";
+      card.dataset.animating = "false";
+    });
+  }
+
+  function animateAccordionClose(card, body) {
+    card.dataset.animating = "true";
+    body.style.transition = "none";
+    body.style.height = body.scrollHeight + "px";
+    body.style.opacity = "1";
+    body.style.transform = "translateY(0)";
+
+    window.requestAnimationFrame(function () {
+      body.style.transition = "height 240ms ease, opacity 180ms ease, transform 180ms ease";
+      body.style.height = "0px";
+      body.style.opacity = "0";
+      body.style.transform = "translateY(-6px)";
+    });
+
+    body.addEventListener("transitionend", function handleClose(event) {
+      if (event.propertyName !== "height") {
+        return;
+      }
+      body.removeEventListener("transitionend", handleClose);
+      card.open = false;
+      body.style.transition = "";
+      body.style.height = "";
+      body.style.opacity = "";
+      body.style.transform = "";
+      card.dataset.animating = "false";
+    });
+  }
+
+  document.querySelectorAll(".price-card--expandable").forEach(function (card) {
+    var summary = card.querySelector(".price-card__summary");
+    var body = card.querySelector(".price-card__body");
+
+    if (!summary || !body) {
+      return;
+    }
+
+    if (card.open) {
+      body.style.height = "auto";
+    }
+
+    summary.addEventListener("click", function (event) {
+      if (reduceMotion) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (card.dataset.animating === "true") {
+        return;
+      }
+
+      if (card.open) {
+        animateAccordionClose(card, body);
+      } else {
+        animateAccordionOpen(card, body);
+      }
+    });
+  });
+
   var lastScrollY = window.scrollY;
   var ticking = false;
 

@@ -961,6 +961,8 @@ main {
   padding: 0 0 30px;
   border-top: 1px solid rgba(221, 76, 18, 0.12);
   background: transparent;
+  overflow: hidden;
+  will-change: height, opacity, transform;
 }
 
 .price-card--expandable .check-list,
@@ -973,10 +975,15 @@ main {
   border-top-color: rgba(221, 76, 18, 0.34);
 }
 
+.pricing-grid--services .price-card__summary,
+.pricing-grid--services .price-card__body {
+  border-color: rgba(221, 76, 18, 0.1);
+}
+
 .price-badge {
   position: absolute;
   top: 18px;
-  right: 0;
+  left: 0;
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(221, 76, 18, 0.1);
@@ -984,6 +991,10 @@ main {
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.price-card--featured .price-card__summary {
+  padding-top: 60px;
 }
 
 .price-card h3 {
@@ -1278,11 +1289,6 @@ main {
   .btn,
   .btn-outline {
     width: 100%;
-  }
-
-  .price-card--featured .price-badge {
-    left: 0;
-    right: auto;
   }
 
   .price-card--featured .price-card__summary {
