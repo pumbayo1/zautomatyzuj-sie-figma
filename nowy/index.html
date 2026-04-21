@@ -77,19 +77,28 @@
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      opacity: 0.22;
+      opacity: 0.34;
       background:
-        radial-gradient(circle at 20% 18%, rgba(241, 90, 30, 0.18), transparent 28%),
-        radial-gradient(circle at 78% 62%, rgba(241, 90, 30, 0.12), transparent 24%),
+        radial-gradient(circle at 50% -8%, rgba(255, 225, 208, 0.54), transparent 34%),
+        radial-gradient(circle at 16% 16%, rgba(241, 90, 30, 0.11), transparent 24%),
+        radial-gradient(circle at 84% 14%, rgba(255, 214, 190, 0.2), transparent 26%),
+        linear-gradient(180deg, rgba(255, 248, 244, 0.96) 0%, rgba(255, 255, 255, 0.92) 24%, rgba(249, 244, 239, 0.7) 58%, rgba(255, 255, 255, 0.96) 100%),
         repeating-linear-gradient(
-          115deg,
-          rgba(241, 90, 30, 0.04) 0,
-          rgba(241, 90, 30, 0.04) 34px,
+          90deg,
+          rgba(241, 90, 30, 0.026) 0,
+          rgba(241, 90, 30, 0.026) 1px,
+          rgba(255, 255, 255, 0) 1px,
+          rgba(255, 255, 255, 0) 82px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(241, 90, 30, 0.018) 0,
+          rgba(241, 90, 30, 0.018) 1px,
           rgba(255, 255, 255, 0) 34px,
-          rgba(255, 255, 255, 0) 88px
+          rgba(255, 255, 255, 0) 136px
         );
-      filter: blur(18px);
-      transform: scale(1.06);
+      filter: blur(10px);
+      transform: scale(1.025);
       animation: ambientPulse 9s ease-in-out infinite;
     }
 
@@ -195,23 +204,24 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(230, 230, 230, 0.8);
+      box-shadow: 0 10px 26px rgba(25, 25, 25, 0.035);
+      backdrop-filter: blur(18px);
     }
 
     .site-header__inner {
-      min-height: 72px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: 1.1rem;
       font-weight: 800;
@@ -222,19 +232,19 @@
 
     .brand__logo {
       display: inline-flex;
-      width: 26px;
-      height: 26px;
-      flex: 0 0 26px;
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
       border-radius: 50%;
       background: center / contain no-repeat url("logo-orange.png");
-      filter: drop-shadow(0 6px 10px rgba(241, 90, 30, 0.18));
+      filter: drop-shadow(0 8px 12px rgba(241, 90, 30, 0.22));
     }
 
     .brand__wordmark {
       display: inline-flex;
       align-items: baseline;
       gap: 0;
-      font-size: clamp(1.48rem, 1.72vw, 2.08rem);
+      font-size: clamp(1.42rem, 1.62vw, 1.96rem);
       line-height: 1;
     }
 
@@ -251,7 +261,7 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
       margin-left: auto;
       flex: 1 1 auto;
       min-width: 0;
@@ -260,7 +270,7 @@
     .nav__links {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -269,26 +279,30 @@
 
     .nav__links a {
       color: var(--text-strong);
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 160ms ease;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 12px 0;
+      transition: color 160ms ease, opacity 160ms ease;
       white-space: nowrap;
+      opacity: 0.78;
     }
 
     .nav__links a.is-emphasis {
       font-weight: 800;
+      opacity: 1;
     }
 
     .nav .btn {
-      min-height: 48px;
-      padding: 0 16px;
-      font-size: 0.83rem;
+      min-height: 46px;
+      padding: 0 18px;
+      font-size: 0.82rem;
       white-space: nowrap;
       flex: 0 0 auto;
     }
 
     .nav__links a:hover {
       color: var(--accent);
+      opacity: 1;
     }
 
     .menu-toggle {
@@ -354,62 +368,100 @@
     }
 
     .hero {
-      padding: 58px 0 68px;
+      position: relative;
+      padding: 60px 0 74px;
       text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      width: 720px;
+      height: 720px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 251, 249, 0.96) 22%, rgba(255, 238, 226, 0.78) 38%, rgba(241, 90, 30, 0.18) 54%, rgba(241, 90, 30, 0.05) 64%, rgba(241, 90, 30, 0) 80%),
+        conic-gradient(from 90deg at 50% 50%, rgba(255, 255, 255, 0) 0deg, rgba(255, 231, 219, 0.38) 112deg, rgba(255, 255, 255, 0) 278deg, rgba(255, 235, 224, 0.3) 360deg);
+      filter: blur(18px);
+      opacity: 0.96;
+      z-index: 0;
+      animation: heroGlowPulse 6.5s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -180px;
+      width: min(1120px, 90vw);
+      height: 420px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(255, 245, 239, 0.9) 0%, rgba(255, 245, 239, 0.42) 38%, rgba(255, 255, 255, 0) 76%);
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero__icon-wrap {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
-      margin-bottom: 26px;
+      margin-bottom: 30px;
     }
 
     .hero__icon-ring {
       position: relative;
-      width: 268px;
-      height: 268px;
+      width: 282px;
+      height: 282px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 56%, rgba(255, 255, 255, 0) 78%);
-      border: 2px solid rgba(183, 183, 183, 0.7);
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.97) 0%, rgba(255, 252, 250, 0.88) 48%, rgba(255, 243, 236, 0.42) 68%, rgba(255, 255, 255, 0) 82%);
+      border: 1px solid rgba(194, 194, 194, 0.72);
       box-shadow:
-        0 22px 48px rgba(0, 0, 0, 0.08),
-        inset 0 0 0 4px rgba(255, 255, 255, 0.92),
+        0 22px 48px rgba(0, 0, 0, 0.09),
+        inset 0 0 0 5px rgba(255, 255, 255, 0.94),
+        inset 0 -16px 34px rgba(241, 90, 30, 0.08),
         0 0 0 12px rgba(241, 90, 30, 0.05);
     }
 
     .hero__icon-ring::before {
       content: "";
       position: absolute;
-      inset: -16px;
+      inset: -26px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(241, 90, 30, 0.16) 0%, rgba(241, 90, 30, 0.04) 35%, rgba(241, 90, 30, 0) 68%);
-      filter: blur(14px);
+      background: radial-gradient(circle, rgba(241, 90, 30, 0.24) 0%, rgba(255, 178, 145, 0.18) 34%, rgba(241, 90, 30, 0.06) 54%, rgba(241, 90, 30, 0) 76%);
+      filter: blur(20px);
       animation: haloPulse 6.5s ease-in-out infinite;
     }
 
     .hero__icon-ring::after {
       content: "";
       position: absolute;
-      inset: 11px;
+      inset: 14px;
       border-radius: 50%;
-      border: 1px solid rgba(160, 160, 160, 0.32);
+      border: 1px solid rgba(175, 175, 175, 0.34);
+      box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.32);
       pointer-events: none;
     }
 
     .hero__icon-core {
       position: relative;
       z-index: 1;
-      width: 236px;
-      height: 236px;
+      width: 246px;
+      height: 246px;
       border-radius: 50%;
       background: center / 100% 100% no-repeat url("logo-center.png");
       filter:
-        drop-shadow(0 22px 30px rgba(0, 0, 0, 0.16))
+        drop-shadow(0 22px 30px rgba(0, 0, 0, 0.18))
         contrast(1.08)
-        brightness(1.04);
+        brightness(0.98);
       transform: scale(1);
       animation: logoPulse 6.5s ease-in-out infinite;
     }
@@ -420,6 +472,8 @@
     }
 
     .hero h1 {
+      position: relative;
+      z-index: 1;
       margin: 0;
       color: var(--text-strong);
       font-family: "Outfit", sans-serif;
@@ -430,6 +484,8 @@
     }
 
     .hero__lead {
+      position: relative;
+      z-index: 1;
       max-width: 920px;
       margin: 18px auto 0;
       color: var(--muted);
@@ -438,6 +494,8 @@
     }
 
     .hero__actions {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
       gap: 24px;
@@ -446,6 +504,8 @@
     }
 
     .hero__stats {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
@@ -714,7 +774,7 @@
       background: rgba(255, 255, 255, 0.78);
       color: var(--muted);
       font-size: 0.95rem;
-      line-height: 1.48;
+      line-height: 1.56;
     }
 
     .note-box strong {
@@ -791,7 +851,7 @@
       font-family: "Outfit", sans-serif;
       font-size: clamp(1.6rem, 2.1vw, 2.4rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.18;
       text-align: center;
       letter-spacing: -0.04em;
       background: rgba(255, 255, 255, 0.78);
@@ -1163,7 +1223,7 @@
       padding: 26px 16px 18px;
       border: 1px solid var(--line);
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.92);
       box-shadow: var(--shadow);
     }
 
@@ -1288,7 +1348,7 @@
       padding: 54px 28px;
       border: 1px solid rgba(241, 90, 30, 0.9);
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       text-align: center;
       box-shadow: var(--shadow);
     }
@@ -1372,7 +1432,7 @@
     .faq-item {
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.94);
       overflow: hidden;
       box-shadow: var(--shadow);
     }
@@ -1417,7 +1477,7 @@
       padding: 0 22px 20px;
       color: var(--muted);
       font-size: 0.94rem;
-      line-height: 1.55;
+      line-height: 1.62;
     }
 
     .cta-final {
@@ -1549,12 +1609,29 @@
     @keyframes ambientPulse {
       0%,
       100% {
-        opacity: 0.18;
-        filter: blur(18px);
+        opacity: 0.28;
+        filter: blur(11px);
+        transform: scale(1.015);
       }
 
       50% {
-        opacity: 0.3;
+        opacity: 0.4;
+        filter: blur(7px);
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes heroGlowPulse {
+      0%,
+      100% {
+        opacity: 0.82;
+        transform: translateX(-50%) scale(0.96);
+        filter: blur(22px);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.035);
         filter: blur(14px);
       }
     }
@@ -1562,13 +1639,13 @@
     @keyframes haloPulse {
       0%,
       100% {
-        opacity: 0.72;
-        transform: scale(0.96);
+        opacity: 0.7;
+        transform: scale(0.94);
       }
 
       50% {
         opacity: 1;
-        transform: scale(1.03);
+        transform: scale(1.06);
       }
     }
 
@@ -1576,20 +1653,20 @@
       0%,
       100% {
         opacity: 0.94;
-        transform: scale(0.988);
+        transform: scale(0.986);
         filter:
-          drop-shadow(0 18px 26px rgba(0, 0, 0, 0.14))
+          drop-shadow(0 18px 28px rgba(0, 0, 0, 0.16))
           contrast(1.05)
           brightness(0.9);
       }
 
       50% {
         opacity: 1;
-        transform: scale(1.02);
+        transform: scale(1.028);
         filter:
-          drop-shadow(0 24px 34px rgba(0, 0, 0, 0.18))
+          drop-shadow(0 26px 36px rgba(0, 0, 0, 0.2))
           contrast(1.12)
-          brightness(1.16);
+          brightness(1.18);
       }
     }
 
@@ -1717,13 +1794,13 @@
       }
 
       .brand__logo {
-        width: 22px;
-        height: 22px;
-        flex-basis: 22px;
+        width: 24px;
+        height: 24px;
+        flex-basis: 24px;
       }
 
       .brand__wordmark {
-        font-size: 1.08rem;
+        font-size: 1.14rem;
       }
 
       .section,
@@ -1735,14 +1812,26 @@
         padding: 38px 0 50px;
       }
 
+      .hero::before {
+        top: 0;
+        width: 420px;
+        height: 420px;
+      }
+
+      .hero::after {
+        bottom: -120px;
+        width: 94vw;
+        height: 260px;
+      }
+
       .hero__icon-ring {
-        width: 204px;
-        height: 204px;
+        width: 212px;
+        height: 212px;
       }
 
       .hero__icon-core {
-        width: 182px;
-        height: 182px;
+        width: 186px;
+        height: 186px;
       }
 
       .hero__actions {
@@ -1763,6 +1852,16 @@
       .service-grid {
         gap: 34px;
         margin-top: 54px;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+        line-height: 1.48;
+      }
+
+      .section-copy {
+        font-size: 0.92rem;
+        line-height: 1.56;
       }
 
       .problem-card,
@@ -1793,6 +1892,15 @@
         height: 74px;
       }
 
+      .note-box,
+      .process-note {
+        padding: 16px 14px;
+      }
+
+      .process-note {
+        font-size: 1.36rem;
+      }
+
       .service-card h3,
       .problem-card h3,
       .feature-card h3,
@@ -1802,6 +1910,30 @@
 
       .why-card {
         flex-direction: column;
+        gap: 16px;
+        min-height: 0;
+      }
+
+      .section-icon--small {
+        width: 68px;
+        height: 68px;
+      }
+
+      .price-card {
+        padding: 22px 14px 16px;
+      }
+
+      .price-card__lead {
+        min-height: 0;
+      }
+
+      .faq-question {
+        padding: 18px 18px;
+        font-size: 1.06rem;
+      }
+
+      .faq-answer__inner {
+        padding: 0 18px 18px;
       }
 
       .case-study-shell {
@@ -2228,32 +2360,32 @@
           <article class="why-card reveal">
             <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
             <div class="why-card__body">
-              <h3>Decyzje oparte na danych</h3>
-              <p>Rekomendacje wynikają z analizy strony, widoczności, komunikacji i konkurencji. <span class="bold">Najpierw diagnoza, potem decyzja.</span></p>
+              <h3>Dane, nie opinie</h3>
+              <p>Każda rekomendacja oparta jest na analizie źródeł branżowych i monitoringu zmian. <span class="bold">Działamy na faktach, nie na przeczuciach.</span></p>
             </div>
           </article>
 
           <article class="why-card reveal">
             <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
             <div class="why-card__body">
-              <h3>Jedna strategia, wiele kanałów</h3>
-              <p>Patrzymy całościowo na stronę, SEO, profil firmy, treści i proces sprzedaży, żeby wszystkie elementy pracowały na wspólny efekt.</p>
+              <h3>Konkurencja na dwóch torach</h3>
+              <p>Analizujemy konkurencję nie tylko w Google, ale też na każdej platformie społecznościowej. <span class="bold">Wiemy dokładnie co działa i jak to przebić.</span></p>
             </div>
           </article>
 
           <article class="why-card reveal">
             <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
             <div class="why-card__body">
-              <h3>Wdrożenia bez rozproszenia</h3>
-              <p>Nie kończymy na rekomendacjach. Możemy przejść dalej i uporządkować wdrożenie, dzięki czemu nie trzeba koordynować kilku niezależnych wykonawców.</p>
+              <h3>Kompletny pakiet</h3>
+              <p>Audyt, strona, SEO, social media, profil firmy i re-audyty w jednym miejscu. <span class="bold">Jeden partner, zero chaosu.</span></p>
             </div>
           </article>
 
           <article class="why-card reveal">
             <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
             <div class="why-card__body">
-              <h3>Elastyczny model współpracy</h3>
-              <p>Możesz zacząć od jednorazowego audytu, planu wdrożenia albo pełnej realizacji. Zakres dopasowujemy do etapu i możliwości firmy.</p>
+              <h3>Bez umów</h3>
+              <p>Miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz. <span class="bold">Bez kar i bez drobnego druku.</span></p>
             </div>
           </article>
         </div>
@@ -2263,7 +2395,7 @@
     <section class="section" id="cennik">
       <div class="container">
         <h2 class="section-title reveal">Ile to kosztuje?</h2>
-        <p class="section-subtitle reveal">Wybierz zakres dopasowany do etapu firmy. Każda współpraca zaczyna się od bezpłatnej rozmowy.</p>
+        <p class="section-subtitle reveal">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
 
         <div class="pricing-grid">
           <article class="price-card reveal">
@@ -2349,7 +2481,7 @@
           </article>
         </div>
 
-        <p class="pricing-summary reveal">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji.</span> Zakres ustalamy jasno na starcie, a sposób pracy dobieramy do etapu i możliwości Twojej firmy.</p>
+        <p class="pricing-summary reveal">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji.</span> Nie podpisujesz umowy na lata. Pracujemy jasno, etapami i z czytelnym zakresem.</p>
       </div>
     </section>
 
