@@ -3,72 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zautomatyzuj się | Strony WWW, SEO, PrestaShop i wdrożenia dla firm</title>
-  <meta name="description" content="Zautomatyzuj Się tworzy strony WWW, sklepy PrestaShop, prowadzi SEO, social media i wdraża rozwiązania dla nowych firm, e-commerce oraz procesów sprzedaży.">
+  <title>Zautomatyzuj Się | Strony WWW, SEO i automatyzacje dla firm</title>
+  <meta name="description" content="Projektujemy strony WWW, porządkujemy widoczność firm w Google i wdrażamy automatyzacje, które wspierają sprzedaż oraz codzienną pracę zespołu.">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#f15a1e">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:title" content="Zautomatyzuj się | Strony WWW, SEO, PrestaShop i wdrożenia dla firm">
-  <meta property="og:description" content="Strony internetowe, SEO, AI Search, PrestaShop, programy handlowo-magazynowe i automatyzacje dla firm.">
-  <meta property="og:image" content="assets/logo-z-mark.png">
+  <meta property="og:title" content="Zautomatyzuj Się | Strony WWW, SEO i automatyzacje dla firm">
+  <meta property="og:description" content="Audyt, strategia, strony WWW, SEO, treści i wdrożenia procesów dla firm, które chcą wyglądać profesjonalnie i być lepiej widoczne online.">
+  <meta property="og:image" content="logo-orange.png">
+  <meta property="og:image:width" content="1000">
+  <meta property="og:image:height" content="1000">
+  <meta property="og:image:alt" content="Logo Zautomatyzuj Się">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="logo-orange.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Zautomatyzuj Się",
-          "logo": "assets/logo-z-mark.png",
-          "email": "zautomatyzujsie@gmail.com",
-          "sameAs": [
-            "https://www.instagram.com/zautomatyzujsie/",
-            "https://www.facebook.com/zautomatyzujsie"
-          ]
-        },
-        {
-          "@type": "ProfessionalService",
-          "name": "Zautomatyzuj Się",
-          "description": "Strony internetowe, SEO, sklepy PrestaShop, automatyzacje procesów oraz wdrożenia systemów dla firm.",
-          "areaServed": "PL",
-          "serviceType": [
-            "Strony WWW",
-            "SEO",
-            "AI Search",
-            "PrestaShop",
-            "Programy handlowo-magazynowe",
-            "CRM i automatyzacja"
-          ]
-        }
-      ]
-    }
-  </script>
   <style>
     :root {
-      --bg: #f7f7f7;
-      --surface: #ffffff;
-      --surface-soft: #fff6f1;
-      --surface-success: #f1fbf7;
-      --text: #454545;
-      --text-dark: #3f3f3f;
-      --muted: #6b6b6b;
-      --line: #e5e5e5;
-      --line-strong: #d8d8d8;
-      --orange: #f15a1e;
-      --orange-dark: #e34d12;
-      --green: #16b879;
-      --red: #ff5147;
-      --footer: #4b4b4b;
-      --shadow: 0 18px 50px rgba(72, 72, 72, 0.06);
-      --shadow-soft: 0 10px 26px rgba(72, 72, 72, 0.04);
-      --radius-xl: 26px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --container: 1420px;
+      --bg: #ffffff;
+      --text: #4a4a4a;
+      --text-strong: #4a4a4a;
+      --muted: #555555;
+      --line: #dedede;
+      --line-soft: #ececec;
+      --accent: #f15a1e;
+      --accent-dark: #e34e13;
+      --green: #25b884;
+      --green-soft: #edf8f4;
+      --red: #ff4b4b;
+      --red-soft: #fcf2f2;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --container: 1280px;
+      --header-h: 72px;
     }
 
     * {
@@ -80,25 +52,58 @@
     }
 
     body {
+      position: relative;
+      isolation: isolate;
       margin: 0;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(255, 209, 190, 0.45), transparent 22%),
-        radial-gradient(circle at 90% 16%, rgba(242, 236, 233, 0.6), transparent 24%),
-        linear-gradient(180deg, #fafafa 0%, #f7f7f7 100%);
-      line-height: 1.55;
       min-width: 320px;
+      background: linear-gradient(180deg, #fcf8f4 0%, #fffdfb 20%, #ffffff 54%, #fffdfa 82%, #ffffff 100%);
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(255, 243, 233, 0.52) 0%, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 78%, rgba(255, 246, 239, 0.18) 100%);
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.44;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(241, 90, 30, 0.012) 0,
+          rgba(241, 90, 30, 0.012) 1px,
+          rgba(255, 255, 255, 0) 1px,
+          rgba(255, 255, 255, 0) 92px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(241, 90, 30, 0.01) 0,
+          rgba(241, 90, 30, 0.01) 1px,
+          rgba(255, 255, 255, 0) 34px,
+          rgba(255, 255, 255, 0) 92px
+        );
+      filter: none;
+      transform: none;
+      animation: ambientPulse 16s ease-in-out infinite;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     button,
@@ -107,53 +112,59 @@
       font: inherit;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .container {
       width: min(var(--container), calc(100% - 48px));
       margin: 0 auto;
     }
 
     .section {
-      padding: 72px 0;
       position: relative;
+      padding: 86px 0;
     }
 
-    .section--divider {
-      box-shadow: inset 0 14px 32px rgba(0, 0, 0, 0.02);
+    .section--compact {
+      padding: 74px 0;
     }
 
     .section-title {
-      margin: 0 0 10px;
-      color: var(--text-dark);
+      margin: 0;
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 3.3vw, 3.2rem);
-      line-height: 1.06;
+      font-size: clamp(2.3rem, 4.4vw, 4rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.045em;
       text-align: center;
-      letter-spacing: -0.04em;
     }
 
     .section-subtitle {
-      margin: 0 auto;
-      max-width: 850px;
+      max-width: 920px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 1.8vw, 1.15rem);
       text-align: center;
-      color: var(--text);
-      font-size: clamp(1rem, 1.65vw, 1.1rem);
     }
 
     .section-copy {
-      margin: 24px auto 0;
-      max-width: 930px;
-      text-align: center;
+      max-width: 1160px;
+      margin: 36px auto 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
+      text-align: center;
     }
 
     .accent {
-      color: var(--orange);
+      color: var(--accent);
     }
 
-    .dark {
+    .bold {
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--text-strong);
     }
 
     .btn,
@@ -161,25 +172,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
       min-height: 54px;
       padding: 0 24px;
-      font-weight: 700;
-      transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background-color 140ms ease;
-      cursor: pointer;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
       border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, border-color 160ms ease;
     }
 
     .btn {
       color: #fff;
-      background: var(--orange);
-      box-shadow: 0 14px 24px rgba(241, 90, 30, 0.18);
+      background: var(--accent);
+      box-shadow: 0 12px 24px rgba(241, 90, 30, 0.2);
     }
 
     .btn-outline {
-      color: var(--orange);
-      background: transparent;
-      border-color: var(--orange);
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.88);
+      border-color: var(--accent);
     }
 
     .btn:hover,
@@ -190,462 +202,757 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 60;
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      backdrop-filter: blur(10px);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(230, 230, 230, 0.8);
+      box-shadow: 0 10px 26px rgba(25, 25, 25, 0.035);
+      backdrop-filter: blur(18px);
     }
 
     .site-header__inner {
-      min-height: 72px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0;
-      flex-shrink: 0;
+      gap: 12px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
-    .brand__mark {
+    .brand__logo {
+      display: inline-flex;
       width: 28px;
       height: 28px;
-      overflow: hidden;
-      border-radius: 6px;
+      flex: 0 0 28px;
+      border-radius: 50%;
+      background: center / contain no-repeat url("logo-orange.png");
+      filter: drop-shadow(0 8px 12px rgba(241, 90, 30, 0.22));
     }
 
-    .brand__mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.18);
-    }
-
-    .brand__word {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 0.98rem;
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      color: var(--text-dark);
+    .brand__wordmark {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      font-size: clamp(1.42rem, 1.62vw, 1.96rem);
       line-height: 1;
     }
 
-    .brand__word .accent {
-      font-weight: 700;
-      color: #f26b33;
+    .brand__soft {
+      color: var(--text-strong);
+      font-weight: 800;
+    }
+
+    .brand__accent {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
+      margin-left: auto;
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .nav__links {
       display: flex;
       align-items: center;
-      gap: 26px;
-      font-size: 0.9rem;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
     }
 
     .nav__links a {
-      color: var(--text-dark);
+      color: var(--text-strong);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 12px 0;
+      transition: color 160ms ease, opacity 160ms ease;
+      white-space: nowrap;
+      opacity: 0.78;
+    }
+
+    .nav__links a.is-emphasis {
+      font-weight: 800;
+      opacity: 1;
+    }
+
+    .nav .btn {
+      min-height: 46px;
+      padding: 0 18px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .nav__links a:hover {
-      color: var(--orange);
+      color: var(--accent);
+      opacity: 1;
     }
 
-    .nav__cta {
-      min-height: 42px;
-      padding: 0 16px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-    }
-
-    .nav-toggle {
+    .menu-toggle {
       display: none;
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
       border: 1px solid var(--line);
-      border-radius: 10px;
       background: #fff;
+      align-items: center;
+      justify-content: center;
       padding: 0;
       cursor: pointer;
     }
 
-    .nav-toggle span {
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
       display: block;
       width: 18px;
       height: 2px;
-      background: var(--text-dark);
-      margin: 4px auto;
-      border-radius: 2px;
+      border-radius: 999px;
+      background: var(--text-strong);
+      position: relative;
+      transition: transform 160ms ease, opacity 160ms ease;
+    }
+
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .menu-toggle span::before {
+      top: -6px;
+    }
+
+    .menu-toggle span::after {
+      top: 6px;
+    }
+
+    .mobile-nav {
+      display: none;
+      padding-bottom: 14px;
+    }
+
+    .mobile-nav__panel {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-nav__panel a {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fafafa;
+      font-weight: 600;
     }
 
     .hero {
-      padding: 58px 0 76px;
-      background:
-        radial-gradient(circle at 16% 14%, rgba(255, 222, 206, 0.72), transparent 28%),
-        radial-gradient(circle at 84% 20%, rgba(255, 224, 209, 0.68), transparent 28%),
-        radial-gradient(circle at 50% 100%, rgba(243, 243, 243, 0.95), transparent 30%),
-        linear-gradient(180deg, #fff9f6 0%, #f7f7f7 88%);
-      box-shadow: inset 0 -14px 24px rgba(0, 0, 0, 0.02);
-    }
-
-    .hero__inner {
+      position: relative;
+      padding: 60px 0 74px;
       text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 223, 202, 0.56) 0%, rgba(255, 239, 228, 0.28) 20%, rgba(255, 255, 255, 0) 54%),
+        linear-gradient(180deg, rgba(255, 247, 241, 0.88) 0%, rgba(255, 251, 247, 0.52) 42%, rgba(255, 255, 255, 0) 100%);
     }
 
-    .hero__logo-wrap {
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 26px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -34px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(241, 90, 30, 0.18) 0%, rgba(255, 210, 183, 0.16) 32%, rgba(255, 255, 255, 0) 72%);
+      filter: blur(24px);
+      opacity: 0.76;
+      z-index: 0;
+      animation: heroGlowPulse 6.5s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(241, 90, 30, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(241, 90, 30, 0.022) 1px, transparent 1px);
+      background-size: 76px 76px;
+      opacity: 0.34;
+      z-index: 0;
+    }
+
+    .hero__icon-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .hero__icon-ring {
+      position: relative;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 235, 231, 0.98));
-      border: 4px solid rgba(255, 255, 255, 0.98);
-      box-shadow:
-        inset 0 8px 18px rgba(255, 255, 255, 0.95),
-        inset 0 -10px 24px rgba(210, 197, 191, 0.42),
-        0 2px 0 rgba(255, 255, 255, 0.9),
-        0 10px 22px rgba(110, 98, 92, 0.18);
-      position: relative;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
 
-    .hero__logo-wrap::after {
+    .hero__icon-ring::before {
       content: "";
       position: absolute;
-      inset: -8px;
+      inset: -6px;
       border-radius: 50%;
-      border: 4px solid rgba(255, 255, 255, 0.86);
-      box-shadow: 0 10px 22px rgba(255, 255, 255, 0.55);
+      background: linear-gradient(135deg, rgba(241, 90, 30, 0.88), rgba(227, 78, 19, 0.92), rgba(37, 184, 132, 0.64), rgba(241, 90, 30, 0.88));
+      background-size: 280% 280%;
+      opacity: 0.48;
+      z-index: 0;
+      animation: heroBorderPulse 4.8s ease-in-out infinite;
     }
 
-    .hero__logo-wrap img {
-      width: 94px;
+    .hero__icon-ring::after {
+      content: none;
+    }
+
+    .hero__icon-core {
       position: relative;
       z-index: 1;
-      opacity: 0.98;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      background: center / contain no-repeat url("logo-white.png");
       filter:
-        brightness(0) saturate(0%) invert(100%)
-        drop-shadow(-2px -2px 0 rgba(255, 255, 255, 0.92))
-        drop-shadow(2px 3px 3px rgba(156, 145, 140, 0.55));
+        drop-shadow(0 18px 34px rgba(241, 90, 30, 0.22))
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+      transform: scale(1);
+      animation: logoPulse 4.8s ease-in-out infinite;
     }
 
-    .hero__title {
+    .hero__icon-core > .zmark,
+    .section-icon > .zmark {
+      display: none;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
       margin: 0;
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      color: var(--text-dark);
-      font-size: clamp(3rem, 5.2vw, 4.8rem);
-      line-height: 1;
-      letter-spacing: -0.05em;
+      font-size: clamp(2.8rem, 5.3vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.055em;
     }
 
-    .hero__title strong {
-      font-weight: 800;
-    }
-
-    .hero__text {
+    .hero__lead {
+      position: relative;
+      z-index: 1;
       max-width: 920px;
-      margin: 20px auto 0;
-      font-size: clamp(1.06rem, 1.8vw, 1.18rem);
-      color: #4d4d4d;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.78vw, 1.24rem);
+      line-height: 1.5;
     }
 
     .hero__actions {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: center;
-      gap: 22px;
-      flex-wrap: wrap;
+      gap: 24px;
       margin-top: 34px;
+      flex-wrap: wrap;
     }
 
     .hero__stats {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-      max-width: 1080px;
-      margin: 56px auto 0;
+      gap: 18px;
+      max-width: 1040px;
+      margin: 60px auto 0;
     }
 
     .hero__stat {
       text-align: center;
+      padding: 8px 10px 0;
     }
 
-    .hero__stat strong {
+    .hero__stat-value {
       display: block;
-      margin-bottom: 8px;
-      color: var(--orange);
+      color: var(--accent);
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      font-weight: 700;
       line-height: 1;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
     }
 
-    .hero__stat span {
+    .hero__stat-label {
       display: block;
-      font-size: 0.9rem;
-      color: var(--text);
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
 
-    .hero__stat .dark {
-      display: inline;
-    }
-
-    .problem-grid,
-    .services-grid,
-    .newbiz-grid,
-    .why-grid,
-    .pricing-grid,
-    .footer-grid {
-      display: grid;
-      gap: 28px;
+    .hero__stat-label strong {
+      color: var(--text-strong);
+      font-weight: 700;
     }
 
     .problem-grid {
+      display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 48px;
+      gap: 44px;
+      margin-top: 84px;
     }
 
     .problem-card,
     .service-card,
-    .newbiz-card,
-    .why-card {
+    .feature-card,
+    .newbiz-card {
+      position: relative;
+      text-align: center;
+      padding: 28px 24px 26px;
+      border: 1px solid rgba(216, 216, 216, 0.92);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.04);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      min-height: 100%;
+    }
+
+    .problem-card::before,
+    .service-card::before,
+    .feature-card::before,
+    .newbiz-card::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 138, 86, 0.9), rgba(241, 90, 30, 0.9));
+      opacity: 0.88;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 62px 54px;
+      margin-top: 84px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 54px;
       text-align: center;
     }
 
-    .problem-card img,
-    .service-card img,
-    .newbiz-card img,
-    .why-card img,
-    .report-card img,
-    .guarantee__logo,
-    .price-card__logo {
-      width: 78px;
-      margin: 0 auto 20px;
-      transform: scale(1.06);
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 36px;
+      margin-top: 56px;
+    }
+
+    .why-card,
+    .doc-card {
+      padding: 22px 18px 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .why-card {
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+      text-align: left;
+      min-height: 212px;
+    }
+
+    .why-card__body h3,
+    .doc-card h3 {
+      margin: 4px 0 10px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.65rem, 2vw, 2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .why-card__body p,
+    .doc-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.45;
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 108px;
+      height: 108px;
+      background: center / contain no-repeat url("logo-orange.png");
+      filter: drop-shadow(0 16px 24px rgba(241, 90, 30, 0.12));
+    }
+
+    .section-icon--small {
+      width: 84px;
+      height: 84px;
+    }
+
+    .service-card h3,
+    .problem-card h3,
+    .feature-card h3,
+    .newbiz-card h3 {
+      min-height: 4.3rem;
+      margin: 16px 0 12px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.42rem, 1.7vw, 1.82rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
     }
 
     .problem-card h3,
-    .service-card h3,
-    .newbiz-card h3,
-    .why-card h3 {
-      margin: 0 0 14px;
-      font-family: "Outfit", sans-serif;
-      font-size: 1.22rem;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: var(--orange);
+    .feature-card h3,
+    .newbiz-card h3 {
+      color: var(--text-strong);
+      min-height: 3.7rem;
+    }
+
+    .problem-card h3,
+    .service-card h3 {
+      color: var(--accent);
     }
 
     .problem-card p,
     .service-card p,
-    .newbiz-card p,
-    .why-card p,
-    .report-card p {
-      margin: 0;
-      color: var(--text);
+    .feature-card p,
+    .newbiz-card p {
+      max-width: 32ch;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.54;
     }
 
-    .problem-note,
-    .process-note {
-      max-width: 1240px;
-      margin: 34px auto 0;
-      border: 2px solid var(--orange);
-      border-radius: var(--radius-lg);
-      padding: 18px 22px;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.62);
+    .problem-card {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
-    .problem-note strong,
-    .process-note strong {
-      color: var(--orange);
+    .problem-card::before {
+      display: none;
     }
 
-    .services-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 58px;
-      row-gap: 46px;
+    .problem-card .section-icon {
+      margin: 0 auto 12px;
+    }
+
+    .problem-card h3 {
+      min-height: 0;
+      margin: 8px 0 12px;
+      font-size: clamp(1.9rem, 2vw, 2.35rem);
+      line-height: 1.08;
+    }
+
+    .problem-card p {
+      max-width: 26ch;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .service-card {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       text-align: left;
-      padding: 0 10px;
     }
 
-    .service-card img {
-      margin-left: 0;
+    .service-card::before {
+      display: none;
+    }
+
+    .service-card .section-icon {
+      margin-bottom: 14px;
     }
 
     .service-card h3 {
-      text-align: left;
+      min-height: 0;
+      margin: 10px 0 14px;
+      font-size: clamp(2rem, 2.25vw, 2.7rem);
+      line-height: 1.06;
     }
 
     .service-card p {
-      text-align: left;
+      max-width: 34ch;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .process {
-      margin-top: 52px;
+    .problem-card:hover,
+    .service-card:hover,
+    .feature-card:hover,
+    .newbiz-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(241, 90, 30, 0.24);
+      box-shadow: 0 20px 38px rgba(0, 0, 0, 0.07);
     }
 
-    .process__line {
-      position: relative;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding-top: 34px;
+    .problem-card:hover,
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: none;
+      border-color: transparent;
     }
 
-    .process__line::before {
-      content: "";
-      position: absolute;
-      top: 50px;
-      left: 8%;
-      right: 8%;
-      height: 4px;
-      background: rgba(241, 90, 30, 0.5);
-      border-radius: 99px;
+    .note-box {
+      max-width: 1240px;
+      margin: 58px auto 0;
+      padding: 18px 22px;
+      border: 2px solid rgba(241, 90, 30, 0.9);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.56;
     }
 
-    .process__grid {
+    .note-box strong {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .process-line {
       position: relative;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      gap: 38px;
+      margin-top: 80px;
+      padding-top: 6px;
     }
 
-    .process__step {
-      text-align: center;
+    .process-line::before {
+      content: "";
+      position: absolute;
+      left: 12.5%;
+      right: 12.5%;
+      top: 41px;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(241, 90, 30, 0.55), rgba(241, 90, 30, 0.75));
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .process-step {
       position: relative;
       z-index: 1;
-      padding: 0 10px;
+      text-align: center;
     }
 
-    .process__badge {
-      width: 48px;
-      height: 48px;
+    .process-step__num {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 18px;
       border-radius: 50%;
-      margin: 0 auto 30px;
       display: grid;
       place-items: center;
-      background: linear-gradient(180deg, #ff864a, var(--orange-dark));
       color: #fff;
+      background: linear-gradient(135deg, #ff8a56, var(--accent));
       font-family: "Outfit", sans-serif;
-      font-size: 1.8rem;
+      font-size: 2.3rem;
       font-weight: 700;
-      box-shadow: 0 8px 20px rgba(241, 90, 30, 0.22);
+      box-shadow: 0 16px 24px rgba(241, 90, 30, 0.18);
     }
 
-    .process__step h3 {
+    .process-step h3 {
       margin: 0 0 10px;
-      color: var(--text-dark);
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      font-size: 1.2rem;
-      line-height: 1.15;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.04em;
     }
 
-    .process__step p {
+    .process-step p {
       margin: 0;
-      font-size: 0.9rem;
-      color: var(--text);
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
     }
 
-    .case-wrap {
-      margin-top: 48px;
-      display: grid;
-      grid-template-columns: 72px minmax(0, 1fr) 72px;
-      gap: 28px;
-      align-items: center;
+    .process-note {
+      max-width: 1240px;
+      margin: 56px auto 0;
+      padding: 18px 24px;
+      border: 2px solid rgba(241, 90, 30, 0.85);
+      border-radius: 18px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.6rem, 2.1vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.18;
+      text-align: center;
+      letter-spacing: -0.04em;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .case-study-shell {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 56px;
     }
 
     .case-arrow {
-      width: 50px;
-      height: 50px;
+      position: absolute;
+      top: 50%;
+      width: 48px;
+      height: 48px;
+      margin-top: -24px;
+      border: none;
       border-radius: 50%;
-      border: 0;
-      background: linear-gradient(180deg, #ff8d53, var(--orange-dark));
+      background: linear-gradient(135deg, #ff8a56, var(--accent));
       color: #fff;
       font-size: 2rem;
+      line-height: 1;
       display: grid;
       place-items: center;
+      box-shadow: 0 16px 24px rgba(241, 90, 30, 0.18);
       cursor: pointer;
-      box-shadow: 0 12px 24px rgba(241, 90, 30, 0.2);
+      z-index: 2;
+    }
+
+    .case-arrow--prev {
+      left: 0;
+    }
+
+    .case-arrow--next {
+      right: 0;
     }
 
     .case-card {
-      border: 3px solid var(--orange);
-      border-radius: 20px;
-      background: #fff;
-      padding: 26px 22px 24px;
-      box-shadow: var(--shadow-soft);
+      border: 2px solid rgba(241, 90, 30, 0.9);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 22px 22px 24px;
+      box-shadow: var(--shadow);
     }
 
-    .case-card__top {
+    .case-card__head {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
     }
 
-    .case-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 18px;
+    .case-tag {
+      padding: 12px 16px;
       border-radius: 10px;
-      background: var(--orange);
+      background: var(--accent);
       color: #fff;
-      font-weight: 700;
+      font-size: 0.92rem;
+      font-weight: 800;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      letter-spacing: 0.02em;
     }
 
     .case-location {
-      color: var(--text);
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
     .case-compare {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1fr) 88px minmax(0, 1fr);
+      gap: 24px;
       align-items: center;
     }
 
-    .case-box {
-      border: 1px solid var(--line-strong);
-      border-radius: 18px;
-      padding: 24px 24px 20px;
-      min-height: 280px;
+    .state-box {
+      min-height: 258px;
+      padding: 22px 24px;
+      border: 1px solid #d9d9d9;
+      border-radius: 20px;
+      background: #fff;
     }
 
-    .case-box--before {
-      background: #fff4f3;
+    .state-box--before {
+      background: var(--red-soft);
     }
 
-    .case-box--after {
-      background: #f2fbf7;
+    .state-box--after {
+      background: var(--green-soft);
     }
 
-    .case-box__title {
-      margin: 0 0 22px;
-      font-weight: 800;
-      color: var(--orange);
-      font-size: 0.95rem;
-      text-transform: uppercase;
+    .state-box__label {
+      display: block;
+      margin-bottom: 18px;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
-    .case-list {
+    .state-box--before .state-box__label {
+      color: var(--red);
+    }
+
+    .state-box--after .state-box__label {
+      color: var(--green);
+    }
+
+    .state-list {
       list-style: none;
       margin: 0;
       padding: 0;
@@ -653,722 +960,1017 @@
       gap: 18px;
     }
 
-    .case-list li {
-      display: flex;
-      gap: 14px;
-      color: var(--text);
+    .state-list li {
+      position: relative;
+      padding-left: 38px;
+      color: var(--muted);
       font-size: 0.95rem;
+      line-height: 1.45;
     }
 
-    .case-list__icon {
-      flex: 0 0 24px;
-      font-size: 1.6rem;
+    .state-list li::before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 2rem;
       line-height: 1;
+      color: var(--red);
       font-weight: 700;
     }
 
-    .case-list__icon--bad {
-      color: var(--red);
-    }
-
-    .case-list__icon--good {
+    .state-box--after .state-list li::before {
+      content: "✓";
       color: var(--green);
     }
 
-    .case-arrow-mid {
-      text-align: center;
-      color: var(--orange);
-      font-size: 4rem;
+    .case-arrow-center {
+      color: var(--accent);
+      font-size: 5rem;
       font-weight: 700;
+      line-height: 1;
+      text-align: center;
     }
 
     .case-metrics {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
-      margin-top: 22px;
+      margin-top: 26px;
     }
 
-    .case-metric {
-      border: 1px solid var(--line-strong);
+    .metric-card {
+      min-height: 150px;
+      padding: 26px 16px;
+      border: 1px solid #d9d9d9;
       border-radius: 18px;
-      padding: 28px 16px 24px;
       text-align: center;
+      background: #fff;
     }
 
-    .case-metric strong {
+    .metric-card__value {
       display: block;
-      color: var(--orange);
+      color: var(--accent);
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-size: clamp(2.2rem, 2.7vw, 3.2rem);
+      font-weight: 700;
       line-height: 1;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
     }
 
-    .case-metric span {
+    .metric-card__label {
       display: block;
       margin-top: 16px;
-      color: var(--text);
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.4;
+    }
+
+    .metric-card__label strong {
+      color: var(--text-strong);
     }
 
     .case-meta {
       margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
       text-align: center;
-      font-size: 0.95rem;
-      color: var(--text);
     }
 
     .case-quote {
-      margin: 18px auto 0;
-      max-width: 760px;
-      text-align: center;
-      padding-top: 18px;
-      border-top: 1px solid var(--line-strong);
-      color: var(--text-dark);
+      max-width: 520px;
+      margin: 14px auto 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      font-size: clamp(1.45rem, 2vw, 1.9rem);
+      font-size: clamp(1.45rem, 2vw, 2rem);
       font-weight: 700;
-      letter-spacing: -0.03em;
+      line-height: 1.22;
+      text-align: center;
+      letter-spacing: -0.04em;
     }
 
-    .case-quote .accent {
-      font-weight: 800;
+    .case-cta {
+      margin-top: 22px;
+      text-align: center;
     }
 
-    .case-card__cta {
-      display: flex;
-      justify-content: center;
-      margin-top: 26px;
-    }
-
-    .dots {
+    .case-dots {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 22px;
     }
 
-    .dot {
-      width: 12px;
-      height: 12px;
+    .case-arrow--mobile {
+      display: none;
+    }
+
+    .case-dot {
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      border: 1px solid var(--orange);
-      background: transparent;
+      border: 1px solid var(--accent);
+      background: #fff;
       padding: 0;
       cursor: pointer;
+      transition: background-color 160ms ease, transform 160ms ease;
     }
 
-    .dot.is-active {
-      background: var(--orange);
+    .case-dot.is-active {
+      background: var(--accent);
+      transform: scale(1.02);
     }
 
-    .reports-grid {
+    .doc-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 38px;
       max-width: 800px;
-      margin: 52px auto 0;
+      margin: 48px auto 0;
     }
 
-    .report-card {
-      border: 1px solid var(--line-strong);
-      border-radius: 18px;
-      background: #fff;
-      padding: 30px 26px 26px;
+    .doc-card {
       text-align: center;
-      box-shadow: var(--shadow-soft);
+      min-height: 344px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      padding-top: 32px;
     }
 
-    .report-card h3 {
-      margin: 0 0 12px;
-      color: var(--orange);
-      font-family: "Outfit", sans-serif;
-      font-size: 1.28rem;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
+    .doc-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: var(--accent);
+      font-size: 0.98rem;
+      font-weight: 800;
     }
 
-    .report-card a {
-      display: inline-block;
-      margin-top: 20px;
-      color: var(--orange);
-      font-weight: 700;
-    }
-
-    .reports-note {
+    .doc-highlight {
       max-width: 800px;
       margin: 34px auto 0;
-      border: 1px solid rgba(241, 90, 30, 0.22);
-      border-radius: 18px;
-      background: #feefe8;
-      padding: 28px 26px;
+      padding: 34px 26px 32px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(253, 239, 233, 0.85), rgba(253, 239, 233, 0.65));
       text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .reports-note h3 {
-      margin: 0 0 16px;
-      color: var(--orange);
+    .doc-highlight h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
       font-family: "Outfit", sans-serif;
-      font-size: 1.5rem;
-    }
-
-    .reports-note p {
-      margin: 0;
-      color: var(--text);
-    }
-
-    .reports-note strong {
-      display: block;
-      margin-top: 18px;
-      color: var(--orange);
+      font-size: clamp(2rem, 2.4vw, 2.8rem);
       font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
     }
 
-    .reports-note .btn {
-      margin-top: 26px;
+    .doc-highlight p {
+      max-width: 720px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .doc-highlight strong {
+      color: var(--accent);
+      font-weight: 800;
     }
 
     .newbiz-grid {
+      display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-top: 50px;
+      gap: 24px;
+      margin-top: 58px;
+      text-align: center;
+    }
+
+    .newbiz-card {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .newbiz-card::before {
+      display: none;
+    }
+
+    .newbiz-card .section-icon {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 14px;
     }
 
     .newbiz-card h3 {
-      color: var(--text-dark);
+      min-height: 0;
+      margin: 8px 0 14px;
+      font-size: clamp(1.7rem, 1.9vw, 2.15rem);
+      line-height: 1.14;
+    }
+
+    .newbiz-card p {
+      max-width: 22ch;
+      font-size: 1rem;
     }
 
     .newbiz-note {
-      margin-top: 36px;
-      text-align: center;
-      color: var(--orange);
+      margin-top: 48px;
+      color: var(--accent);
+      font-size: 1.05rem;
       font-weight: 700;
+      text-align: center;
     }
 
     .newbiz-cta {
-      display: flex;
-      justify-content: center;
-      margin-top: 26px;
-    }
-
-    .why-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-top: 48px;
-    }
-
-    .why-card {
-      text-align: left;
-      border: 1px solid var(--line-strong);
-      border-radius: 18px;
-      background: #fff;
-      padding: 22px 26px;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: 70px minmax(0, 1fr);
-      gap: 18px;
-      align-items: start;
-    }
-
-    .why-card img {
-      width: 62px;
-      margin: 0;
-    }
-
-    .why-card h3 {
-      margin: 0 0 10px;
-      text-align: left;
-      color: var(--orange);
-    }
-
-    .why-card p {
-      text-align: left;
+      margin-top: 40px;
+      text-align: center;
     }
 
     .pricing-grid {
+      display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      margin-top: 54px;
+      gap: 28px;
+      margin-top: 62px;
       align-items: stretch;
     }
 
     .price-card {
       position: relative;
-      border: 1px solid var(--line-strong);
-      border-radius: 18px;
-      background: #fff;
-      padding: 28px 18px 16px;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
+      padding: 26px 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
     }
 
     .price-card--featured {
-      border-width: 2px;
-      border-color: var(--orange);
+      border: 2px solid var(--accent);
+      padding-top: 36px;
     }
 
     .price-badge {
       position: absolute;
+      top: -18px;
       left: 50%;
-      top: -20px;
       transform: translateX(-50%);
-      min-height: 38px;
-      padding: 0 18px;
+      padding: 10px 18px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #ff874b, var(--orange));
+      background: linear-gradient(135deg, #ff8a56, var(--accent));
       color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       font-size: 0.76rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       white-space: nowrap;
+      box-shadow: 0 10px 20px rgba(241, 90, 30, 0.18);
     }
 
     .price-card h3 {
-      margin: 0 0 16px;
-      color: var(--text-dark);
+      min-height: 86px;
+      margin: 0 0 18px;
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      font-size: 1.1rem;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-    }
-
-    .price-card__price {
-      margin: 0 0 28px;
-      color: var(--orange);
-      font-family: "Outfit", sans-serif;
-      font-size: 2rem;
-      line-height: 1;
+      font-size: clamp(1.8rem, 1.95vw, 2.35rem);
+      font-weight: 700;
+      line-height: 1.12;
       letter-spacing: -0.04em;
     }
 
-    .price-card__lead {
-      margin: 0 0 28px;
-      color: var(--text);
-      min-height: 94px;
+    .price-card__value {
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.2rem, 2.4vw, 3rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
     }
 
-    .price-list {
+    .price-card__lead {
+      min-height: 88px;
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .check-list {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
       gap: 14px;
-      color: var(--text);
+      flex: 1 1 auto;
     }
 
-    .price-list li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
+    .check-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
-    .price-list__check {
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--green);
-      font-size: 1.4rem;
+      font-size: 1.65rem;
       line-height: 1;
-      flex: 0 0 18px;
-      margin-top: 1px;
-    }
-
-    .price-card__note {
-      margin-top: auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 12px;
-      padding: 12px 10px;
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-
-    .price-card__actions {
-      margin-top: 18px;
-    }
-
-    .price-card__actions .btn,
-    .price-card__actions .btn-outline {
-      width: 100%;
-      min-height: 54px;
-      border-radius: 12px;
-    }
-
-    .pricing-footer-note {
-      margin-top: 36px;
-      text-align: center;
-      color: var(--text);
-    }
-
-    .pricing-footer-note .accent {
       font-weight: 700;
     }
 
-    .guarantee {
-      max-width: 800px;
-      margin: 10px auto 0;
-      border: 2px solid rgba(241, 90, 30, 0.75);
-      border-radius: 20px;
-      padding: 52px 50px 36px;
-      background: #fff;
+    .price-note {
+      margin-top: 20px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .price-note strong {
+      color: var(--text-strong);
+      font-weight: 800;
+    }
+
+    .price-actions {
+      margin-top: 24px;
+    }
+
+    .price-actions .btn,
+    .price-actions .btn-outline {
+      width: 100%;
+    }
+
+    .pricing-summary {
+      margin-top: 46px;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
       text-align: center;
-      box-shadow: var(--shadow-soft);
     }
 
-    .guarantee__logo {
-      width: 92px;
-      margin-bottom: 24px;
+    .pricing-summary .accent {
+      font-weight: 700;
     }
 
-    .guarantee h2 {
-      margin: 0 0 14px;
-      color: var(--orange);
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 3.4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .guarantee p {
+    .guarantee-card {
+      max-width: 800px;
       margin: 0 auto;
-      max-width: 650px;
-      color: var(--text);
+      padding: 54px 28px;
+      border: 1px solid rgba(241, 90, 30, 0.9);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .guarantee__grid {
+    .guarantee-card h2 {
+      margin: 18px 0 14px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.3rem, 3vw, 4rem);
+      font-weight: 700;
+      line-height: 1.07;
+      letter-spacing: -0.05em;
+    }
+
+    .guarantee-card p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.48;
+    }
+
+    .guarantee-options {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      max-width: 620px;
-      margin: 36px auto 0;
+      gap: 32px;
+      max-width: 640px;
+      margin: 42px auto 0;
     }
 
-    .guarantee__option strong {
+    .guarantee-option {
+      text-align: center;
+    }
+
+    .guarantee-option strong {
       display: block;
-      margin-bottom: 10px;
-      color: var(--orange);
+      color: var(--accent);
       font-family: "Outfit", sans-serif;
-      font-size: 2.3rem;
+      font-size: 3rem;
+      font-weight: 700;
       line-height: 1;
     }
 
-    .guarantee__summary {
-      margin-top: 34px;
-      color: var(--orange);
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.15rem);
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-    }
-
-    .guarantee__foot {
-      margin-top: 24px;
+    .guarantee-option span {
+      display: block;
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
 
-    .faq {
+    .guarantee-foot {
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .guarantee-highlight {
+      margin-top: 8px;
+      color: var(--accent);
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.7rem, 2.3vw, 2.7rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    .guarantee-small {
+      margin-top: 18px;
+      color: #7d7d7d;
+      font-size: 0.75rem;
+    }
+
+    .faq-wrap {
       max-width: 800px;
-      margin: 54px auto 0;
+      margin: 46px auto 0;
       display: grid;
       gap: 18px;
     }
 
     .faq-item {
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--line);
       border-radius: 18px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.94);
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
     }
 
     .faq-question {
       width: 100%;
-      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 22px;
       border: 0;
       background: transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      color: var(--text-dark);
-      font-family: "Outfit", sans-serif;
-      font-size: 1.12rem;
-      font-weight: 600;
+      color: var(--text-strong);
       text-align: left;
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
       cursor: pointer;
     }
 
-    .faq-question span:last-child {
-      flex: 0 0 auto;
+    .faq-icon {
+      flex-shrink: 0;
+      color: var(--text-strong);
       font-size: 1.8rem;
       line-height: 1;
-      color: var(--muted);
-      transition: transform 140ms ease;
+      transition: transform 160ms ease;
     }
 
-    .faq-item[data-open="true"] .faq-question span:last-child {
-      transform: rotate(180deg);
+    .faq-item.is-open .faq-icon {
+      transform: rotate(45deg);
     }
 
     .faq-answer {
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 220ms ease;
+    }
+
+    .faq-answer__inner {
       padding: 0 22px 20px;
-      color: var(--text);
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.62;
     }
 
-    .faq-item[data-open="true"] .faq-answer {
-      display: block;
-    }
-
-    .cta-bottom {
+    .cta-final {
+      padding: 98px 0 84px;
       text-align: center;
-      padding-bottom: 78px;
     }
 
-    .cta-bottom h2 {
+    .cta-final h2 {
       margin: 0;
-      color: var(--text-dark);
+      color: var(--text-strong);
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-size: clamp(2.7rem, 4.9vw, 4.4rem);
+      font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.05em;
     }
 
-    .cta-bottom p {
-      margin: 12px auto 0;
-      max-width: 560px;
-      font-size: 1.06rem;
-      color: var(--text);
+    .cta-final p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.8vw, 1.18rem);
+      line-height: 1.48;
     }
 
-    .cta-bottom .btn {
-      margin-top: 26px;
-      min-width: 278px;
-      border-radius: 8px;
+    .cta-final p strong {
+      color: var(--text-strong);
+      font-weight: 800;
+    }
+
+    .cta-final__action {
+      margin-top: 32px;
     }
 
     .site-footer {
-      background: var(--footer);
-      color: #fff;
-      padding: 58px 0 340px;
+      padding: 56px 0 72px;
+      background: #4b4b4b;
+      color: rgba(255, 255, 255, 0.92);
     }
 
-    .footer-grid {
-      grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
+    .site-footer__grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+      gap: 48px;
       align-items: start;
     }
 
-    .footer-brand__top {
+    .site-footer__brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .footer-brand__mark {
-      width: 26px;
-      height: 26px;
-      overflow: hidden;
-      border-radius: 6px;
-    }
-
-    .footer-brand__mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.2);
-    }
-
-    .footer-brand__word {
       font-family: "Outfit", sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
-    }
-
-    .footer-grid h3 {
-      margin: 0 0 22px;
+      letter-spacing: -0.05em;
       color: #fff;
-      font-family: "Outfit", sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
     }
 
-    .footer-grid p,
-    .footer-grid li {
-      color: rgba(255, 255, 255, 0.95);
+    .site-footer__brand .brand__logo {
+      background-image: url("logo-white.png");
+      filter: drop-shadow(0 8px 14px rgba(255, 255, 255, 0.08));
     }
 
-    .footer-grid ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 16px;
+    .site-footer__brand .brand__soft {
+      color: #fff;
     }
 
-    .footer-icons {
+    .site-footer__brand .brand__accent {
+      color: #ff7c42;
+    }
+
+    .site-footer__tag {
+      margin: 16px 0 28px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.92rem;
+    }
+
+    .site-footer__tag strong {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .socials {
       display: flex;
-      gap: 16px;
-      margin-top: 26px;
+      gap: 14px;
     }
 
-    .footer-icon {
-      width: 30px;
-      height: 30px;
+    .social {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.95);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-    }
-
-    .footer-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-
-    .footer-link {
-      color: #ff9b61;
-      text-decoration: underline;
+      font-size: 1.2rem;
       font-weight: 700;
     }
 
-    @media (max-width: 1300px) {
+    .site-footer h3 {
+      margin: 0 0 28px;
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    .site-footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.96);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .site-footer a.accent-link {
+      color: #ff9b67;
+      font-weight: 700;
+    }
+
+    @keyframes ambientPulse {
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: translateY(0);
+      }
+
+      50% {
+        opacity: 0.48;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroGlowPulse {
+      0%,
+      100% {
+        opacity: 0.68;
+        transform: translateX(-50%) scale(0.96);
+        filter: blur(24px);
+      }
+
+      50% {
+        opacity: 0.92;
+        transform: translateX(-50%) scale(1.04);
+        filter: blur(18px);
+      }
+    }
+
+    @keyframes heroBorderPulse {
+      0%,
+      100% {
+        background-position: 0% 50%;
+        opacity: 0.4;
+        transform: scale(1);
+      }
+
+      50% {
+        background-position: 100% 50%;
+        opacity: 0.88;
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes logoPulse {
+      0%,
+      100% {
+        opacity: 0.96;
+        transform: scale(1);
+        filter:
+          drop-shadow(0 18px 34px rgba(241, 90, 30, 0.18))
+          drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.03);
+        filter:
+          drop-shadow(0 24px 42px rgba(241, 90, 30, 0.24))
+          drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
+      }
+    }
+
+    .zmark {
+      position: relative;
+      display: inline-block;
+      color: transparent;
+      font-family: "Outfit", sans-serif;
+      font-size: 5.5rem;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.1em;
+      background: linear-gradient(180deg, #ff9967 0%, #f0672e 40%, #d74818 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      transform: skew(-10deg);
+      text-shadow: 0 10px 18px rgba(241, 90, 30, 0.09);
+    }
+
+    .zmark::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ff9967 0%, #d74818 100%);
+      box-shadow: 0 4px 10px rgba(241, 90, 30, 0.12);
+    }
+
+    .zmark--hero {
+      font-size: 6.8rem;
+    }
+
+    .zmark--medium {
+      font-size: 4.2rem;
+    }
+
+    .zmark--small {
+      font-size: 3.8rem;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1480px) {
       .pricing-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-
-      .newbiz-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1180px) {
       .hero__stats,
       .problem-grid,
-      .services-grid,
-      .process__grid,
-      .why-grid,
-      .footer-grid {
+      .service-grid,
+      .newbiz-grid,
+      .feature-grid,
+      .pricing-grid,
+      .site-footer__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .case-wrap {
+      .case-compare {
         grid-template-columns: 1fr;
       }
 
-      .case-arrow {
-        display: none;
-      }
-
-      .case-compare,
-      .reports-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .case-arrow-mid {
+      .case-arrow-center {
         transform: rotate(90deg);
       }
 
-      .pricing-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 860px) {
-      .container {
-        width: min(var(--container), calc(100% - 24px));
-      }
-
-      .nav-toggle {
-        display: inline-block;
-      }
-
-      .nav {
-        position: fixed;
-        inset: 72px 12px auto;
-        display: none;
-        padding: 18px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid var(--line);
-        box-shadow: var(--shadow);
-      }
-
-      .nav.is-open {
-        display: block;
-      }
-
-      .nav__links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .nav__cta {
-        margin-top: 18px;
-        width: 100%;
-        min-height: 48px;
-      }
-
-      .hero__stats,
-      .problem-grid,
-      .services-grid,
-      .process__grid,
-      .newbiz-grid,
-      .why-grid,
-      .pricing-grid,
-      .footer-grid,
-      .guarantee__grid {
+      .why-grid {
         grid-template-columns: 1fr;
-      }
-
-      .process__line::before {
-        display: none;
       }
 
       .case-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+    }
 
-      .why-card {
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-nav.is-open {
+        display: block;
+      }
+
+      .process-line {
+        grid-template-columns: 1fr 1fr;
+        gap: 34px 20px;
+      }
+
+      .process-line::before {
+        display: none;
+      }
+
+      .doc-grid,
+      .guarantee-options {
         grid-template-columns: 1fr;
-      }
-
-      .why-card img {
-        margin: 0 auto;
-      }
-
-      .why-card h3,
-      .why-card p {
-        text-align: center;
-      }
-
-      .site-footer {
-        padding-bottom: 120px;
       }
     }
 
-    @media (max-width: 560px) {
-      .section {
-        padding: 56px 0;
+    @media (max-width: 720px) {
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .brand__logo {
+        width: 24px;
+        height: 24px;
+        flex-basis: 24px;
+      }
+
+      .brand__wordmark {
+        font-size: 1.14rem;
+      }
+
+      .section,
+      .section--compact {
+        padding: 64px 0;
       }
 
       .hero {
-        padding: 38px 0 58px;
+        padding: 38px 0 50px;
       }
 
-      .hero__logo-wrap {
-        width: 174px;
-        height: 174px;
+      .hero::before {
+        top: -18px;
+        width: 340px;
+        height: 340px;
       }
 
-      .hero__logo-wrap img {
-        width: 84px;
+      .hero__icon-ring {
+        width: 132px;
+        height: 132px;
+      }
+
+      .hero__icon-core {
+        width: 132px;
+        height: 132px;
       }
 
       .hero__actions {
         gap: 14px;
+      }
+
+      .hero__stats,
+      .problem-grid,
+      .service-grid,
+      .feature-grid,
+      .newbiz-grid,
+      .pricing-grid,
+      .site-footer__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-grid,
+      .service-grid {
+        gap: 34px;
+        margin-top: 54px;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+        line-height: 1.48;
+      }
+
+      .section-copy {
+        font-size: 0.92rem;
+        line-height: 1.56;
+      }
+
+      .problem-card,
+      .service-card {
+        text-align: center;
+      }
+
+      .service-card .section-icon,
+      .problem-card .section-icon {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .service-card p {
+        margin: 0 auto;
+      }
+
+      .newbiz-card {
+        padding: 22px 18px 24px;
+        border: 1px solid rgba(216, 216, 216, 0.92);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.04);
+      }
+
+      .newbiz-card .section-icon {
+        width: 74px;
+        height: 74px;
+      }
+
+      .note-box,
+      .process-note {
+        padding: 16px 14px;
+      }
+
+      .process-note {
+        font-size: 1.36rem;
+      }
+
+      .service-card h3,
+      .problem-card h3,
+      .feature-card h3,
+      .newbiz-card h3 {
+        min-height: 0;
+      }
+
+      .why-card {
+        flex-direction: column;
+        gap: 16px;
+        min-height: 0;
+      }
+
+      .section-icon--small {
+        width: 68px;
+        height: 68px;
+      }
+
+      .price-card {
+        padding: 22px 14px 16px;
+      }
+
+      .price-card__lead {
+        min-height: 0;
+      }
+
+      .faq-question {
+        padding: 18px 18px;
+        font-size: 1.06rem;
+      }
+
+      .faq-answer__inner {
+        padding: 0 18px 18px;
+      }
+
+      .case-study-shell {
+        padding: 0 18px;
+      }
+
+      .case-arrow {
+        position: static;
+        margin: 18px auto 0;
+      }
+
+      .case-arrow:not(.case-arrow--mobile) {
+        display: none;
+      }
+
+      .case-card {
+        padding: 18px 14px 20px;
+      }
+
+      .case-card__head {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .state-box {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .state-list li {
+        padding-left: 30px;
+      }
+
+      .case-arrow-center {
+        font-size: 3rem;
+      }
+
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-card {
+        min-height: auto;
+        padding: 22px 14px;
+      }
+
+      .case-study-shell__controls {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .case-arrow--mobile {
+        display: grid;
+        margin: 0;
       }
 
       .btn,
@@ -1376,21 +1978,26 @@
         width: 100%;
       }
 
-      .hero__stats,
-      .case-metrics {
-        grid-template-columns: 1fr;
+      .cta-final__action .btn {
+        min-width: 0 !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
 
-      .case-card {
-        padding: 20px 16px 20px;
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
       }
 
-      .case-compare {
-        gap: 18px;
-      }
-
-      .guarantee {
-        padding: 38px 20px 28px;
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -1398,136 +2005,165 @@
 <body>
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="#start" aria-label="Zautomatyzuj Się">
-        <span class="brand__word">zautomatyzuj<span class="accent">się</span></span>
+      <a href="#top" class="brand" aria-label="Zautomatyzuj Się">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__wordmark"><span class="brand__soft">zautomatyzuj</span><span class="brand__accent">się</span></span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false" data-nav-toggle>
-        <span></span>
-        <span></span>
+      <nav class="nav" aria-label="Nawigacja główna">
+        <ul class="nav__links">
+          <li><a href="#uslugi">Usługi</a></li>
+          <li><a href="#jak-dzialamy">Jak działamy</a></li>
+          <li><a href="#case-study">Case study</a></li>
+          <li><a href="#wdrozenia" class="is-emphasis">Gotowi na KSeF!</a></li>
+          <li><a href="#wdrozenia">Wdrożenia</a></li>
+          <li><a href="#raport">Raport</a></li>
+          <li><a href="#dlaczego">O Nas</a></li>
+          <li><a href="#cennik">Cennik</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a href="kontakt.html" class="btn">Rozpocznij współpracę</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
         <span></span>
       </button>
+    </div>
 
-      <div class="nav" data-nav>
-        <nav class="nav__links" aria-label="Główna nawigacja">
-          <a href="#uslugi">Usługi</a>
-          <a href="#jak-dzialamy">Jak działamy</a>
-          <a href="#case-study">Case Study</a>
-          <a href="#ksef">Gotowi na KSeF!</a>
-          <a href="#raport">Raport</a>
-          <a href="#o-nas">O Nas</a>
-          <a href="#cennik">Cennik</a>
-          <a href="#faq">FAQ</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-        <a class="btn nav__cta" href="#kontakt">Rozpocznij współpracę</a>
+    <div class="container mobile-nav" id="mobile-nav">
+      <div class="mobile-nav__panel">
+        <a href="#uslugi">Usługi</a>
+        <a href="#jak-dzialamy">Jak działamy</a>
+        <a href="#case-study">Case study</a>
+        <a href="#wdrozenia">Gotowi na KSeF!</a>
+        <a href="#wdrozenia">Wdrożenia</a>
+        <a href="#raport">Raport</a>
+        <a href="#dlaczego">O Nas</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="kontakt.html" class="btn">Rozpocznij współpracę</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="start">
-      <div class="container hero__inner">
-        <div class="hero__logo-wrap">
-          <img src="assets/logo-z-mark.png" alt="">
+  <main id="top">
+    <section class="hero section section--compact">
+      <div class="container">
+        <div class="hero__icon-wrap reveal is-visible">
+          <div class="hero__icon-ring">
+            <div class="hero__icon-core">
+              <span class="zmark zmark--hero" aria-hidden="true">Z</span>
+            </div>
+          </div>
         </div>
-        <h1 class="hero__title">Twoja firma. <strong>Widoczna.</strong></h1>
-        <p class="hero__text">
+
+        <h1 class="reveal is-visible">Twoja firma. <span class="bold">Widoczna.</span></h1>
+        <p class="hero__lead reveal is-visible">
           Łączymy sztuczną inteligencję z marketingiem cyfrowym, żeby Twoja firma
-          była <span class="accent dark">#1 w Google</span>, social media i w głowach klientów.
-          <span class="dark">Działamy w całej Polsce!</span>
+          była <span class="accent bold">#1</span> w Google, social media i w głowach klientów.
+          <span class="bold">Działamy w całej Polsce!</span>
         </p>
-        <div class="hero__actions">
-          <a class="btn" href="#kontakt">Bezpłatna analiza firmy</a>
-          <a class="btn-outline" href="#case-study">Zobacz efekty</a>
+
+        <div class="hero__actions reveal is-visible">
+          <a href="kontakt.html?temat=Analiza%20firmy" class="btn">Bezpłatna analiza firmy</a>
+          <a href="#case-study" class="btn-outline">Zobacz efekty</a>
         </div>
-        <div class="hero__stats">
+
+        <div class="hero__stats reveal">
           <div class="hero__stat">
-            <strong>1089+</strong>
-            <span><span class="dark">źródeł</span><br>w bazie wiedzy</span>
+            <span class="hero__stat-value">1089+</span>
+            <span class="hero__stat-label"><strong>źródeł</strong><br>w bazie wiedzy</span>
           </div>
           <div class="hero__stat">
-            <strong>543+</strong>
-            <span><span class="dark">potwierdzonych</span><br>wniosków</span>
+            <span class="hero__stat-value">543+</span>
+            <span class="hero__stat-label"><strong>potwierdzonych</strong><br>wniosków</span>
           </div>
           <div class="hero__stat">
-            <strong>154</strong>
-            <span><span class="dark">źródeł</span> monitorowanych<br>codziennie</span>
+            <span class="hero__stat-value">154</span>
+            <span class="hero__stat-label"><strong>źródeł</strong><br>monitorowanych codziennie</span>
           </div>
           <div class="hero__stat">
-            <strong>#1</strong>
-            <span>pozycje w <span class="dark">Google</span></span>
+            <span class="hero__stat-value">#1</span>
+            <span class="hero__stat-label"><strong>pozycje</strong><br>w Google</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="problem">
+    <section class="section">
       <div class="container">
-        <h2 class="section-title">Czy Twoja firma istnieje w internecie?</h2>
-        <p class="section-subtitle">Sprawdź, czy nie tracisz klientów każdego dnia.</p>
+        <h2 class="section-title reveal">Czy Twoja firma istnieje w internecie?</h2>
+        <p class="section-subtitle reveal">Sprawdź, czy nie tracisz klientów każdego dnia.</p>
 
         <div class="problem-grid">
-          <article class="problem-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>Brak strony WWW</h3>
-            <p>83% klientów <span class="dark">szuka firm w Google</span>. Jeśli Cię tam nie ma - nie istniejesz.</p>
+          <article class="problem-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3 class="accent">Brak strony WWW</h3>
+            <p>83% klientów <strong>szuka firm w Google.</strong> Jeśli Cię tam nie ma, nie istniejesz.</p>
           </article>
-          <article class="problem-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>Brak widoczności w Google</h3>
-            <p>Twoja konkurencja jest na pierwszej stronie.<br>Ty jesteś na dziesiątej.</p>
+
+          <article class="problem-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3 class="accent">Brak widoczności w Google</h3>
+            <p>Twoja konkurencja jest na pierwszej stronie. Ty jesteś na dziesiątej.</p>
           </article>
-          <article class="problem-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>Social media bez efektów</h3>
-            <p>Publikujesz posty, ale nikt ich nie widzi?<br>Algorytm Cię zignorował.</p>
+
+          <article class="problem-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3 class="accent">Social media bez efektów</h3>
+            <p>Publikujesz posty, ale nikt ich nie widzi? Algorytm Cię zignorował.</p>
           </article>
         </div>
 
-        <div class="problem-note">
-          <strong>My to naprawiamy.</strong> Dzięki naszym rozwiązaniom przeanalizujemy wszystko - od Google,
-          przez social media, po konkurencję - i damy Ci szczegółowy plan napisany prostym językiem,
-          gotowy do wdrożenia. A jeśli chcesz? Wdrożymy go razem z Tobą.
+        <div class="note-box reveal">
+          <strong>My to naprawiamy.</strong> Przeanalizujemy wszystko: od Google, przez social media, po konkurencję
+          i damy Ci szczegółowy plan napisany prostym językiem, gotowy do wdrożenia.
         </div>
       </div>
     </section>
 
-    <section class="section section--divider" id="uslugi">
+    <section class="section" id="uslugi">
       <div class="container">
-        <h2 class="section-title">Co robimy</h2>
-        <p class="section-subtitle">Kompletny pakiet usług dla Twojej firmy. Jedno miejsce, jeden partner.</p>
+        <h2 class="section-title reveal">Co robimy</h2>
+        <p class="section-subtitle reveal">Kompletny pakiet usług dla Twojej firmy. Jedno miejsce, jeden partner.</p>
 
-        <div class="services-grid">
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Pełna analiza firmy w sieci</h3>
-            <p>Audyt strony WWW, SEO, Google Business Profile, opinii oraz Instagrama, Facebooka i TikToka - minimum 100 ostatnich postów każdej platformy. Plus analiza konkurencji w Google i w mediach społecznościowych.</p>
+            <p>Audyt strony WWW, SEO, Google Business Profile, opinii oraz Instagrama, Facebooka i TikToka. Plus analiza konkurencji w Google i w mediach społecznościowych.</p>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Strony WWW od zera</h3>
-            <p>Budujemy strony oparte na badaniach UX z 2026 roku - zoptymalizowane pod Google i nowe wyszukiwarki AI od pierwszego dnia. Dane strukturalne, szybkość, dostępność, mobilność, GEO.</p>
+            <p>Budujemy strony zoptymalizowane pod Google i nowe wyszukiwarki AI od pierwszego dnia. Liczy się struktura, szybkość, dostępność, mobilność i GEO.</p>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Pozycjonowanie SEO i AI Search</h3>
-            <p>Wyprowadzamy Cię na #1 w Google, mapach oraz w odpowiedziach wyszukiwarek AI - ChatGPT, Google AI Mode, Perplexity, Claude, Gemini. Każda decyzja oparta na aktualnym badaniu z 2026 roku.</p>
+            <p>Wyprowadzamy Cię na #1 w Google, mapach oraz w odpowiedziach wyszukiwarek AI. Każda decyzja oparta na aktualnym badaniu i danych.</p>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>Social media - Twoje i konkurencji</h3>
-            <p>Deep dive Twojego Instagrama, Facebooka i TikToka oraz pięciu do dziesięciu konkurentów na każdej platformie. Strategia treści oparta na najnowszych badaniach branżowych.</p>
+
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3>Social media Twoje i konkurencji</h3>
+            <p>Analizujemy Twoje profile i 5-10 konkurentów na każdej platformie. Strategia treści oparta na najnowszych badaniach branżowych.</p>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Re-audyt po wdrożeniu</h3>
-            <p>Po 14-30 dniach od wdrożenia sprawdzamy, co się zmieniło. Tabela porównawcza PRZED i PO z konkretnymi liczbami, gotowa do publikacji w mediach społecznościowych.</p>
+            <p>Po 14-30 dniach sprawdzamy, co się zmieniło. Tabela porównawcza PRZED i PO z konkretnymi liczbami, gotowa do publikacji.</p>
           </article>
-          <article class="service-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="service-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Stałe prowadzenie firmy</h3>
-            <p>Comiesięczne raporty, ciągła aktualizacja strategii o najnowsze badania i trendy. Reagujemy na zmiany algorytmów Google, Instagrama, TikToka i wyszukiwarek AI w czasie rzeczywistym.</p>
+            <p>Comiesięczne raporty, ciągła aktualizacja strategii o najnowsze badania i trendy. Reagujemy na zmiany algorytmów i wyszukiwarek AI w czasie rzeczywistym.</p>
           </article>
         </div>
       </div>
@@ -1535,603 +2171,670 @@
 
     <section class="section" id="jak-dzialamy">
       <div class="container">
-        <h2 class="section-title">Jak działamy</h2>
-        <p class="section-subtitle">Od analizy do efektów w 4 krokach.</p>
+        <h2 class="section-title reveal">Jak działamy</h2>
+        <p class="section-subtitle reveal">Od analizy do efektów w 4 krokach.</p>
 
-        <div class="process">
-          <div class="process__line">
-            <div class="process__grid">
-              <article class="process__step">
-                <div class="process__badge">1</div>
-                <h3>Bezpłatna konsultacja</h3>
-                <p>Rozmawiamy o Twojej firmie.<br>Bez zobowiązań.</p>
-              </article>
-              <article class="process__step">
-                <div class="process__badge">2</div>
-                <h3>Analiza z AI</h3>
-                <p>W oparciu o najnowsze wyniki badań, wspólnie z AI analizujemy Twoją obecność online, konkurencję i szanse na wzrost.</p>
-              </article>
-              <article class="process__step">
-                <div class="process__badge">3</div>
-                <h3>Plan działania</h3>
-                <p>Dostajesz konkretny raport: co zrobić, dlaczego i jak.</p>
-              </article>
-              <article class="process__step">
-                <div class="process__badge">4</div>
-                <h3>Wdrożenie + Efekty</h3>
-                <p>Wdrażamy zmiany i monitorujemy wyniki. Widzisz postępy w czasie rzeczywistym.</p>
-              </article>
-            </div>
-          </div>
+        <div class="process-line">
+          <article class="process-step reveal">
+            <div class="process-step__num">1</div>
+            <h3>Bezpłatna konsultacja</h3>
+            <p>Rozmawiamy o Twojej firmie. Bez zobowiązań.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <div class="process-step__num">2</div>
+            <h3>Analiza z AI</h3>
+            <p>W oparciu o najnowsze wyniki badań wspólnie z AI analizujemy Twoją obecność online, konkurencję i szanse na wzrost.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <div class="process-step__num">3</div>
+            <h3>Plan działania</h3>
+            <p>Dostajesz konkretny raport: co zrobić, dlaczego i jak.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <div class="process-step__num">4</div>
+            <h3>Wdrożenie + Efekty</h3>
+            <p>Wdrażamy zmiany i monitorujemy wyniki. Widzisz postępy w czasie rzeczywistym.</p>
+          </article>
         </div>
 
-        <div class="process-note">
-          <strong>Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół - to nasza przewaga.</strong>
+        <div class="process-note reveal">
+          Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół. To nasza przewaga.
         </div>
       </div>
     </section>
 
-    <section class="section section--divider" id="case-study">
+    <section class="section" id="case-study">
       <div class="container">
-        <h2 class="section-title">Efekty naszej pracy</h2>
-        <p class="section-subtitle">Realne wyniki, realne firmy, realne dane.</p>
+        <h2 class="section-title reveal">Efekty naszej pracy</h2>
+        <p class="section-subtitle reveal">Realne wyniki, realne firmy, realne dane.</p>
 
-        <div class="case-wrap">
-          <button class="case-arrow" type="button" data-case-prev aria-label="Poprzedni case">‹</button>
+        <div class="case-study-shell reveal">
+          <button class="case-arrow case-arrow--prev" type="button" aria-label="Poprzedni case study">‹</button>
 
-          <div>
-            <article class="case-card" data-case-card>
-              <div class="case-card__top">
-                <span class="case-badge">Realizacja</span>
-                <span class="case-location" data-case-location>Salon kosmetyczny - Warszawa Mokotów</span>
+          <article class="case-card" id="case-card">
+            <div class="case-card__head">
+              <span class="case-tag" id="case-tag">Realizacja</span>
+              <span class="case-location" id="case-location">Salon kosmetyczny - Warszawa Mokotów</span>
+            </div>
+
+            <div class="case-compare">
+              <div class="state-box state-box--before">
+                <span class="state-box__label" id="case-before-label">PRZED</span>
+                <ul class="state-list" id="case-before-list"></ul>
               </div>
 
-              <div class="case-compare">
-                <div class="case-box case-box--before">
-                  <h3 class="case-box__title">Przed</h3>
-                  <ul class="case-list" data-case-before></ul>
-                </div>
+              <div class="case-arrow-center">→</div>
 
-                <div class="case-arrow-mid">→</div>
-
-                <div class="case-box case-box--after">
-                  <h3 class="case-box__title" style="color: var(--green);">Po 30 dniach</h3>
-                  <ul class="case-list" data-case-after></ul>
-                </div>
+              <div class="state-box state-box--after">
+                <span class="state-box__label" id="case-after-label">PO 30 DNIACH</span>
+                <ul class="state-list" id="case-after-list"></ul>
               </div>
+            </div>
 
-              <div class="case-metrics" data-case-metrics></div>
+            <div class="case-metrics" id="case-metrics"></div>
 
-              <div class="case-meta">Czas realizacji: <span class="dark" data-case-time>30 dni</span></div>
-              <div class="case-quote" data-case-quote></div>
+            <div class="case-meta">Czas realizacji: <strong id="case-duration">30 dni</strong></div>
+            <div class="case-quote" id="case-quote">“Klientki zaczęły same nas znajdować w Google.”</div>
+            <div class="case-cta">
+              <a href="kontakt.html" class="btn">Porozmawiajmy o podobnym wdrożeniu</a>
+            </div>
+          </article>
 
-              <div class="case-card__cta">
-                <a class="btn" href="#kontakt">Chcesz takie efekty? Rozpocznij współpracę</a>
-              </div>
-            </article>
+          <button class="case-arrow case-arrow--next" type="button" aria-label="Następny case study">›</button>
 
-            <div class="dots" data-case-dots></div>
+          <div class="case-study-shell__controls">
+            <button class="case-arrow case-arrow--mobile case-arrow--prev-mobile" type="button" aria-label="Poprzedni case study">‹</button>
+            <button class="case-arrow case-arrow--mobile case-arrow--next-mobile" type="button" aria-label="Następny case study">›</button>
           </div>
 
-          <button class="case-arrow" type="button" data-case-next aria-label="Następny case">›</button>
+          <div class="case-dots" id="case-dots"></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="raport">
       <div class="container">
-        <h2 class="section-title">Co dokładnie dostajesz?</h2>
-        <p class="section-subtitle">Każdy klient otrzymuje dwa dokumenty. Kliknij żeby zobaczyć pełny przykład.</p>
-        <p class="section-copy">
-          Poniżej dwa kompletne raporty poglądowe - na ich potrzeby nazwy firm i dane zostały zmienione,
-          ale struktura, szczegółowość i jakość są identyczne z tym co otrzymasz Ty.
+        <h2 class="section-title reveal">Co dokładnie dostajesz?</h2>
+        <p class="section-subtitle reveal">Każdy klient otrzymuje dwa dokumenty robocze. Poniżej możesz zobaczyć przykładowy układ.</p>
+        <p class="section-copy reveal">
+          Nazwy firm i dane zostały zmienione, ale zakres materiału, logika wniosków i sposób prezentacji
+          odpowiadają dokumentom, które przygotowujemy dla klientów.
         </p>
 
-        <div class="reports-grid">
-          <article class="report-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>Raport główny - pełna analiza</h3>
-            <p>Pozycje Google, analiza konkurencji z liczbami, SWOT, diagnoza problemów, strategia 90-dniowa, tabela KPI, źródła.</p>
-            <a href="#kontakt">Kliknij żeby otworzyć →</a>
-          </article>
-          <article class="report-card">
-            <img src="assets/logo-z-mark.png" alt="">
+        <div class="doc-grid">
+          <a class="doc-card reveal" href="raport-przykladowy.html">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3>Raport główny - analiza i wnioski</h3>
+            <p>Podsumowanie sytuacji firmy, analiza konkurencji, lista problemów, szanse wzrostu i rekomendacje na kolejne etapy.</p>
+            <span class="doc-card__link">Zobacz przykład →</span>
+          </a>
+
+          <a class="doc-card reveal" href="plan-przykladowy.html">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Plan wdrożenia - krok po kroku</h3>
-            <p>14 kroków w 3 fazach, każdy opisany prostym językiem: co zrobić, dlaczego, jak i jaki będzie efekt.</p>
-            <a href="#kontakt">Kliknij żeby otworzyć →</a>
-          </article>
+            <p>Kolejność działań, priorytety, uzasadnienie biznesowe i wskazówki, jak przeprowadzić wdrożenie sprawnie oraz bez chaosu.</p>
+            <span class="doc-card__link">Zobacz przykład →</span>
+          </a>
         </div>
 
-        <div class="reports-note">
-          <h3>To nie jest kolejny ogólnikowy raport.</h3>
-          <p>To kompletna analiza Twojej firmy, Twojej konkurencji i Twojego rynku - z konkretnymi krokami opisanymi tak, żebyś mógł je wdrożyć sam lub razem z nami. Czegoś takiego nie dostaniesz nigdzie indziej.</p>
-          <strong>Opieramy się na rozwiązaniach budowanych autorsko przez nasz zespół - to nasza przewaga.</strong>
-          <a class="btn" href="#kontakt">Otrzymaj taki raport dla swojej firmy</a>
+        <div class="doc-highlight reveal">
+          <h3>To dokument roboczy, a nie prezentacja z ogólnikami.</h3>
+          <p>Dostajesz materiał, na którym można realnie pracować: z diagnozą, priorytetami i konkretnymi decyzjami do podjęcia po stronie biznesu, marketingu i wdrożenia.</p>
+          <p><strong>Jeśli chcesz, ten sam plan możemy później zrealizować razem z Twoim zespołem.</strong></p>
+          <a href="kontakt.html?temat=Analiza%20firmy" class="btn">Otrzymaj taki raport dla swojej firmy</a>
         </div>
       </div>
     </section>
 
-    <section class="section section--divider" id="ksef">
+    <section class="section" id="wdrozenia">
       <div class="container">
-        <h2 class="section-title">Jesteś nową firmą?</h2>
-        <p class="section-subtitle">Zautomatyzujemy Twój biznes od <span class="accent dark">A</span> do <span class="accent dark">Z</span>.</p>
-        <p class="section-copy">
-          Dobieramy i wdrażamy programy handlowo-magazynowe, kadrowe, księgowe oraz systemy CRM - dokładnie pod Twoją działalność.
-          Nieważne, czy prowadzisz jednoosobową firmę, sklep internetowy, czy średnie przedsiębiorstwo - nasi wdrożeniowcy mają doświadczenie
-          w systemach ERP zarówno dla dużych organizacji, jak i dla mikrofirm.
+        <h2 class="section-title reveal">Jesteś nową firmą?</h2>
+        <p class="section-subtitle reveal">Pomagamy poukładać narzędzia, procesy i pierwsze wdrożenia od startu.</p>
+        <p class="section-copy reveal">
+          Dobieramy i wdrażamy narzędzia sprzedażowe, magazynowe, księgowe i CRM tak,
+          aby firma od początku pracowała w uporządkowanym systemie. Dzięki temu łatwiej rosnąć,
+          delegować zadania i utrzymać kontrolę nad operacjami.
         </p>
 
         <div class="newbiz-grid">
-          <article class="newbiz-card">
-            <img src="assets/logo-z-mark.png" alt="">
+          <article class="newbiz-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Programy handlowo-magazynowe</h3>
-            <p>Fakturowanie, magazyn, zamówienia, sprzedaż - wszystko w jednym systemie.</p>
+            <p>Obsługa sprzedaży, magazynu, zamówień i dokumentów w jednym, spójnym środowisku.</p>
           </article>
-          <article class="newbiz-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <h3>PrestaShop i e-commerce</h3>
-            <p>Sklepy PrestaShop, konfiguracja sprzedaży, płatności, dostaw, modułów i integracji z zapleczem firmy.</p>
+
+          <article class="newbiz-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+            <h3>Kadry i księgowość</h3>
+            <p>Rozwiązania kadrowo-płacowe i księgowe dopasowane do skali działalności oraz modelu pracy.</p>
           </article>
-          <article class="newbiz-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="newbiz-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>CRM i automatyzacja</h3>
-            <p>Zarządzanie klientami, leady, pipeline sprzedażowy, automatyczne przypomnienia i raporty.</p>
+            <p>Zarządzanie leadami, pipeline sprzedażowym, zadaniami i komunikacją z klientem w jednym miejscu.</p>
           </article>
-          <article class="newbiz-card">
-            <img src="assets/logo-z-mark.png" alt="">
+
+          <article class="newbiz-card reveal">
+            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
             <h3>Pełna automatyzacja procesów</h3>
-            <p>Integracje między systemami, automatyczne faktury, powiadomienia, raporty - zero ręcznej pracy.</p>
+            <p>Integracje między systemami, automatyczne powiadomienia, raporty i powtarzalne procesy ograniczające ręczną pracę.</p>
           </article>
         </div>
 
-        <p class="newbiz-note">Napisz do nas, jaki typ działalności prowadzisz i czego potrzebujesz - przygotujemy ofertę skrojoną pod Twój biznes.</p>
-        <div class="newbiz-cta">
-          <a class="btn" href="#kontakt">Zapytaj o wdrożenie</a>
+        <p class="newbiz-note reveal">Opisz, jak działa Twoja firma dzisiaj, a przygotujemy propozycję narzędzi i etapów wdrożenia dopasowaną do realnych potrzeb.</p>
+        <div class="newbiz-cta reveal">
+          <a href="kontakt.html?temat=Automatyzacja" class="btn">Zapytaj o wdrożenie</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="o-nas">
+    <section class="section" id="dlaczego">
       <div class="container">
-        <h2 class="section-title">Dlaczego Zautomatyzuj Się?</h2>
-        <p class="section-subtitle">To, co nas wyróżnia od innych agencji.</p>
+        <h2 class="section-title reveal">Dlaczego Zautomatyzuj Się?</h2>
+        <p class="section-subtitle reveal">To, co nas wyróżnia od innych agencji.</p>
 
         <div class="why-grid">
-          <article class="why-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <div>
+          <article class="why-card reveal">
+            <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
+            <div class="why-card__body">
               <h3>Dane, nie opinie</h3>
-              <p>Każda rekomendacja poparta analizą ponad 1089 źródeł branżowych - codziennie monitorujemy 154 publikacji z 2026 roku. <span class="dark">Działamy na faktach, nie na przeczuciach.</span></p>
+              <p>Każda rekomendacja oparta jest na analizie źródeł branżowych i monitoringu zmian. <span class="bold">Działamy na faktach, nie na przeczuciach.</span></p>
             </div>
           </article>
-          <article class="why-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <div>
+
+          <article class="why-card reveal">
+            <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
+            <div class="why-card__body">
               <h3>Konkurencja na dwóch torach</h3>
-              <p>Analizujemy konkurencję nie tylko w Google, ale również na każdej platformie społecznościowej. Pełna analiza Twoich konkurentów na Instagramie, Facebooku i TikToku - <span class="dark">wiemy dokładnie co działa u nich i jak ich pobić.</span></p>
+              <p>Analizujemy konkurencję nie tylko w Google, ale też na każdej platformie społecznościowej. <span class="bold">Wiemy dokładnie co działa i jak to przebić.</span></p>
             </div>
           </article>
-          <article class="why-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <div>
+
+          <article class="why-card reveal">
+            <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
+            <div class="why-card__body">
               <h3>Kompletny pakiet</h3>
-              <p>Audyt + strona + SEO + social media + Google Business + AI Search + re-audyty co 30 dni. <span class="dark">Jedno miejsce, jeden partner, zero chaosu.</span></p>
+              <p>Audyt, strona, SEO, social media, profil firmy i re-audyty w jednym miejscu. <span class="bold">Jeden partner, zero chaosu.</span></p>
             </div>
           </article>
-          <article class="why-card">
-            <img src="assets/logo-z-mark.png" alt="">
-            <div>
+
+          <article class="why-card reveal">
+            <span class="section-icon section-icon--small"><span class="zmark zmark--small" aria-hidden="true">Z</span></span>
+            <div class="why-card__body">
               <h3>Bez umów</h3>
-              <p>Miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz. <span class="dark">Bez kar, bez drobnego druku.</span></p>
+              <p>Miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz. <span class="bold">Bez kar i bez drobnego druku.</span></p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--divider" id="cennik">
+    <section class="section" id="cennik">
       <div class="container">
-        <h2 class="section-title">Ile to kosztuje?</h2>
-        <p class="section-subtitle">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
+        <h2 class="section-title reveal">Ile to kosztuje?</h2>
+        <p class="section-subtitle reveal">Wybierz wariant dopasowany do Twoich potrzeb. Każdy zaczyna się od bezpłatnej rozmowy.</p>
 
         <div class="pricing-grid">
-          <article class="price-card">
+          <article class="price-card reveal">
             <h3>Konsultacja</h3>
-            <div class="price-card__price">0zł</div>
-            <p class="price-card__lead">Porozmawiajmy o Twojej firmie. <span class="dark">Bez zobowiązań, bez presji.</span></p>
-            <ul class="price-list">
-              <li><span class="price-list__check">✓</span><span>30 minut rozmowy online lub telefonicznie</span></li>
-              <li><span class="price-list__check">✓</span><span>Przedstawienie możliwości dla Twojej firmy</span></li>
-              <li><span class="price-list__check">✓</span><span>Odpowiedzi na Twoje pytania</span></li>
-              <li><span class="price-list__check">✓</span><span>Zero zobowiązań - decydujesz po rozmowie</span></li>
+            <div class="price-card__value">0 zł</div>
+            <p class="price-card__lead">Rozmowa wstępna o sytuacji firmy, celach i możliwych kierunkach działania.</p>
+            <ul class="check-list">
+              <li>30 minut rozmowy online lub telefonicznie</li>
+              <li>Wstępne rozpoznanie potrzeb i priorytetów</li>
+              <li>Odpowiedzi na pytania dotyczące współpracy</li>
+              <li>Decyzja o kolejnych krokach po Twojej stronie</li>
             </ul>
-            <div class="price-card__note">W innych polskich agencjach: <span class="dark">300-1500 PLN/h</span>, czas oczekiwania 5-14 dni. U nas: <span class="dark">bezpłatnie</span>, nawet w 24 godziny.</div>
-            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Umów rozmowę</a></div>
+            <div class="price-note">Termin ustalamy indywidualnie, zwykle w ciągu <strong>1-2 dni roboczych</strong>.</div>
+            <div class="price-actions"><a href="kontakt.html" class="btn-outline">Umów rozmowę</a></div>
           </article>
 
-          <article class="price-card">
+          <article class="price-card reveal">
             <h3>Audyt firmy</h3>
-            <div class="price-card__price">1299 zł</div>
-            <p class="price-card__lead"><span class="dark">Dowiedz się dokładnie</span> co działa, co nie i dlaczego klienci trafiają do konkurencji.</p>
-            <ul class="price-list">
-              <li><span class="price-list__check">✓</span><span>Szczegółowa analiza Twojej widoczności w Google</span></li>
-              <li><span class="price-list__check">✓</span><span>Analiza profili social media (Instagram, Facebook)</span></li>
-              <li><span class="price-list__check">✓</span><span>Audyt Google Business Profile (opinie, zdjęcia, kategorie)</span></li>
-              <li><span class="price-list__check">✓</span><span>Pełna analiza konkurencji - kto Cię wyprzedza i dlaczego</span></li>
-              <li><span class="price-list__check">✓</span><span>Audyt strony WWW (szybkość, SEO, bezpieczeństwo)</span></li>
-              <li><span class="price-list__check">✓</span><span>Raport HTML z konkretnymi danymi i liczbami</span></li>
-              <li><span class="price-list__check">✓</span><span>Lista problemów uszeregowana od najważniejszego</span></li>
+            <div class="price-card__value">1299 zł</div>
+            <p class="price-card__lead">Diagnoza obecnej sytuacji firmy wraz z listą najważniejszych problemów i obszarów do poprawy.</p>
+            <ul class="check-list">
+              <li>Analiza widoczności firmy w Google</li>
+              <li>Przegląd profili social media i spójności komunikacji</li>
+              <li>Audyt Google Business Profile</li>
+              <li>Analiza konkurencji i punktów przewagi</li>
+              <li>Audyt strony WWW pod kątem treści i techniki</li>
+              <li>Raport z wnioskami i rekomendacjami</li>
+              <li>Priorytety działań na najbliższy etap</li>
             </ul>
-            <div class="price-card__note">W innych polskich agencjach: <span class="dark">2 500-8 000 PLN</span>, realizacja 2-5 tygodni. U nas: <span class="dark">1299 PLN</span>, gotowe w 2-5 dni roboczych.</div>
-            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Zamów teraz</a></div>
+            <div class="price-note">Termin realizacji: zwykle <strong>2-5 dni roboczych</strong>, zależnie od zakresu i liczby kanałów.</div>
+            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn-outline">Zapytaj o audyt</a></div>
           </article>
 
-          <article class="price-card price-card--featured">
+          <article class="price-card price-card--featured reveal">
             <div class="price-badge">Najpopularniejszy</div>
             <h3>Audyt + Plan wdrożenia</h3>
-            <div class="price-card__price">1999 zł</div>
-            <p class="price-card__lead">Pełna analiza + gotowy plan krok po kroku napisany prostym językiem. <span class="dark">Wiesz co robić i jak.</span></p>
-            <ul class="price-list">
-              <li><span class="price-list__check">✓</span><span>Wszystko z pakietu Audyt firmy</span></li>
-              <li><span class="price-list__check">✓</span><span>Szczegółowy plan wdrożenia krok po kroku</span></li>
-              <li><span class="price-list__check">✓</span><span>Każdy krok opisany prostym językiem: co, dlaczego, jak</span></li>
-              <li><span class="price-list__check">✓</span><span>Priorytetyzacja - od czego zacząć żeby efekty były najszybciej</span></li>
-              <li><span class="price-list__check">✓</span><span>Tabela celów na 30, 60 i 90 dni</span></li>
-              <li><span class="price-list__check">✓</span><span>Godzinna konsultacja online - wyjaśnimy każdy punkt</span></li>
-              <li><span class="price-list__check">✓</span><span>Możliwość zadawania pytań po konsultacji (email)</span></li>
-              <li><span class="price-list__check">✓</span><span>Re-audyt po 30 dniach - sprawdzimy co się zmieniło i co dalej</span></li>
+            <div class="price-card__value">1999 zł</div>
+            <p class="price-card__lead">Pełna analiza plus uporządkowany plan działania dla właściciela firmy lub zespołu wdrożeniowego.</p>
+            <ul class="check-list">
+              <li>Wszystko z pakietu Audyt firmy</li>
+              <li>Szczegółowy plan wdrożenia krok po kroku</li>
+              <li>Opis działań: co zrobić, po co i w jakiej kolejności</li>
+              <li>Priorytetyzacja pod szybkie i długofalowe efekty</li>
+              <li>Plan na 30, 60 i 90 dni</li>
+              <li>Godzinna konsultacja omawiająca materiał</li>
+              <li>Możliwość doprecyzowania pytań po spotkaniu</li>
+              <li>Rekomendacja kolejnego etapu współpracy</li>
             </ul>
-            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: <span class="dark">1999 PLN</span>, gotowe w 3-7 dni roboczych.</div>
-            <div class="price-card__actions"><a class="btn" href="#kontakt">Zamów teraz</a></div>
+            <div class="price-note">Najczęściej wybierany wariant przez firmy, które chcą uporządkować działania przed wdrożeniem.</div>
+            <div class="price-actions"><a href="kontakt.html?temat=Analiza%20firmy" class="btn">Zamów analizę</a></div>
           </article>
 
-          <article class="price-card">
+          <article class="price-card reveal">
             <h3>Audyt + Wdrożenie</h3>
-            <div class="price-card__price">Indywidualnie</div>
-            <p class="price-card__lead">Nie chcesz robić tego sam? Zrobimy to razem z Tobą - <span class="dark">od analizy do efektów.</span></p>
-            <ul class="price-list">
-              <li><span class="price-list__check">✓</span><span>Wszystko z pakietu Audyt lub Audyt + Plan</span></li>
-              <li><span class="price-list__check">✓</span><span>Budowa lub przebudowa strony WWW</span></li>
-              <li><span class="price-list__check">✓</span><span>Optymalizacja Google Business Profile</span></li>
-              <li><span class="price-list__check">✓</span><span>Pozycjonowanie SEO</span></li>
-              <li><span class="price-list__check">✓</span><span>Strategia i prowadzenie social media</span></li>
-              <li><span class="price-list__check">✓</span><span>Stały kontakt i wsparcie</span></li>
+            <div class="price-card__value">Indywidualnie</div>
+            <p class="price-card__lead">Dla firm, które chcą przejść od diagnozy od razu do uporządkowanego wdrożenia.</p>
+            <ul class="check-list">
+              <li>Wszystko z pakietu Audyt lub Audyt + Plan</li>
+              <li>Budowa lub przebudowa strony WWW</li>
+              <li>Optymalizacja profilu firmy w Google</li>
+              <li>Prace SEO i uporządkowanie treści</li>
+              <li>Wsparcie przy komunikacji i materiałach</li>
+              <li>Stały kontakt projektowy</li>
             </ul>
-            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: wycena po zakresie i wdrożeniu.</div>
-            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Skontaktuj się</a></div>
+            <div class="price-note">Zakres, harmonogram i wycena ustalamy po analizie potrzeb oraz skali projektu.</div>
+            <div class="price-actions"><a href="kontakt.html?temat=Strona%20WWW" class="btn-outline">Skontaktuj się</a></div>
           </article>
 
-          <article class="price-card">
+          <article class="price-card reveal">
             <h3>Stała opieka</h3>
-            <div class="price-card__price">Indywidualnie</div>
-            <p class="price-card__lead">Stała opieka po wdrożeniu. Dbamy o to, żeby <span class="dark">Twoja firma była zawsze o krok przed konkurencją.</span></p>
-            <ul class="price-list">
-              <li><span class="price-list__check">✓</span><span>Comiesięczny raport wyników z konkretnymi liczbami</span></li>
-              <li><span class="price-list__check">✓</span><span>Bieżąca aktualizacja strategii o najnowsze badania branżowe</span></li>
-              <li><span class="price-list__check">✓</span><span>Reagowanie na zmiany algorytmów Google, Instagrama, TikToka i wyszukiwarek AI</span></li>
-              <li><span class="price-list__check">✓</span><span>Monitoring nowych trendów w Twojej branży</span></li>
-              <li><span class="price-list__check">✓</span><span>Optymalizacja strony pod nowe sygnały rankingowe</span></li>
-              <li><span class="price-list__check">✓</span><span>Tworzenie i odświeżanie treści na bazie wniosków z badań</span></li>
-              <li><span class="price-list__check">✓</span><span>Stały kontakt i konsultacje merytoryczne</span></li>
+            <div class="price-card__value">Indywidualnie</div>
+            <p class="price-card__lead">Dla firm, które potrzebują regularnego rozwoju strony, treści, widoczności i procesów.</p>
+            <ul class="check-list">
+              <li>Regularny raport postępów i rekomendacji</li>
+              <li>Aktualizacja treści, strony i priorytetów SEO</li>
+              <li>Wsparcie przy kolejnych wdrożeniach</li>
+              <li>Monitoring zmian w widoczności i komunikacji</li>
+              <li>Konsultacje merytoryczne w trakcie współpracy</li>
+              <li>Stały kontakt i szybkie korekty kierunku</li>
             </ul>
-            <div class="price-card__note">W innych polskich agencjach: <span class="dark">4 000-15 000 PLN</span> i premium do 50 000 PLN, realizacja 3-6 tygodni. U nas: model stałej opieki dopasowany do firmy.</div>
-            <div class="price-card__actions"><a class="btn-outline" href="#kontakt">Skontaktuj się</a></div>
+            <div class="price-note">Elastyczny model miesięczny z zakresem dopasowanym do etapu rozwoju firmy.</div>
+            <div class="price-actions"><a href="kontakt.html?temat=Automatyzacja" class="btn-outline">Skontaktuj się</a></div>
           </article>
         </div>
 
-        <p class="pricing-footer-note">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji</span>. Nie podpisujesz umowy - pracujemy miesiąc do miesiąca. Nie jesteś zadowolony? Odchodzisz bez kar.</p>
+        <p class="pricing-summary reveal">Każda współpraca zaczyna się od <span class="accent">bezpłatnej konsultacji.</span> Nie podpisujesz umowy na lata. Pracujemy jasno, etapami i z czytelnym zakresem.</p>
       </div>
     </section>
 
-    <section class="section" id="gwarancja">
+    <section class="section section--compact">
       <div class="container">
-        <div class="guarantee">
-          <img class="guarantee__logo" src="assets/logo-z-mark.png" alt="">
-          <h2>Realne efekty albo zwrot pieniędzy</h2>
-          <p>Nie obiecujemy cudów - obiecujemy mierzalne wyniki. Jeśli po 90 dniach współpracy nie zobaczysz wzrostu widoczności w Google, większego ruchu na stronie i zapytań od klientów - masz dwie opcje:</p>
+        <div class="guarantee-card reveal">
+          <span class="section-icon" style="margin:0 auto;"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+          <h2>Jasne zasady współpracy</h2>
+          <p>Na początku ustalamy zakres, cele i sposób raportowania. Dzięki temu od pierwszego dnia wiadomo, co robimy, kiedy sprawdzamy postępy i po czym oceniamy efekt pracy.</p>
 
-          <div class="guarantee__grid">
-            <div class="guarantee__option">
-              <strong>1</strong>
-              <div>Zwracamy <span class="dark">100% pieniędzy</span></div>
+          <div class="guarantee-options">
+            <div class="guarantee-option">
+              <strong>KPI</strong>
+              <span>Uzgodnione mierniki i priorytety przed startem prac</span>
             </div>
-            <div class="guarantee__option">
-              <strong>2</strong>
-              <div>Pracujemy za <span class="dark">darmo kolejne 30 dni</span> aż do efektów</div>
+            <div class="guarantee-option">
+              <strong>30 dni</strong>
+              <span>Regularny przegląd wyników i kolejnych rekomendacji</span>
             </div>
           </div>
 
-          <p style="margin-top: 28px;">Ty wybierasz. Bo to Twój biznes i Twoja decyzja.</p>
-          <div class="guarantee__summary">Zero ryzyka po Twojej stronie. Całkowite zaufanie po naszej.</div>
-          <div class="guarantee__foot">Gwarancja obejmuje uzgodnione wspólnie wskaźniki efektywności (KPI) określone przed rozpoczęciem współpracy.</div>
+          <div class="guarantee-foot">Bez niedomówień, bez rozliczania za samą aktywność i bez przypadkowych działań.</div>
+          <div class="guarantee-highlight">Pracujemy transparentnie i w oparciu o realny plan.</div>
+          <div class="guarantee-small">Zakres raportowania dopasowujemy do kanałów, na których faktycznie prowadzimy działania.</div>
         </div>
       </div>
     </section>
 
-    <section class="section section--divider" id="faq">
+    <section class="section" id="faq">
       <div class="container">
-        <h2 class="section-title">Najczęstsze pytania</h2>
-        <p class="section-subtitle">Wszystko, co chcesz wiedzieć zanim napiszesz.</p>
+        <h2 class="section-title reveal">Najczęstsze pytania</h2>
+        <p class="section-subtitle reveal">Wszystko, co chcesz wiedzieć zanim napiszesz.</p>
 
-        <div class="faq">
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Ile kosztuje współpraca?</span><span>⌄</span></button>
-            <div class="faq-answer">Mamy kilka wariantów współpracy: od bezpłatnej konsultacji, przez audyt i plan wdrożenia, po pełne wdrożenie i stałą opiekę. Zakres dobieramy do etapu firmy i realnych potrzeb.</div>
+        <div class="faq-wrap">
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Ile kosztuje współpraca?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Zaczynamy od bezpłatnej konsultacji. Potem dobieramy zakres: audyt, plan wdrożenia, realizację albo stałą opiekę. Ostateczna wycena zależy od etapu firmy i liczby obszarów, które mamy uporządkować.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Jak szybko zobaczę efekty?</span><span>⌄</span></button>
-            <div class="faq-answer">Pierwsze efekty zwykle widać w 7-14 dni od wdrożenia. Pełna optymalizacja pozycji i wyników to proces 30-90 dni zależnie od branży, konkurencji i punktu startowego.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Jak szybko zobaczę efekty?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">To zależy od punktu startowego, konkurencji i zakresu prac. Zazwyczaj najszybciej widać poprawę w komunikacji, stronie i uporządkowaniu procesu, a widoczność organiczna potrzebuje więcej czasu i konsekwencji.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Dla kogo są Wasze usługi?</span><span>⌄</span></button>
-            <div class="faq-answer">Dla mikro i małych firm, lokalnych usług, e-commerce, nowych działalności oraz firm, które chcą uporządkować stronę, marketing i proces sprzedaży w jednym miejscu.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Dla kogo są Wasze usługi?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Pracujemy z mikrofirmami, małymi biznesami, lokalnymi markami, nowymi firmami oraz projektami, które chcą poukładać stronę, SEO, social media i procesy w jeden system.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Czy potrzebuję strony internetowej?</span><span>⌄</span></button>
-            <div class="faq-answer">W większości przypadków tak, bo strona porządkuje komunikację, sprzedaż i dane. Jeśli działasz na samych social mediach, zwykle to właśnie strona jest brakującym elementem wzrostu.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Czy potrzebuję strony internetowej?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">W większości przypadków tak. Strona porządkuje ofertę, buduje wiarygodność i daje miejsce, do którego można kierować ruch z Google, map, reklam czy social mediów.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Czym różnicie się od innych agencji?</span><span>⌄</span></button>
-            <div class="faq-answer">Łączymy analizę, stronę, SEO, AI Search, wdrożenia systemowe i automatyzacje. Nie rozbijasz współpracy między kilku wykonawców i nie składasz efektu samodzielnie.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Czym różnicie się od innych agencji?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Łączymy analizę, strategię i wdrożenie w jednym procesie. Dzięki temu nie dostajesz samej listy pomysłów, tylko uporządkowany plan i wsparcie w jego realizacji.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Czy analizujecie też media społecznościowe konkurencji?</span><span>⌄</span></button>
-            <div class="faq-answer">Tak. Analizujemy nie tylko Google, ale też Instagram, Facebook i TikTok, żeby zobaczyć co realnie działa w Twojej branży i gdzie konkurencja zdobywa uwagę klientów.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Czy analizujecie też media społecznościowe konkurencji?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Tak. Sprawdzamy nie tylko Twoje profile, ale też sposób komunikacji konkurencji, żeby lepiej ocenić standard rynku i wskazać realne pole do wyróżnienia marki.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Czy optymalizujecie też pod wyszukiwarki AI?</span><span>⌄</span></button>
-            <div class="faq-answer">Tak. Uwzględniamy Google AI Mode, ChatGPT, Perplexity, Gemini i Claude. To nie jest osobny dodatek, tylko część nowoczesnej widoczności marki.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Czy optymalizujecie też pod wyszukiwarki AI?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Tak. Dbamy o strukturę treści, porządek informacji i techniczne przygotowanie strony tak, aby materiał był czytelny zarówno dla klasycznych wyszukiwarek, jak i nowych systemów generatywnych.</div>
+            </div>
           </article>
-          <article class="faq-item" data-open="false">
-            <button class="faq-question" type="button"><span>Co dzieje się po audycie i wdrożeniu?</span><span>⌄</span></button>
-            <div class="faq-answer">Po wdrożeniu robimy re-audyt, porównujemy wyniki przed i po oraz planujemy kolejne kroki. Możesz zakończyć współpracę albo przejść w model stałej opieki.</div>
+
+          <article class="faq-item reveal">
+            <button class="faq-question" type="button">
+              <span>Co dzieje się po audycie i wdrożeniu?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">Możesz wdrożyć plan samodzielnie albo z nami. Po zakończeniu pierwszego etapu podsumowujemy wyniki, wskazujemy kolejne priorytety i ustalamy, czy jest sens rozwijać współpracę dalej.</div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section cta-bottom" id="kontakt">
+    <section class="cta-final" id="kontakt">
       <div class="container">
-        <h2>Gotowy żeby <span class="accent">Twoja firma</span> była <span class="accent">#1</span>?</h2>
-        <p>Bezpłatna analiza Twojej firmy.<br><span class="dark">Bez zobowiązań. Bez ukrytych kosztów.</span><br>Realne efekty albo zwrot pieniędzy.</p>
-        <a class="btn" href="mailto:zautomatyzujsie@gmail.com">Rozpocznij współpracę</a>
+        <h2 class="reveal">Porozmawiajmy o widoczności Twojej firmy</h2>
+        <p class="reveal">Bezpłatna analiza punktu wyjścia, celu biznesowego i możliwych kierunków działania.<br><strong>Bez zobowiązań, z konkretną odpowiedzią co warto zrobić dalej.</strong></p>
+        <div class="cta-final__action reveal">
+          <a href="kontakt.html" class="btn" style="min-width:376px;max-width:100%;">Rozpocznij współpracę</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand__top">
-            <span class="footer-brand__mark"><img src="assets/logo-z-mark.png" alt="Logo Zautomatyzuj Się"></span>
-            <span class="footer-brand__word">zautomatyzuj<span class="accent">się</span></span>
-          </div>
-          <p>Twoja firma. <span class="dark" style="color:#fff;">Widoczna.</span></p>
-          <div class="footer-icons">
-            <a class="footer-icon" href="https://www.facebook.com/zautomatyzujsie" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073c0 6.019 4.388 11.008 10.125 11.927v-8.438H7.078v-3.49h3.047V9.41c0-3.022 1.792-4.693 4.533-4.693 1.313 0 2.686.235 2.686.235v2.969H15.83c-1.491 0-1.956.931-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.081 24 18.092 24 12.073z"/></svg>
-            </a>
-            <a class="footer-icon" href="https://www.instagram.com/zautomatyzujsie/" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm11.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-            </a>
-          </div>
+    <div class="container site-footer__grid">
+      <div>
+        <div class="site-footer__brand">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__wordmark"><span class="brand__soft">zautomatyzuj</span><span class="brand__accent">się</span></span>
         </div>
+        <p class="site-footer__tag">Twoja firma. <strong>Widoczna.</strong></p>
+        <div class="socials">
+          <a class="social" href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a class="social" href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+        </div>
+      </div>
 
-        <div>
-          <h3>Usługi</h3>
-          <ul>
-            <li><a href="#uslugi">Analiza firmy</a></li>
-            <li><a href="#uslugi">Strony WWW</a></li>
-            <li><a href="#uslugi">SEO</a></li>
-            <li><a href="#uslugi">Social Media</a></li>
-            <li><a href="#ksef">Automatyzacja</a></li>
-          </ul>
-        </div>
+      <div>
+        <h3>Usługi</h3>
+        <ul>
+          <li><a href="analiza-firmy.html">Analiza firmy</a></li>
+          <li><a href="strony-internetowe.html">Strony WWW</a></li>
+          <li><a href="pozycjonowanie-seo.html">SEO</a></li>
+          <li><a href="social-media.html">Social Media</a></li>
+          <li><a href="automatyzacja-marketingu.html">Automatyzacja</a></li>
+        </ul>
+      </div>
 
-        <div>
-          <h3>Firma</h3>
-          <ul>
-            <li><a href="#case-study">Realizacje</a></li>
-            <li><a href="#raport">Przykładowy raport</a></li>
-            <li><a href="#o-nas">O Nas</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-          </ul>
-        </div>
+      <div>
+        <h3>Firma</h3>
+        <ul>
+          <li><a href="realizacje.html">Realizacje</a></li>
+          <li><a href="raport-przykladowy.html">Przykładowy raport</a></li>
+          <li><a href="o-nas.html">O Nas</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
 
-        <div>
-          <h3>Kontakt</h3>
-          <ul>
-            <li><a class="footer-link" href="mailto:zautomatyzujsie@gmail.com">zautomatyzujsie@gmail.com</a></li>
-            <li>Instagram: <a class="footer-link" href="https://www.instagram.com/zautomatyzujsie/">@zautomatyzujsie</a></li>
-            <li>Facebook: <a class="footer-link" href="https://www.facebook.com/zautomatyzujsie">Zautomatyzuj Się</a></li>
-          </ul>
-        </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a class="accent-link" href="mailto:zautomatyzujsie@gmail.com">zautomatyzujsie@gmail.com</a></li>
+          <li><a href="https://instagram.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer">Instagram: <span class="accent-link">@zautomatyzujsie</span></a></li>
+          <li><a href="https://facebook.com/zautomatyzujsie" target="_blank" rel="noopener noreferrer">Facebook: <span class="accent-link">Zautomatyzuj Się</span></a></li>
+        </ul>
       </div>
     </div>
   </footer>
 
   <script>
-    const navToggle = document.querySelector("[data-nav-toggle]");
-    const nav = document.querySelector("[data-nav]");
+    (function () {
+      var menuButton = document.querySelector(".menu-toggle");
+      var mobileNav = document.getElementById("mobile-nav");
 
-    if (navToggle && nav) {
-      navToggle.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("is-open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-
-      nav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("is-open");
-          navToggle.setAttribute("aria-expanded", "false");
+      if (menuButton && mobileNav) {
+        menuButton.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", open ? "true" : "false");
         });
-      });
-    }
 
-    const cases = [
-      {
-        location: "Salon kosmetyczny - Warszawa Mokotów",
-        time: "30 dni",
-        before: [
-          "Strona z 2019, niezoptymalizowana",
-          "0 fraz w Top 10 Google",
-          "Instagram: 340 obserwujących",
-          "2-3 nowych klientów z internetu na miesiąc"
-        ],
-        after: [
-          "Nowa strona z SEO + Schema markup",
-          "3 frazy w Top 10 Google",
-          "Instagram: 460 obserwujących (+35%)",
-          "5-6 nowych klientów z internetu"
-        ],
-        metrics: [
-          { value: "+35%", label: "obserwujących IG" },
-          { value: "0 → 13", label: "polubień FB" },
-          { value: "4x", label: "więcej zapytań" },
-          { value: "5.0 ★ 89", label: "opinii w Google" }
-        ],
-        quote: "“Klientki zaczęły <span class=\"accent\">same</span> nas <span class=\"accent\">znajdować</span> w Google.”"
-      },
-      {
-        location: "Zajęcia dla dzieci - Kielce",
-        time: "7 dni",
-        before: [
-          "0 stron zaindeksowanych w Google",
-          "Brak widoczności w wyszukiwarce",
-          "Brak strony internetowej",
-          "Tylko profil na Instagramie"
-        ],
-        after: [
-          "10 stron zaindeksowanych w Google",
-          "#1 w Google Maps na 6 fraz",
-          "#2 w wynikach organicznych",
-          "16 podstron + blog firmowy"
-        ],
-        metrics: [
-          { value: "0 → 16", label: "stron WWW" },
-          { value: "0 → #1", label: "Google Maps" },
-          { value: "#6 → #2", label: "wyniki organiczne" },
-          { value: "5.0 ★ 89", label: "opinii w Google" }
-        ],
-        quote: "“Od <span class=\"accent\">zera</span> do <span class=\"accent\">lidera</span> w Google w 7 dni.”"
-      },
-      {
-        location: "Gabinet fizjoterapii - Kraków",
-        time: "30 dni",
-        before: [
-          "Wizytówka Google bez optymalizacji",
-          "Brak strony internetowej",
-          "12 opinii Google (4.2★)",
-          "Klienci tylko z polecenia"
-        ],
-        after: [
-          "#6 Local Pack na główną frazę",
-          "Strona 6 podstron + blog",
-          "19 opinii Google (4.6★)",
-          "~15% klientów z Google"
-        ],
-        metrics: [
-          { value: "0 → #6", label: "Google Maps" },
-          { value: "0 → 6", label: "stron WWW" },
-          { value: "+58%", label: "więcej opinii" },
-          { value: "4.2 → 4.6", label: "ocena Google" }
-        ],
-        quote: "“Wreszcie ktoś <span class=\"accent\">wyjaśnił mi</span> co robić - i <span class=\"accent\">zrobił to ze mną</span>.”"
-      },
-      {
-        location: "Szkoła językowa - Łódź",
-        time: "30 dni",
-        before: [
-          "Stara strona na Wix, brak SEO",
-          "Facebook: 500 polubień, 2 zapytania/msc",
-          "Brak widoczności w Google Maps",
-          "Zapisy głównie z ulotek i polecenia"
-        ],
-        after: [
-          "Nowa strona z 8 podstronami + SEO",
-          "Facebook: 640 polubień, 8 zapytań/msc",
-          "#8 w Google Maps na 2 frazy",
-          "Pierwsze zapisy przez formularz online"
-        ],
-        metrics: [
-          { value: "+28%", label: "polubień FB" },
-          { value: "0 → #8", label: "Google Maps" },
-          { value: "4x", label: "więcej zapytań" },
-          { value: "0 → 8", label: "stron WWW" }
-        ],
-        quote: "“Pierwszy raz ktoś <span class=\"accent\">napisał</span> do nas <span class=\"accent\">przez Google</span> - to działa.”"
+        mobileNav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            mobileNav.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+          });
+        });
       }
-    ];
 
-    const caseLocation = document.querySelector("[data-case-location]");
-    const caseBefore = document.querySelector("[data-case-before]");
-    const caseAfter = document.querySelector("[data-case-after]");
-    const caseMetrics = document.querySelector("[data-case-metrics]");
-    const caseTime = document.querySelector("[data-case-time]");
-    const caseQuote = document.querySelector("[data-case-quote]");
-    const caseDots = document.querySelector("[data-case-dots]");
-    const prevBtn = document.querySelector("[data-case-prev]");
-    const nextBtn = document.querySelector("[data-case-next]");
-    let caseIndex = 0;
-
-    function renderCase(index) {
-      const item = cases[index];
-      if (!item) return;
-
-      caseLocation.textContent = item.location;
-      caseTime.textContent = item.time;
-      caseBefore.innerHTML = item.before.map((row) => `<li><span class="case-list__icon case-list__icon--bad">×</span><span>${row}</span></li>`).join("");
-      caseAfter.innerHTML = item.after.map((row) => `<li><span class="case-list__icon case-list__icon--good">✓</span><span>${row}</span></li>`).join("");
-      caseMetrics.innerHTML = item.metrics.map((metric) => `<div class="case-metric"><strong>${metric.value}</strong><span>${metric.label}</span></div>`).join("");
-      caseQuote.innerHTML = item.quote;
-
-      caseDots.querySelectorAll(".dot").forEach((dot, dotIndex) => {
-        dot.classList.toggle("is-active", dotIndex === index);
-      });
-    }
-
-    if (caseDots) {
-      cases.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.className = "dot" + (index === 0 ? " is-active" : "");
-        dot.type = "button";
-        dot.setAttribute("aria-label", `Pokaż case ${index + 1}`);
-        dot.addEventListener("click", () => {
-          caseIndex = index;
-          renderCase(caseIndex);
+      var revealItems = document.querySelectorAll(".reveal");
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
         });
-        caseDots.appendChild(dot);
+      }, { threshold: 0.18 });
+
+      revealItems.forEach(function (item) {
+        if (!item.classList.contains("is-visible")) {
+          revealObserver.observe(item);
+        }
       });
-    }
 
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        caseIndex = (caseIndex - 1 + cases.length) % cases.length;
-        renderCase(caseIndex);
-      });
-    }
+      var faqs = document.querySelectorAll(".faq-item");
+      faqs.forEach(function (item) {
+        var button = item.querySelector(".faq-question");
+        var answer = item.querySelector(".faq-answer");
 
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        caseIndex = (caseIndex + 1) % cases.length;
-        renderCase(caseIndex);
-      });
-    }
+        button.addEventListener("click", function () {
+          var open = item.classList.contains("is-open");
 
-    renderCase(caseIndex);
+          faqs.forEach(function (other) {
+            other.classList.remove("is-open");
+            var otherAnswer = other.querySelector(".faq-answer");
+            if (otherAnswer) {
+              otherAnswer.style.maxHeight = null;
+            }
+          });
 
-    document.querySelectorAll(".faq-item").forEach((item) => {
-      const button = item.querySelector(".faq-question");
-      button.addEventListener("click", () => {
-        const open = item.getAttribute("data-open") === "true";
-        document.querySelectorAll(".faq-item").forEach((entry) => {
-          entry.setAttribute("data-open", "false");
+          if (!open) {
+            item.classList.add("is-open");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }
         });
-        item.setAttribute("data-open", String(!open));
       });
-    });
+
+      var cases = [
+        {
+          location: "Salon kosmetyczny - Warszawa Mokotów",
+          before: [
+            "Strona z 2019, niezoptymalizowana",
+            "0 fraz w Top 10 Google",
+            "Instagram: 340 obserwujących",
+            "2-3 nowych klientów z internetu na miesiąc"
+          ],
+          after: [
+            "Nowa strona z SEO + Schema markup",
+            "3 frazy w Top 10 Google",
+            "Instagram: 460 obserwujących (+35%)",
+            "5-6 nowych klientów z internetu"
+          ],
+          metrics: [
+            { value: "+35%", label: "obserwujących <strong>IG</strong>" },
+            { value: "0→13", label: "polubień <strong>FB</strong>" },
+            { value: "4x", label: "<strong>więcej</strong> zapytań" },
+            { value: "5.0★89", label: "opinii w <strong>Google</strong>" }
+          ],
+          duration: "30 dni",
+          quote: "Klientki zaczęły same nas znajdować w Google."
+        },
+        {
+          location: "Gabinet fizjoterapii - Radom",
+          before: [
+            "Brak spójnej strony usługowej",
+            "Widoczność tylko na nazwę marki",
+            "Google Business bez optymalizacji",
+            "Nieregularne zapytania z internetu"
+          ],
+          after: [
+            "Nowa oferta usługowa + lokalne SEO",
+            "6 fraz w Top 10 Google",
+            "Uzupełniony i zoptymalizowany profil GBP",
+            "Stały napływ zapytań z lokalnych fraz"
+          ],
+          metrics: [
+            { value: "+61%", label: "więcej kliknięć w <strong>GBP</strong>" },
+            { value: "6", label: "fraz w <strong>Top 10</strong>" },
+            { value: "3x", label: "<strong>więcej</strong> telefonów" },
+            { value: "+42%", label: "więcej wejść na stronę" }
+          ],
+          duration: "45 dni",
+          quote: "W końcu zaczęli trafiać do nas klienci, którzy wcześniej wybierali konkurencję."
+        },
+        {
+          location: "Sklep specjalistyczny - e-commerce",
+          before: [
+            "Stary sklep bez struktury SEO",
+            "Treści nieczytelne dla AI i Google",
+            "Brak porządku w kategoriach",
+            "Mało zapytań z ruchu organicznego"
+          ],
+          after: [
+            "Nowa architektura kategorii i treści",
+            "Schema + GEO + szybszy front",
+            "Widoczność na frazy produktowe i poradnikowe",
+            "Ruch organiczny zaczął generować sprzedaż"
+          ],
+          metrics: [
+            { value: "+78%", label: "ruchu z <strong>SEO</strong>" },
+            { value: "12", label: "fraz w <strong>Top 10</strong>" },
+            { value: "+29%", label: "więcej koszyków" },
+            { value: "2.7x", label: "więcej zapytań ofertowych" }
+          ],
+          duration: "60 dni",
+          quote: "Przestaliśmy przepalać budżet, bo organic zaczął wreszcie pracować."
+        }
+      ];
+
+      var caseIndex = 0;
+      var beforeList = document.getElementById("case-before-list");
+      var afterList = document.getElementById("case-after-list");
+      var metricsWrap = document.getElementById("case-metrics");
+      var locationNode = document.getElementById("case-location");
+      var durationNode = document.getElementById("case-duration");
+      var quoteNode = document.getElementById("case-quote");
+      var dotsWrap = document.getElementById("case-dots");
+
+      function renderCase(index) {
+        var item = cases[index];
+        locationNode.textContent = item.location;
+        durationNode.textContent = item.duration;
+        quoteNode.textContent = "“" + item.quote + "”";
+
+        beforeList.innerHTML = item.before.map(function (point) {
+          return "<li>" + point + "</li>";
+        }).join("");
+
+        afterList.innerHTML = item.after.map(function (point) {
+          return "<li>" + point + "</li>";
+        }).join("");
+
+        metricsWrap.innerHTML = item.metrics.map(function (metric) {
+          return "<div class=\"metric-card\"><span class=\"metric-card__value\">" + metric.value + "</span><span class=\"metric-card__label\">" + metric.label + "</span></div>";
+        }).join("");
+
+        Array.prototype.forEach.call(dotsWrap.children, function (dot, dotIndex) {
+          dot.classList.toggle("is-active", dotIndex === index);
+        });
+      }
+
+      if (dotsWrap) {
+        cases.forEach(function (_, index) {
+          var button = document.createElement("button");
+          button.type = "button";
+          button.className = "case-dot" + (index === 0 ? " is-active" : "");
+          button.setAttribute("aria-label", "Pokaż case study " + (index + 1));
+          button.addEventListener("click", function () {
+            caseIndex = index;
+            renderCase(caseIndex);
+          });
+          dotsWrap.appendChild(button);
+        });
+
+        renderCase(caseIndex);
+      }
+
+      var prevButtons = document.querySelectorAll(".case-arrow--prev, .case-arrow--prev-mobile");
+      var nextButtons = document.querySelectorAll(".case-arrow--next, .case-arrow--next-mobile");
+
+      if (prevButtons.length && nextButtons.length) {
+        prevButtons.forEach(function (prev) {
+          prev.addEventListener("click", function () {
+            caseIndex = (caseIndex - 1 + cases.length) % cases.length;
+            renderCase(caseIndex);
+          });
+        });
+
+        nextButtons.forEach(function (next) {
+          next.addEventListener("click", function () {
+            caseIndex = (caseIndex + 1) % cases.length;
+            renderCase(caseIndex);
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
