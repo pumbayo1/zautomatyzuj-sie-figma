@@ -208,7 +208,8 @@ img {
 
 .brand__logo::before,
 .hero-badge__orb::before {
-  background-image: url("logo-white.png");
+  background-image: url("logo-orange.png");
+  filter: brightness(0) invert(1);
   animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
 }
 
@@ -857,8 +858,8 @@ main {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  grid-template-columns: 1fr;
+  gap: 18px;
   align-items: start;
 }
 
@@ -892,8 +893,10 @@ main {
 
 .price-card--expandable .price-card__summary {
   display: grid;
-  gap: 16px;
-  padding: 28px 24px 22px;
+  grid-template-columns: minmax(0, 1.15fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 24px 28px;
   list-style: none;
   cursor: pointer;
 }
@@ -902,79 +905,52 @@ main {
   display: none;
 }
 
-.price-card--expandable .price-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.price-card--expandable .price-card__title-wrap {
+.price-card--expandable .price-card__main {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
 }
 
-.price-card--expandable .price-card__toggle {
-  position: relative;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(221, 76, 18, 0.18);
-  background: rgba(221, 76, 18, 0.06);
-}
-
-.price-card--expandable .price-card__toggle::before,
-.price-card--expandable .price-card__toggle::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 14px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--accent);
-  transform: translate(-50%, -50%);
-  transition: transform 180ms ease, opacity 180ms ease;
-}
-
-.price-card--expandable .price-card__toggle::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.price-card--expandable[open] .price-card__toggle::after {
-  opacity: 0;
+.price-card--expandable .price-card__aside {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  text-align: right;
 }
 
 .price-card--expandable .price-card__expand-label {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--accent);
   font-size: 0.79rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  position: relative;
+  padding-right: 18px;
 }
 
 .price-card--expandable .price-card__expand-label::after {
   content: "";
   width: 8px;
   height: 8px;
+  position: absolute;
+  right: 0;
+  top: 50%;
   border-right: 1.5px solid currentColor;
   border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg) translateY(-1px);
+  transform: translateY(-72%) rotate(45deg);
   transition: transform 180ms ease;
 }
 
 .price-card--expandable[open] .price-card__expand-label::after {
-  transform: rotate(-135deg) translate(-2px, 2px);
+  transform: translateY(-18%) rotate(-135deg);
 }
 
 .price-card--expandable .price-card__body {
   display: grid;
   gap: 18px;
-  padding: 22px 24px 26px;
+  padding: 24px 28px 28px;
   border-top: 1px solid rgba(221, 76, 18, 0.12);
   background: linear-gradient(180deg, rgba(253, 239, 233, 0.28), rgba(255, 255, 255, 0));
 }
@@ -1081,7 +1057,7 @@ main {
 .site-footer__brand .brand__logo::before {
   opacity: 1;
   animation: none;
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 .site-footer__brand .brand__logo::after {
@@ -1183,19 +1159,29 @@ main {
     opacity: 0.98;
   }
 
+  35%,
+  65% {
+    opacity: 0.72;
+  }
+
   50% {
-    opacity: 0.08;
+    opacity: 0.04;
   }
 }
 
 @keyframes logoFadeOrange {
   0%,
   100% {
-    opacity: 0.18;
+    opacity: 0.02;
+  }
+
+  35%,
+  65% {
+    opacity: 0.38;
   }
 
   50% {
-    opacity: 1;
+    opacity: 0.98;
   }
 }
 
@@ -1207,8 +1193,7 @@ main {
   .page-hero__grid,
   .grid--3,
   .step-grid,
-  .price-grid,
-  .pricing-grid {
+  .price-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1244,13 +1229,22 @@ main {
   .step-grid,
   .stats,
   .price-grid,
-  .pricing-grid,
   .site-footer__grid {
     grid-template-columns: 1fr;
   }
 
   .hero-badge {
     min-height: 300px;
+  }
+
+  .price-card--expandable .price-card__summary {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .price-card--expandable .price-card__aside {
+    justify-items: start;
+    text-align: left;
   }
 }
 
@@ -1276,6 +1270,15 @@ main {
   .btn,
   .btn-outline {
     width: 100%;
+  }
+
+  .price-card--featured .price-badge {
+    left: 24px;
+    right: auto;
+  }
+
+  .price-card--featured .price-card__summary {
+    padding-top: 56px;
   }
 
   .hero-badge__note {

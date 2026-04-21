@@ -297,7 +297,8 @@
 
     .brand__logo::before,
     .section-icon::before {
-      background-image: url("logo-white.png");
+      background-image: url("logo-orange.png");
+      filter: brightness(0) invert(1);
       animation: logoFadeWhite var(--logo-shift-duration) ease-in-out infinite;
     }
 
@@ -742,7 +743,8 @@
     }
 
     .hero__icon-core::before {
-      background-image: url("logo-white.png");
+      background-image: url("logo-orange.png");
+      filter: brightness(0) invert(1);
       opacity: 0.96;
       animation: logoFadeWhite 9.6s ease-in-out infinite;
     }
@@ -1840,7 +1842,7 @@
     .site-footer__brand .brand__logo::before {
       opacity: 1;
       animation: none;
-      filter: none;
+      filter: brightness(0) invert(1);
     }
 
     .site-footer__brand .brand__logo::after {
@@ -2014,19 +2016,29 @@
         opacity: 0.98;
       }
 
+      35%,
+      65% {
+        opacity: 0.72;
+      }
+
       50% {
-        opacity: 0.08;
+        opacity: 0.04;
       }
     }
 
     @keyframes logoFadeOrange {
       0%,
       100% {
-        opacity: 0.18;
+        opacity: 0.02;
+      }
+
+      35%,
+      65% {
+        opacity: 0.38;
       }
 
       50% {
-        opacity: 1;
+        opacity: 0.98;
       }
     }
 
