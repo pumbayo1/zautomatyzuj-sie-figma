@@ -646,65 +646,6 @@
         linear-gradient(180deg, rgba(255, 247, 241, 0.88) 0%, rgba(255, 251, 247, 0.52) 42%, rgba(255, 255, 255, 0) 100%);
     }
 
-    .hero__atmosphere {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .hero__spark {
-      position: absolute;
-      width: min(28vw, 360px);
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.34), rgba(255, 189, 160, 0.18), rgba(255, 255, 255, 0));
-      filter: blur(1.2px);
-      opacity: 0;
-      transform: rotate(-18deg);
-      animation: heroSparkFall 17s linear infinite;
-    }
-
-    .hero__spark::before {
-      content: "";
-      position: absolute;
-      right: 18%;
-      top: -18px;
-      width: 66px;
-      height: 42px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 182, 150, 0.16) 0%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0) 72%);
-      filter: blur(8px);
-    }
-
-    .hero__spark--1 {
-      top: 14%;
-      left: -12%;
-      animation-delay: -2s;
-    }
-
-    .hero__spark--2 {
-      top: 22%;
-      right: -14%;
-      animation-delay: -8s;
-      animation-duration: 19s;
-    }
-
-    .hero__spark--3 {
-      top: 58%;
-      left: -8%;
-      animation-delay: -11s;
-      animation-duration: 21s;
-    }
-
-    .hero__spark--4 {
-      top: 8%;
-      left: 54%;
-      animation-delay: -14s;
-      animation-duration: 18s;
-    }
-
     .hero::before {
       content: "";
       position: absolute;
@@ -732,7 +673,6 @@
       background-size: 76px 76px;
       opacity: 0.34;
       z-index: 0;
-      animation: heroGridDrift 26s linear infinite;
     }
 
     .hero__icon-wrap {
@@ -754,7 +694,6 @@
       border: 0;
       box-shadow: none;
       overflow: visible;
-      isolation: isolate;
     }
 
     .hero__icon-ring::before {
@@ -772,15 +711,13 @@
     .hero__icon-ring::after {
       content: "";
       position: absolute;
-      inset: 2px;
+      inset: 3px;
       border-radius: 50%;
-      padding: 12px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 230, 216, 0.96) 18%, rgba(255, 170, 130, 0.92) 48%, rgba(241, 103, 46, 0.98) 76%, rgba(215, 72, 24, 1) 100%);
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0.94;
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.18),
+        0 0 24px rgba(255, 255, 255, 0.08);
+      opacity: 0.9;
       z-index: 1;
       animation: heroRingShift 9.6s ease-in-out infinite;
     }
@@ -788,16 +725,12 @@
     .hero__icon-core {
       position: relative;
       z-index: 2;
-      display: grid;
-      place-items: center;
       width: 176px;
       height: 176px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at 50% 32%, rgba(255, 252, 249, 0.96) 0%, rgba(255, 246, 239, 0.92) 34%, rgba(252, 238, 228, 0.84) 58%, rgba(255, 247, 241, 0.52) 78%, rgba(255, 255, 255, 0) 100%),
-        linear-gradient(180deg, rgba(255, 249, 244, 0.96) 0%, rgba(255, 244, 237, 0.88) 54%, rgba(255, 250, 246, 0.76) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+        radial-gradient(circle at 50% 34%, rgba(255, 249, 244, 0.62) 0%, rgba(255, 244, 238, 0.4) 38%, rgba(255, 244, 236, 0.18) 62%, rgba(255, 255, 255, 0) 82%);
+      isolation: isolate;
       filter:
         drop-shadow(0 18px 34px rgba(221, 76, 18, 0.16))
         drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
@@ -809,29 +742,18 @@
     .hero__icon-core::before {
       content: "";
       position: absolute;
-      inset: 16px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 48% 30%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 248, 242, 0.18) 42%, rgba(255, 255, 255, 0) 74%);
+      inset: 0;
+      border-radius: inherit;
+      background: center / contain no-repeat url("logo.png");
+      opacity: 0.96;
+      mix-blend-mode: multiply;
+      filter: saturate(1.04) contrast(1.01);
       z-index: 0;
       pointer-events: none;
     }
 
     .hero__icon-core > .zmark {
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      transform: translateX(-3px) scale(0.94);
-      font-size: 6.25rem;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 230, 216, 0.96) 20%, rgba(255, 173, 134, 0.94) 46%, rgba(240, 103, 46, 0.98) 74%, rgba(215, 72, 24, 1) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-shadow: 0 12px 20px rgba(241, 90, 30, 0.08);
-      animation: heroMarkShift 9.6s ease-in-out infinite;
-    }
-
-    .hero__icon-core > .zmark::after {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 189, 151, 0.96) 46%, rgba(215, 72, 24, 1) 100%);
-      box-shadow: 0 6px 12px rgba(241, 90, 30, 0.12);
+      display: none;
     }
 
     .section-icon > .zmark {
@@ -2032,60 +1954,20 @@
       }
     }
 
-    @keyframes heroGridDrift {
-      0%,
-      100% {
-        transform: translateY(0);
-        opacity: 0.28;
-      }
-
-      50% {
-        transform: translateY(10px);
-        opacity: 0.38;
-      }
-    }
-
-    @keyframes heroSparkFall {
-      0% {
-        transform: translate3d(0, -24px, 0) rotate(-18deg);
-        opacity: 0;
-      }
-
-      12% {
-        opacity: 0.16;
-      }
-
-      68% {
-        opacity: 0.08;
-      }
-
-      100% {
-        transform: translate3d(180px, 250px, 0) rotate(-18deg);
-        opacity: 0;
-      }
-    }
-
     @keyframes heroRingShift {
       0%,
       100% {
-        opacity: 0.78;
-        filter: brightness(1.02) saturate(0.92);
+        border-color: rgba(255, 255, 255, 0.74);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.16),
+          0 0 18px rgba(255, 255, 255, 0.07);
       }
 
       50% {
-        opacity: 1;
-        filter: brightness(1.18) saturate(1.08);
-      }
-    }
-
-    @keyframes heroMarkShift {
-      0%,
-      100% {
-        filter: brightness(0.98) saturate(0.92);
-      }
-
-      50% {
-        filter: brightness(1.08) saturate(1.08);
+        border-color: rgba(241, 90, 30, 0.44);
+        box-shadow:
+          0 0 0 1px rgba(241, 90, 30, 0.12),
+          0 0 28px rgba(241, 90, 30, 0.12);
       }
     }
 
@@ -2308,10 +2190,6 @@
         height: 340px;
       }
 
-      .hero__spark {
-        width: min(46vw, 240px);
-      }
-
       .hero__icon-ring {
         width: 160px;
         height: 160px;
@@ -2320,10 +2198,6 @@
       .hero__icon-core {
         width: 148px;
         height: 148px;
-      }
-
-      .hero__icon-core > .zmark {
-        font-size: 5.2rem;
       }
 
       .hero__actions {
@@ -2582,12 +2456,6 @@
 
   <main id="top">
     <section class="hero section section--compact">
-      <div class="hero__atmosphere" aria-hidden="true">
-        <span class="hero__spark hero__spark--1"></span>
-        <span class="hero__spark hero__spark--2"></span>
-        <span class="hero__spark hero__spark--3"></span>
-        <span class="hero__spark hero__spark--4"></span>
-      </div>
       <div class="container">
         <div class="hero__icon-wrap reveal is-visible">
           <div class="hero__icon-ring">

@@ -856,6 +856,13 @@ main {
   gap: 24px;
 }
 
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
 .price-grid--services {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -867,6 +874,11 @@ main {
   border-radius: var(--radius-lg);
   background: var(--surface-strong);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.04);
+}
+
+.pricing-grid .price-card {
+  display: flex;
+  flex-direction: column;
 }
 
 .price-card--featured {
@@ -921,6 +933,27 @@ main {
 
 .price-card__actions {
   margin-top: 20px;
+}
+
+.price-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.price-actions {
+  margin-top: 20px;
+}
+
+.pricing-summary {
+  margin-top: 34px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.pricing-summary .accent {
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .site-footer {
@@ -1070,7 +1103,8 @@ main {
   .page-hero__grid,
   .grid--3,
   .step-grid,
-  .price-grid {
+  .price-grid,
+  .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1106,6 +1140,7 @@ main {
   .step-grid,
   .stats,
   .price-grid,
+  .pricing-grid,
   .site-footer__grid {
     grid-template-columns: 1fr;
   }
