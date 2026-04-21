@@ -185,7 +185,7 @@ img {
   height: 44px;
   flex: 0 0 44px;
   border-radius: 50%;
-  background: center / contain no-repeat url("logo.jpg");
+  background: center / contain no-repeat url("logo.png");
   filter: drop-shadow(0 8px 12px rgba(221, 76, 18, 0.18));
 }
 
@@ -600,7 +600,7 @@ main {
   width: 188px;
   height: 188px;
   border-radius: 50%;
-  background: center / contain no-repeat url("logo-orange.png");
+  background: center / contain no-repeat url("logo.png");
   filter: drop-shadow(0 20px 38px rgba(221, 76, 18, 0.18));
   animation: iconBreath 10.4s ease-in-out infinite;
 }
