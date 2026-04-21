@@ -840,6 +840,64 @@
       margin-top: 84px;
     }
 
+    .section-shell {
+      position: relative;
+      margin-top: 48px;
+      padding: 34px 32px 36px;
+      border: 1px solid rgba(232, 216, 207, 0.9);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(255, 246, 239, 0.84)),
+        radial-gradient(circle at top left, rgba(255, 180, 142, 0.18), transparent 46%);
+      box-shadow:
+        0 26px 56px rgba(113, 82, 58, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.76);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .section-shell::before,
+    .section-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .section-shell::before {
+      top: -118px;
+      right: -84px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(241, 90, 30, 0.14), transparent 68%);
+    }
+
+    .section-shell::after {
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.88), transparent);
+    }
+
+    .section-shell--problems {
+      background:
+        linear-gradient(180deg, rgba(255, 251, 247, 0.97), rgba(255, 245, 237, 0.88)),
+        radial-gradient(circle at 16% 10%, rgba(255, 170, 120, 0.2), transparent 38%);
+    }
+
+    .section-shell--services {
+      background:
+        linear-gradient(180deg, rgba(252, 248, 244, 0.97), rgba(248, 242, 235, 0.92)),
+        radial-gradient(circle at 82% 12%, rgba(255, 163, 116, 0.16), transparent 36%);
+    }
+
+    .section-shell .problem-grid,
+    .section-shell .service-grid {
+      margin-top: 0;
+    }
+
     .problem-card,
     .service-card,
     .feature-card,
@@ -990,15 +1048,18 @@
     }
 
     .problem-card {
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
+      padding: 28px 24px 26px;
+      border: 1px solid rgba(226, 210, 200, 0.94);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 238, 0.88)),
+        radial-gradient(circle at top center, rgba(255, 170, 132, 0.12), transparent 42%);
+      box-shadow: 0 16px 32px rgba(102, 73, 48, 0.05);
+      overflow: hidden;
     }
 
     .problem-card::before {
-      display: none;
+      display: block;
     }
 
     .problem-card .section-icon {
@@ -1019,16 +1080,19 @@
     }
 
     .service-card {
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
+      padding: 28px 26px 28px;
+      border: 1px solid rgba(223, 208, 197, 0.94);
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 247, 240, 0.9)),
+        radial-gradient(circle at top left, rgba(255, 174, 136, 0.12), transparent 46%);
+      box-shadow: 0 18px 34px rgba(95, 68, 45, 0.05);
       text-align: left;
+      overflow: hidden;
     }
 
     .service-card::before {
-      display: none;
+      display: block;
     }
 
     .service-card .section-icon {
@@ -1060,9 +1124,9 @@
 
     .problem-card:hover,
     .service-card:hover {
-      transform: translateY(-2px);
-      box-shadow: none;
-      border-color: transparent;
+      transform: translateY(-4px);
+      box-shadow: 0 22px 42px rgba(92, 65, 44, 0.08);
+      border-color: rgba(241, 90, 30, 0.18);
     }
 
     .note-box {
@@ -2324,6 +2388,12 @@
         margin-top: 44px;
       }
 
+      .section-shell {
+        margin-top: 34px;
+        padding: 24px 16px 22px;
+        border-radius: 26px;
+      }
+
       .problem-card,
       .service-card,
       .feature-card,
@@ -2615,30 +2685,31 @@
       <div class="container">
         <h2 class="section-title reveal">Czy Twoja firma istnieje w internecie?</h2>
         <p class="section-subtitle reveal">Sprawdź, czy nie tracisz klientów każdego dnia.</p>
+        <div class="section-shell section-shell--problems reveal">
+          <div class="problem-grid">
+            <article class="problem-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3 class="accent">Brak strony WWW</h3>
+              <p>83% klientów <strong>szuka firm w Google.</strong> Jeśli Cię tam nie ma, nie istniejesz.</p>
+            </article>
 
-        <div class="problem-grid">
-          <article class="problem-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3 class="accent">Brak strony WWW</h3>
-            <p>83% klientów <strong>szuka firm w Google.</strong> Jeśli Cię tam nie ma, nie istniejesz.</p>
-          </article>
+            <article class="problem-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3 class="accent">Brak widoczności w Google</h3>
+              <p>Twoja konkurencja jest na pierwszej stronie. Ty jesteś na dziesiątej.</p>
+            </article>
 
-          <article class="problem-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3 class="accent">Brak widoczności w Google</h3>
-            <p>Twoja konkurencja jest na pierwszej stronie. Ty jesteś na dziesiątej.</p>
-          </article>
+            <article class="problem-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3 class="accent">Social media bez efektów</h3>
+              <p>Publikujesz posty, ale nikt ich nie widzi? Algorytm Cię zignorował.</p>
+            </article>
+          </div>
 
-          <article class="problem-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3 class="accent">Social media bez efektów</h3>
-            <p>Publikujesz posty, ale nikt ich nie widzi? Algorytm Cię zignorował.</p>
-          </article>
-        </div>
-
-        <div class="note-box reveal">
-          <strong>My to naprawiamy.</strong> Przeanalizujemy wszystko: od Google, przez social media, po konkurencję
-          i damy Ci szczegółowy plan napisany prostym językiem, gotowy do wdrożenia.
+          <div class="note-box reveal">
+            <strong>My to naprawiamy.</strong> Przeanalizujemy wszystko: od Google, przez social media, po konkurencję
+            i damy Ci szczegółowy plan napisany prostym językiem, gotowy do wdrożenia.
+          </div>
         </div>
       </div>
     </section>
@@ -2647,43 +2718,44 @@
       <div class="container">
         <h2 class="section-title reveal">Co robimy</h2>
         <p class="section-subtitle reveal">Kompletny pakiet usług dla Twojej firmy. Jedno miejsce, jeden partner.</p>
+        <div class="section-shell section-shell--services reveal">
+          <div class="service-grid">
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Pełna analiza firmy w sieci</h3>
+              <p>Audyt strony WWW, SEO, Google Business Profile, opinii oraz Instagrama, Facebooka i TikToka. Plus analiza konkurencji w Google i w mediach społecznościowych.</p>
+            </article>
 
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Pełna analiza firmy w sieci</h3>
-            <p>Audyt strony WWW, SEO, Google Business Profile, opinii oraz Instagrama, Facebooka i TikToka. Plus analiza konkurencji w Google i w mediach społecznościowych.</p>
-          </article>
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Strony WWW od zera</h3>
+              <p>Budujemy strony zoptymalizowane pod Google i nowe wyszukiwarki AI od pierwszego dnia. Liczy się struktura, szybkość, dostępność, mobilność i GEO.</p>
+            </article>
 
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Strony WWW od zera</h3>
-            <p>Budujemy strony zoptymalizowane pod Google i nowe wyszukiwarki AI od pierwszego dnia. Liczy się struktura, szybkość, dostępność, mobilność i GEO.</p>
-          </article>
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Pozycjonowanie SEO i AI Search</h3>
+              <p>Wyprowadzamy Cię na #1 w Google, mapach oraz w odpowiedziach wyszukiwarek AI. Każda decyzja oparta na aktualnym badaniu i danych.</p>
+            </article>
 
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Pozycjonowanie SEO i AI Search</h3>
-            <p>Wyprowadzamy Cię na #1 w Google, mapach oraz w odpowiedziach wyszukiwarek AI. Każda decyzja oparta na aktualnym badaniu i danych.</p>
-          </article>
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Social media Twoje i konkurencji</h3>
+              <p>Analizujemy Twoje profile i 5-10 konkurentów na każdej platformie. Strategia treści oparta na najnowszych badaniach branżowych.</p>
+            </article>
 
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Social media Twoje i konkurencji</h3>
-            <p>Analizujemy Twoje profile i 5-10 konkurentów na każdej platformie. Strategia treści oparta na najnowszych badaniach branżowych.</p>
-          </article>
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Re-audyt po wdrożeniu</h3>
+              <p>Po 14-30 dniach sprawdzamy, co się zmieniło. Tabela porównawcza PRZED i PO z konkretnymi liczbami, gotowa do publikacji.</p>
+            </article>
 
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Re-audyt po wdrożeniu</h3>
-            <p>Po 14-30 dniach sprawdzamy, co się zmieniło. Tabela porównawcza PRZED i PO z konkretnymi liczbami, gotowa do publikacji.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
-            <h3>Stałe prowadzenie firmy</h3>
-            <p>Comiesięczne raporty, ciągła aktualizacja strategii o najnowsze badania i trendy. Reagujemy na zmiany algorytmów i wyszukiwarek AI w czasie rzeczywistym.</p>
-          </article>
+            <article class="service-card reveal">
+              <span class="section-icon"><span class="zmark zmark--medium" aria-hidden="true">Z</span></span>
+              <h3>Stałe prowadzenie firmy</h3>
+              <p>Comiesięczne raporty, ciągła aktualizacja strategii o najnowsze badania i trendy. Reagujemy na zmiany algorytmów i wyszukiwarek AI w czasie rzeczywistym.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
