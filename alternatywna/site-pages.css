@@ -1485,6 +1485,7 @@ main {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 14px;
     min-height: 70px;
+    padding: 8px 0;
   }
 
   .brand {
@@ -1493,13 +1494,21 @@ main {
   }
 
   .brand__logo {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    background: center / contain no-repeat url("logo-orange.png");
+    filter: none;
+    animation: none;
   }
 
   .brand__wordmark {
-    font-size: clamp(1.18rem, 6.4vw, 1.55rem);
+    font-size: clamp(1.24rem, 6vw, 1.58rem);
+  }
+
+  .brand__logo::before,
+  .brand__logo::after {
+    display: none;
   }
 
   .nav {
@@ -1621,7 +1630,7 @@ main {
   }
 
   .site-header__inner {
-    min-height: 68px;
+    min-height: 72px;
     gap: 12px;
   }
 
@@ -1630,18 +1639,18 @@ main {
   }
 
   .brand__logo {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
   }
 
   .brand__wordmark {
-    font-size: 1.2rem;
+    font-size: 1.28rem;
   }
 
   .menu-toggle {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
 
   .section {
