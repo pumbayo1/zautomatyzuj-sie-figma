@@ -1,0 +1,117 @@
+# ============================================================
+# .htaccess — Zautomatyzuj Się | Security Headers + Performance
+# Hostinger (Apache/LiteSpeed)
+# Wygenerowano: 2026-03-28
+# ============================================================
+
+# === FORCE HTTPS + NON-WWW ===
+RewriteEngine On
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.zautomatyzujsie\.com [NC]
+RewriteRule ^(.*)$ https://zautomatyzujsie.com/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# === SECURITY HEADERS ===
+<IfModule mod_headers.c>
+    # Prevent clickjacking — only allow framing from same origin
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevent MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Enable XSS protection (legacy browsers)
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # HSTS — force HTTPS for 1 year + includeSubDomains
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Referrer Policy — send origin only on cross-origin
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src 'self'; frame-ancestors 'self'; connect-src 'self'; base-uri 'self'; form-action 'self';"
+
+    # Permissions Policy — disable unnecessary APIs
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+
+    # Prevent embedding in Flash/PDF
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+
+    # Remove server signature
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# === DISABLE DIRECTORY LISTING ===
+Options -Indexes
+
+# === BLOCK ACCESS TO SENSITIVE FILES ===
+<FilesMatch "\.(env|log|bak|sql|ini|conf|htpasswd|htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# === BLOCK ACCESS TO HIDDEN FILES (except .htaccess, .well-known) ===
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+\.?)+$" [NC]
+    RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# === CACHE CONTROL ===
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML — short cache (content changes)
+    ExpiresByType text/html "access plus 1 hour"
+
+    # CSS/JS — medium cache
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Images — long cache
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Fonts — long cache
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# === GZIP COMPRESSION ===
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# === ERROR PAGES ===
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+# === BLOCK COMMON ATTACK PATTERNS ===
+<IfModule mod_rewrite.c>
+    # Block SQL injection attempts
+    RewriteCond %{QUERY_STRING} (\%27)|(\')|(\-\-)|(\%23)|(#) [NC]
+    RewriteRule .* - [F]
+
+    # Block base64 encoded injections
+    RewriteCond %{QUERY_STRING} base64_encode.*\(.*\) [OR]
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule .* - [F]
+</IfModule>
+
+# === PREVENT HOTLINKING ===
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$ [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?zautomatyzujsie\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?google\. [NC]
+    RewriteRule \.(jpg|jpeg|png|webp|svg)$ - [F,NC,L]
+</IfModule>
