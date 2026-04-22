@@ -12,6 +12,8 @@ $config = [
     'max_per_hour' => 10,
     'honeypot_field' => 'website_url',
     'allowed_topics' => [
+        'Diagnoza Przewagi Online',
+        'Diagnoza + Plan wdrożenia',
         'Audyt Widoczności 360',
         'Audyt + Plan wdrożenia',
         'Analiza firmy',
